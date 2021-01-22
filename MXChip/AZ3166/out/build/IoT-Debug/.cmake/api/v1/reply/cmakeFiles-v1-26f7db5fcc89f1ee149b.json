@@ -1,0 +1,381 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/cmake/utilities.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/CMakeFiles/3.17.20032601-MSVC_2/CMakeSystem.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/cmake/arm-gcc-cortex-m4.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/cmake/arm-gcc-cortex-toolchain.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/CMakeFiles/3.17.20032601-MSVC_2/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/CMakeFiles/3.17.20032601-MSVC_2/CMakeASMCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Internal/CMakeCheckCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeASMInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU-ASM.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/src/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/threadx/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeASMInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU-ASM.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"path" : "lib/threadx/tx_user.h"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/threadx/ports/cortex_m4/gnu/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/threadx/common/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeASMInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU-ASM.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"path" : "lib/netxduo/nx_user.h"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/ports/cortex_m4/gnu/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/common/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/eng/cmake/global_compile_options.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/cmake-modules/create_map_file.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/cmake-modules/CreateCodeCoverageTargets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/core/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/cmake-modules/CheckAndIncludeCodeCov.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/iot/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/cmake-modules/CheckAndIncludeCodeCov.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/platform/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/CMakeFiles/3.17.20032601-MSVC_2/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/Platform/Generic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/cmake-modules/asc_security_coreBuild.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/cmake-modules/asc_security_core_build_rules.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/CheckSymbolExists.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/crypto_libraries/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/nx_secure/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/jsmn/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/verified-telemetry/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/stm32cubef4/CMakeLists.txt"
+		},
+		{
+			"path" : "cmake/FindCMSIS.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/FindSTM32HAL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "lib/wiced_sdk/CMakeLists.txt"
+		},
+		{
+			"path" : "app/CMakeLists.txt"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug",
+		"source" : "C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

@@ -1,0 +1,373 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/libflatccrt.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_definitions",
+			"detect_architecture",
+			"include",
+			"target_compile_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/CMakeLists.txt",
+			"C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/cmake-modules/asc_security_core_build_rules.cmake",
+			"C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/CMakeLists.txt",
+			"C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 11,
+				"parent" : 2
+			},
+			{
+				"file" : 1,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 38,
+				"parent" : 4
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 27,
+				"parent" : 5
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 3,
+				"line" : 17,
+				"parent" : 8
+			},
+			{
+				"command" : 5,
+				"file" : 0,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 114,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 2,
+				"line" : 119,
+				"parent" : 2
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 34,
+				"parent" : 8
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter -O0 -g3  "
+				},
+				{
+					"fragment" : "-std=gnu99"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "ARCHITECTURE_ARM=1"
+				},
+				{
+					"backtrace" : 0,
+					"define" : "ASC_SERIALIZER_USE_CUSTOM_ALLOCATOR"
+				},
+				{
+					"backtrace" : 7,
+					"define" : "FLATCC_NO_ASSERT"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "LOG_LEVEL=0"
+				},
+				{
+					"backtrace" : 0,
+					"define" : "NX_INCLUDE_USER_DEFINE_FILE"
+				},
+				{
+					"backtrace" : 0,
+					"define" : "TX_INCLUDE_USER_DEFINE_FILE"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 10,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/inc"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/ports/cortex_m4/gnu/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/common/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/auto_ip"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/BSD"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/cloud"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/dhcp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/dns"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/ftp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/http"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/mdns"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/mqtt"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/nat"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/pop3"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/ppp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/pppoe"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/smtp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/snmp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/sntp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/telnet"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/tftp"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/web"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/crypto_libraries/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/nx_secure/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/nx_secure/ports"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/lib/netxduo/custom_inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/threadx/ports/cortex_m4/gnu/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/threadx/common/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/lib/threadx/custom_inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/tests/core/inc"
+				},
+				{
+					"backtrace" : 0,
+					"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 0,
+			"id" : "threadx::@a31abdc446db205e7ac4"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "az_iot_hub::@8610c697d63bd7331bfe"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "az_core::@41b0c54bf1af967835e3"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "az_iot_common::@8610c697d63bd7331bfe"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "az_iot_provisioning::@8610c697d63bd7331bfe"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "az_iot_pnp::@8610c697d63bd7331bfe"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "azure_iot_security_module"
+	},
+	"id" : "flatccrt::@71b4c75b70adc8e3d111",
+	"name" : "flatccrt",
+	"nameOnDisk" : "libflatccrt.a",
+	"paths" : 
+	{
+		"build" : "lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps",
+		"source" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime/builder.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps/flatcc/src/runtime/refmap.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"path" : "C:/DevOps_verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/src/serializer/extensions/custom_emitter.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -1,0 +1,87 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Linux/gcc_arm/bin/arm-none-eabi-gcc.exe 
+Build flags: -mthumb;-mcpu=cortex-m4;-mfloat-abi=hard;-mfpu=fpv4-sp-d16;--specs=nano.specs;-ffunction-sections;-fdata-sections;-fno-strict-aliasing;-fno-builtin;-fshort-enums;-Wall;-Wextra;-Wuninitialized;-Wshadow;-Wdouble-promotion;-Werror;-Wno-unused-parameter
+Id flags:  
+
+The output was:
+1
+c:/program files (x86)/microsoft visual studio/2019/community/linux/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: c:/program files (x86)/microsoft visual studio/2019/community/linux/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o): in function `exit':
+exit.c:(.text.exit+0x1a): undefined reference to `_exit'
+collect2.exe: error: ld returned 1 exit status
+
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" failed.
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/Linux/gcc_arm/bin/arm-none-eabi-g++.exe 
+Build flags: -mthumb;-mcpu=cortex-m4;-mfloat-abi=hard;-mfpu=fpv4-sp-d16;--specs=nano.specs;-ffunction-sections;-fdata-sections;-fno-strict-aliasing;-fno-builtin;-fshort-enums;-Wall;-Wextra;-Wuninitialized;-Wshadow;-Wdouble-promotion;-Werror;-Wno-unused-parameter
+Id flags:  
+
+The output was:
+1
+c:/program files (x86)/microsoft visual studio/2019/community/linux/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/bin/ld.exe: c:/program files (x86)/microsoft visual studio/2019/community/linux/gcc_arm/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-exit.o): in function `exit':
+exit.c:(.text.exit+0x1a): undefined reference to `_exit'
+collect2.exe: error: ld returned 1 exit status
+
+
+Determining if the __x86_64__ exist failed with the following output:
+Change Dir: C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):c:/PROGRA~2/MICROS~3/2019/COMMUN~1/common7/ide/COMMON~1/MICROS~1/cmake/Ninja/ninja.exe cmTC_f06e6 && [1/2] Building C object CMakeFiles/cmTC_f06e6.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_f06e6.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_f06e6.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
+CheckSymbolExists.c: In function 'main':
+CheckSymbolExists.c:7:19: error: '__x86_64__' undeclared (first use in this function)
+   return ((int*)(&__x86_64__))[argc];
+                   ^~~~~~~~~~
+CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+CheckSymbolExists.c:3:14: error: parameter 'argc' set but not used [-Werror=unused-but-set-parameter]
+ int main(int argc, char** argv)
+          ~~~~^~~~
+cc1.exe: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+File C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __x86_64__
+  return ((int*)(&__x86_64__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the __i386__ exist failed with the following output:
+Change Dir: C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):c:/PROGRA~2/MICROS~3/2019/COMMUN~1/common7/ide/COMMON~1/MICROS~1/cmake/Ninja/ninja.exe cmTC_1206f && [1/2] Building C object CMakeFiles/cmTC_1206f.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_1206f.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_1206f.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
+CheckSymbolExists.c: In function 'main':
+CheckSymbolExists.c:7:19: error: '__i386__' undeclared (first use in this function); did you mean '__LINE__'?
+   return ((int*)(&__i386__))[argc];
+                   ^~~~~~~~
+                   __LINE__
+CheckSymbolExists.c:7:19: note: each undeclared identifier is reported only once for each function it appears in
+CheckSymbolExists.c:3:14: error: parameter 'argc' set but not used [-Werror=unused-but-set-parameter]
+ int main(int argc, char** argv)
+          ~~~~^~~~
+cc1.exe: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
+
+
+File C:/DevOps_verified-telemetry-device-sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef __i386__
+  return ((int*)(&__i386__))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
