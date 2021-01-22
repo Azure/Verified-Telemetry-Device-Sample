@@ -9,7 +9,7 @@ These Getting Started guides shows device developers how to include Verified Tel
   * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
 # Solution Template
-We have built a [sample solution template](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) which uses Grafana, InfluxDB and a Node.js backend to communicate with Azure IoT Hub and showcase how the Verified Telemetry features can be utilised in real world scenarios.
+We have built a [sample solution template](https://github.com/Azure/Verified-Telemetry-Solution-Sample) which uses Grafana, InfluxDB and a Node.js backend to communicate with Azure IoT Hub and showcase how the Verified Telemetry features can be utilised in real world scenarios.
 
 # PnP Model Files for Verified Telemetry
 PnP model files of common Verified Telemetry like [Verified Telemetry Information Interface](core/model/vTInfo.json) would be published soon in the Azure PnP model repo.
