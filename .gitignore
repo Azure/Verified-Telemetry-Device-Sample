@@ -32,7 +32,6 @@ build/
 *.dylib
 
 # Executables
-*.exe
 *.out
 *.app
 *.i*86
@@ -53,3 +52,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# IDE Files
+.vs/
+.vscode/

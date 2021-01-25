@@ -18,6 +18,7 @@
 #include "wifi.h"
 
 UART_HandleTypeDef UartHandle;
+ADC_HandleTypeDef hadc1;
 RTC_HandleTypeDef RtcHandle;
 TIM_HandleTypeDef TimCCHandle;
 extern SPI_HandleTypeDef hspi;

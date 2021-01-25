@@ -25,9 +25,9 @@ collect2.exe: error: ld returned 1 exit status
 Determining if the __x86_64__ exist failed with the following output:
 Change Dir: C:/Repos/Github-Verified-Telemetry-Device-Sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/COMMON7/IDE/COMMON~1/MICROS~1/CMAKE/Ninja/ninja.exe cmTC_60e99 && [1/2] Building C object CMakeFiles/cmTC_60e99.dir/CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_60e99.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3 -std=gnu99 -o CMakeFiles/cmTC_60e99.dir/CheckSymbolExists.c.obj -c CheckSymbolExists.c
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/COMMON7/IDE/COMMON~1/MICROS~1/CMAKE/Ninja/ninja.exe cmTC_90c6c && [1/2] Building C object CMakeFiles/cmTC_90c6c.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_90c6c.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3 -std=gnu99 -o CMakeFiles/cmTC_90c6c.dir/CheckSymbolExists.c.obj -c CheckSymbolExists.c
 CheckSymbolExists.c: In function 'main':
 CheckSymbolExists.c:7:19: error: '__x86_64__' undeclared (first use in this function)
    return ((int*)(&__x86_64__))[argc];
@@ -56,9 +56,9 @@ int main(int argc, char** argv)
 Determining if the __i386__ exist failed with the following output:
 Change Dir: C:/Repos/Github-Verified-Telemetry-Device-Sample/MXChip/AZ3166/out/build/IoT-Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/COMMON7/IDE/COMMON~1/MICROS~1/CMAKE/Ninja/ninja.exe cmTC_ed76f && [1/2] Building C object CMakeFiles/cmTC_ed76f.dir/CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_ed76f.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3 -std=gnu99 -o CMakeFiles/cmTC_ed76f.dir/CheckSymbolExists.c.obj -c CheckSymbolExists.c
+Run Build Command(s):C:/PROGRA~2/MICROS~3/2019/COMMUN~1/COMMON7/IDE/COMMON~1/MICROS~1/CMAKE/Ninja/ninja.exe cmTC_c2fcc && [1/2] Building C object CMakeFiles/cmTC_c2fcc.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_c2fcc.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\MICROS~3\2019\COMMUN~1\Linux\gcc_arm\bin\ARM-NO~4.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3 -std=gnu99 -o CMakeFiles/cmTC_c2fcc.dir/CheckSymbolExists.c.obj -c CheckSymbolExists.c
 CheckSymbolExists.c: In function 'main':
 CheckSymbolExists.c:7:19: error: '__i386__' undeclared (first use in this function); did you mean '__LINE__'?
    return ((int*)(&__i386__))[argc];
