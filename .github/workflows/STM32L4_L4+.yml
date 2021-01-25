@@ -2,9 +2,9 @@ name: STM32L4_L4+
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 defaults:
   run:

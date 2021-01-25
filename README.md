@@ -1,3 +1,7 @@
+![](https://github.com/azure-rtos/getting-started/workflows/Markdown%20links/badge.svg)
+![](https://github.com/azure-rtos/getting-started/workflows/AZ3166/badge.svg)
+![](https://github.com/azure-rtos/getting-started/workflows/STM32L4_L4+/badge.svg)
+
 # Getting Started with Verified Telemetry with Azure RTOS and Azure IoT
 
 These Getting Started guides shows device developers how to include Verified Telemetry with Azure IoT on Azure RTOS. 
