@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/iot
+# Install script for directory: C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/iot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

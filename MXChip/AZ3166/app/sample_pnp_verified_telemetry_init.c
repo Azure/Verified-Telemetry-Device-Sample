@@ -39,7 +39,7 @@ void *sample_pnp_verified_telemetry_user_init()
         printf("Failed to initialize vTsoilMoistureExternal component: error code = 0x%08x\r\n", status);
     }
     else if ((status = pnp_vt_init(&verified_telemetry_DB, fallcurve_components, NUMBER_OF_VT_ENABLED_TELEMETRIES, 
-                                                true, FLASH_ADDRESS_DISABLED )))
+                                                true, FLASH_ADDRESS_ENABLED)))
     {
         printf("Failed to initialize Verified Telemetry: error code = 0x%08x\r\n", status);
     }

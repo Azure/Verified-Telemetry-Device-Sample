@@ -309,7 +309,7 @@ rule C_EXECUTABLE_LINKER__stm32l4S5_azure_iot_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files (x86)\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\v-sum\Desktop\AzureRTOS\verified-telemetry-device-sample\STMicroelectronics\STM32L4_L4+ -BC:\Users\v-sum\Desktop\AzureRTOS\verified-telemetry-device-sample\STMicroelectronics\STM32L4_L4+\build
+  command = "C:\Program Files (x86)\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Repos\Github-Verified-Telemetry-Device-Sample\STMicroelectronics\STM32L4_L4+ -BC:\Repos\Github-Verified-Telemetry-Device-Sample\STMicroelectronics\STM32L4_L4+\build
   description = Re-running CMake...
   generator = 1
 
@@ -318,7 +318,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\Users\v-sum\Desktop\AzureRTOS\verified-telemetry-device-sample\cmake\ninja $FILE_ARG -t clean $TARGETS
+  command = C:\Repos\Github-Verified-Telemetry-Device-Sample\cmake\ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -326,6 +326,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\Users\v-sum\Desktop\AzureRTOS\verified-telemetry-device-sample\cmake\ninja -t targets
+  command = C:\Repos\Github-Verified-Telemetry-Device-Sample\cmake\ninja -t targets
   description = All primary targets available:
 

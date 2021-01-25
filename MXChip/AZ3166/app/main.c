@@ -20,7 +20,7 @@ extern VOID sample_entry(NX_IP* ip_ptr, NX_PACKET_POOL* pool_ptr, NX_DNS* dns_pt
 /* Verified Telemetry DB pointer to provide access to verified_telemetry_DB to all threads */
 void* verified_telemetry_DB;
 
-#define AZURE_THREAD_STACK_SIZE 4096
+#define AZURE_THREAD_STACK_SIZE 8192
 #define AZURE_THREAD_PRIORITY   4
 
 TX_THREAD azure_thread;
