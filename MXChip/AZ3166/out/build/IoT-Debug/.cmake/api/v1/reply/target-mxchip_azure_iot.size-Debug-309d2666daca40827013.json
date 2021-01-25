@@ -1,0 +1,80 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"firmware_size"
+		],
+		"files" : 
+		[
+			"C:/Repos/Github-Verified-Telemetry-Device-Sample/cmake/utilities.cmake",
+			"app/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 52,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 1
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "mxchip_azure_iot::@5f5a17c01335469806cb"
+		}
+	],
+	"id" : "mxchip_azure_iot.size::@5f5a17c01335469806cb",
+	"name" : "mxchip_azure_iot.size",
+	"paths" : 
+	{
+		"build" : "app",
+		"source" : "app"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 2,
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/app/CMakeFiles/mxchip_azure_iot.size",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "out/build/IoT-Debug/app/CMakeFiles/mxchip_azure_iot.size.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

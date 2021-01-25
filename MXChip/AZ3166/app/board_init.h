@@ -26,8 +26,8 @@
 #define RGB_LED_SET_B(value) TIM3->CCR2 = value
 
 extern UART_HandleTypeDef UartHandle;
-ADC_HandleTypeDef hadc1;
-TIM_HandleTypeDef htim14;
+extern ADC_HandleTypeDef hadc1;
+extern TIM_HandleTypeDef htim14;
 
 /* Define prototypes. */
 void board_init(void);

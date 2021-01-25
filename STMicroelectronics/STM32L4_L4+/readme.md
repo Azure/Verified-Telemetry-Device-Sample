@@ -20,6 +20,11 @@ To set up your development environment, first you clone a GitHub repo that conta
 ### Clone the repo for the tutorial
 
 Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation.
+To clone the repo, run the following command:
+
+```shell
+git clone --recursive https://github.com/Azure/Verified-Telemetry-Device-Sample.git
+```
 
 ### Install the tools
 

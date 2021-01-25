@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/lib/netx_driver
+# Install script for directory: C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/lib/netx_driver
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

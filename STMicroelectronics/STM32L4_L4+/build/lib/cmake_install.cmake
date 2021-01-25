@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/lib
+# Install script for directory: C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/threadx/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/jsmn/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/verified_telemetry/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/netxduo/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/stm32cubel4/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/netx_driver/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/threadx/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/jsmn/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/verified_telemetry/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/netxduo/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/stm32cubel4/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/netx_driver/cmake_install.cmake")
 
 endif()
 

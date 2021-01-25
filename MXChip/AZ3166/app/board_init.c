@@ -12,6 +12,8 @@
 I2C_HandleTypeDef I2cHandle;
 
 UART_HandleTypeDef UartHandle;
+ADC_HandleTypeDef hadc1;
+TIM_HandleTypeDef htim14;
 
 #define I2C_ADDRESS 0x30F
 

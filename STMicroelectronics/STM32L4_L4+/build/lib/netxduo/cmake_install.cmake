@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/lib/netxduo
+# Install script for directory: C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/lib/netxduo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/STMicroelectronics/STM32L4_L4+/build/lib/netxduo/azure_sdk_for_c/cmake_install.cmake")
+  include("C:/Repos/Github-Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4+/build/lib/netxduo/azure_sdk_for_c/cmake_install.cmake")
 
 endif()
 

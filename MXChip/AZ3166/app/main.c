@@ -19,8 +19,8 @@ extern VOID sample_entry(NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr,
                          NX_DNS *dns_ptr,
                          UINT (*unix_time_callback)(ULONG *unix_time));
 
-#define AZURE_THREAD_STACK_SIZE 4096
-#define AZURE_THREAD_PRIORITY 4
+#define AZURE_THREAD_STACK_SIZE 8192
+#define AZURE_THREAD_PRIORITY   4
 
 TX_THREAD azure_thread;
 ULONG azure_thread_stack[AZURE_THREAD_STACK_SIZE / sizeof(ULONG)];
