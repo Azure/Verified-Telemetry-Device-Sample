@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/src
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

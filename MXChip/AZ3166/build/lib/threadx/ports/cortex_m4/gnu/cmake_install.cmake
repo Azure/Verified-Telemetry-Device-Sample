@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/lib/threadx/ports/cortex_m4/gnu
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/threadx/ports/cortex_m4/gnu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

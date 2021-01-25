@@ -81,25 +81,25 @@ typedef struct SAMPLE_CONTEXT_STRUCT
     union SAMPLE_CLIENT_UNION
     {
         NX_AZURE_IOT_PNP_CLIENT             iotpnp_client;
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
         NX_AZURE_IOT_PROVISIONING_CLIENT    prov_client;
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
     } client;
 
 #define iotpnp_client client.iotpnp_client
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 #define prov_client client.prov_client
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 
 } SAMPLE_CONTEXT;
 
-VOID sample_entry(NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr, NX_DNS *dns_ptr, UINT (*unix_time_callback)(ULONG *unix_time), void **verified_telemetry_DB_shared);
+VOID sample_entry(NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr, NX_DNS *dns_ptr, UINT (*unix_time_callback)(ULONG *unix_time));
 
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT *prov_client_ptr,
                              UCHAR **iothub_hostname, UINT *iothub_hostname_length,
                              UCHAR **iothub_device_id, UINT *iothub_device_id_length);
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 
 /* Define Azure RTOS TLS info.  */
 static NX_SECURE_X509_CERT root_ca_cert;
@@ -117,10 +117,10 @@ NX_SECURE_X509_CERT device_certificate;
 #endif /* USE_DEVICE_CERTIFICATE */
 
 /* Define buffer for IoTHub info. */
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 static UCHAR sample_iothub_hostname[SAMPLE_MAX_BUFFER];
 static UCHAR sample_iothub_device_id[SAMPLE_MAX_BUFFER];
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 
 /* Define the prototypes for AZ IoT.  */
 static NX_AZURE_IOT nx_azure_iot;
@@ -129,8 +129,6 @@ static SAMPLE_CONTEXT sample_context;
 static volatile UINT sample_connection_status = NX_NOT_CONNECTED;
 static UINT exponential_retry_count;
 
-// /* PNP model id */
-// static const CHAR sample_model_id[] = "dtmi:azure:verifiedtelemetry:gsg;1";
 
 static SAMPLE_PNP_DEVICE_COMPONENT sample_device;
 static const CHAR sample_device_component[] = "device";
@@ -139,7 +137,7 @@ static UINT sample_device_properties_sent = 0;
 
 static const CHAR sample_fallcurve_1_component[] = "vTaccelerometerXExternal";
 static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal";
-void *verified_telemetry_DB = NULL;
+static void *verified_telemetry_DB = NULL;
 
 static UCHAR scratch_buffer[2096];
 
@@ -277,7 +275,7 @@ static VOID sample_connected_action(SAMPLE_CONTEXT *context)
 static VOID sample_initialize_iothub(SAMPLE_CONTEXT *context)
 {
 UINT status;
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 UCHAR *iothub_hostname = NX_NULL;
 UCHAR *iothub_device_id = NX_NULL;
 UINT iothub_hostname_length = 0;
@@ -287,7 +285,7 @@ UCHAR *iothub_hostname = (UCHAR *)IOT_HUB_HOSTNAME;
 UCHAR *iothub_device_id = (UCHAR *)IOT_DEVICE_ID;
 UINT iothub_hostname_length = sizeof(IOT_HUB_HOSTNAME) - 1;
 UINT iothub_device_id_length = sizeof(IOT_DEVICE_ID) - 1;
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 NX_AZURE_IOT_PNP_CLIENT *iotpnp_client_ptr = &(context -> iotpnp_client);
 
     if (context -> state != SAMPLE_STATE_INIT)
@@ -295,7 +293,7 @@ NX_AZURE_IOT_PNP_CLIENT *iotpnp_client_ptr = &(context -> iotpnp_client);
         return;
     }
 
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 
     /* Run DPS.  */
     if ((status = sample_dps_entry(&(context -> prov_client), &iothub_hostname, &iothub_hostname_length,
@@ -305,7 +303,7 @@ NX_AZURE_IOT_PNP_CLIENT *iotpnp_client_ptr = &(context -> iotpnp_client);
         context -> action_result = status;
         return;
     }
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 
     printf("IoTHub Host Name: %.*s; Device ID: %.*s.\r\n",
            iothub_hostname_length, iothub_hostname, iothub_device_id_length, iothub_device_id);
@@ -350,8 +348,8 @@ NX_AZURE_IOT_PNP_CLIENT *iotpnp_client_ptr = &(context -> iotpnp_client);
 
     /* Set symmetric key.  */
     if ((status = nx_azure_iot_pnp_client_symmetric_key_set(iotpnp_client_ptr,
-                                                            (UCHAR *)IOT_PRIMARY_KEY,
-                                                            sizeof(IOT_PRIMARY_KEY) - 1)))
+                                                            (UCHAR *)DEVICE_SYMMETRIC_KEY,
+                                                            sizeof(DEVICE_SYMMETRIC_KEY) - 1)))
     {
         printf("Failed on nx_azure_iot_pnp_client_symmetric_key_set! error: 0x%08x\r\n", status);
     }
@@ -753,7 +751,7 @@ UINT status;
     }
 }
 
-#ifdef ENABLE_DPS_SAMPLE
+#ifdef ENABLE_DPS
 static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT *prov_client_ptr,
                              UCHAR **iothub_hostname, UINT *iothub_hostname_length,
                              UCHAR **iothub_device_id, UINT *iothub_device_id_length)
@@ -829,7 +827,7 @@ UINT status;
 
     return(status);
 }
-#endif /* ENABLE_DPS_SAMPLE */
+#endif /* ENABLE_DPS */
 
 /**
  *
@@ -970,12 +968,11 @@ static UINT sample_components_init()
     return(status);
 }
 
-VOID sample_entry(NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr, NX_DNS *dns_ptr, UINT (*unix_time_callback)(ULONG *unix_time), void **verified_telemetry_DB_shared)
+VOID sample_entry(NX_IP *ip_ptr, NX_PACKET_POOL *pool_ptr, NX_DNS *dns_ptr, UINT (*unix_time_callback)(ULONG *unix_time))
 {
     UINT status;
     nx_azure_iot_log_init(log_callback);
 
-    *verified_telemetry_DB_shared = verified_telemetry_DB;
     if ((status = sample_components_init()))
     {
         printf("Failed on initialize sample components!: error code = 0x%08x\r\n", status);

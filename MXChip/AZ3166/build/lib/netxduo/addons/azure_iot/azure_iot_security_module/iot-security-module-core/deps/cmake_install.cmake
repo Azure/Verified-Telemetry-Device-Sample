@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/deps
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

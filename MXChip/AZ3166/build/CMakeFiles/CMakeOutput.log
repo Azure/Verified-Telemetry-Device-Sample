@@ -11,7 +11,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
 
-The C compiler identification is GNU, found in "C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/3.17.3/CompilerIdC/CMakeCCompilerId.o"
+The C compiler identification is GNU, found in "C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/3.17.3/CompilerIdC/CMakeCCompilerId.o"
 
 Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
 arm-none-eabi-gcc.exe (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599]
@@ -20,17 +20,17 @@ This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 Determining if the C compiler works passed with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_5497f && [1/2] Building C object CMakeFiles/cmTC_5497f.dir/testCCompiler.c.obj
-[2/2] Linking C static library libcmTC_5497f.a
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_3a42b && [1/2] Building C object CMakeFiles/cmTC_3a42b.dir/testCCompiler.c.obj
+[2/2] Linking C static library libcmTC_3a42b.a
 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_38c6a && [1/2] Building C object CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_7bf57 && [1/2] Building C object CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj
 Using built-in specs.
 Reading specs from c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/nano.specs
 rename spec link to nano_link
@@ -41,8 +41,8 @@ Target: arm-none-eabi
 Configured with: /mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/src/gcc/configure --build=x86_64-linux-gnu --host=i686-w64-mingw32 --target=arm-none-eabi --prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw --libexecdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/lib --infodir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/info --mandir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/man --htmldir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/html --pdfdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-mingw-wildcard --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-headers=yes --with-newlib --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/arm-none-eabi --with-libiconv-prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-gmp=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpfr=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpc=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-isl=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-libelf=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-pkgversion='GNU Tools for Arm Embedded Processors 9-2019-q4-major' --with-multilib-list=rmprofile
 Thread model: single
 gcc version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
- c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -dD -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj -g3 -O0 -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -std=gnu99 -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccBcxcVM.s
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
+ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -dD -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj -g3 -O0 -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -std=gnu99 -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccNj18ja.s
 GNU C99 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (arm-none-eabi)
 	compiled by GNU C version 5.3.1 20160211, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
 
@@ -64,13 +64,13 @@ GNU C99 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: d48d906eaae8455a6540c74ba2cbe16a
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
- c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj C:\Users\v-sum\AppData\Local\Temp\ccBcxcVM.s
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
+ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj C:\Users\v-sum\AppData\Local\Temp\ccNj18ja.s
 GNU assembler version 2.33.1 (arm-none-eabi) using BFD version (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 2.33.1.20191025
 COMPILER_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/
 LIBRARY_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/;c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
-[2/2] Linking C static library libcmTC_38c6a.a
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp'
+[2/2] Linking C static library libcmTC_7bf57.a
 
 
 
@@ -91,9 +91,9 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-none-eabi-gcc\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_38c6a && [1/2] Building C object CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_7bf57 && [1/2] Building C object CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj]
   ignore line: [Using built-in specs.]
   ignore line: [Reading specs from c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/nano.specs]
   ignore line: [rename spec link to nano_link]
@@ -104,8 +104,8 @@ Parsed C implicit link information from above output:
   ignore line: [Configured with: /mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/src/gcc/configure --build=x86_64-linux-gnu --host=i686-w64-mingw32 --target=arm-none-eabi --prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw --libexecdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/lib --infodir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/info --mandir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/man --htmldir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/html --pdfdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-mingw-wildcard --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-headers=yes --with-newlib --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/arm-none-eabi --with-libiconv-prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-gmp=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpfr=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpc=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-isl=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-libelf=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-pkgversion='GNU Tools for Arm Embedded Processors 9-2019-q4-major' --with-multilib-list=rmprofile]
   ignore line: [Thread model: single]
   ignore line: [gcc version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (GNU Tools for Arm Embedded Processors 9-2019-q4-major) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -dD -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj -g3 -O0 -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -std=gnu99 -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccBcxcVM.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -dD -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj -g3 -O0 -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -std=gnu99 -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccNj18ja.s]
   ignore line: [GNU C99 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (arm-none-eabi)]
   ignore line: [	compiled by GNU C version 5.3.1 20160211  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
   ignore line: []
@@ -127,8 +127,8 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: d48d906eaae8455a6540c74ba2cbe16a]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj C:\Users\v-sum\AppData\Local\Temp\ccBcxcVM.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj C:\Users\v-sum\AppData\Local\Temp\ccNj18ja.s]
   ignore line: [GNU assembler version 2.33.1 (arm-none-eabi) using BFD version (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 2.33.1.20191025]
   ignore line: [COMPILER_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/]
@@ -140,8 +140,8 @@ Parsed C implicit link information from above output:
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_38c6a.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [[2/2] Linking C static library libcmTC_38c6a.a]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-O0' '-g3' '-v' '-std=gnu99' '-o' 'CMakeFiles/cmTC_7bf57.dir/CMakeCCompilerABI.c.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [[2/2] Linking C static library libcmTC_7bf57.a]
   ignore line: []
   ignore line: []
   implicit libs: []
@@ -160,20 +160,20 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
 
-The CXX compiler identification is GNU, found in "C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.o"
+The CXX compiler identification is GNU, found in "C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/3.17.3/CompilerIdCXX/CMakeCXXCompilerId.o"
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_fb59a && [1/2] Building CXX object CMakeFiles/cmTC_fb59a.dir/testCXXCompiler.cxx.obj
-[2/2] Linking CXX static library libcmTC_fb59a.a
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_dc7e9 && [1/2] Building CXX object CMakeFiles/cmTC_dc7e9.dir/testCXXCompiler.cxx.obj
+[2/2] Linking CXX static library libcmTC_dc7e9.a
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_f4b05 && [1/2] Building CXX object CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_b0ffd && [1/2] Building CXX object CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj
 Using built-in specs.
 Reading specs from c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/nano.specs
 rename spec link to nano_link
@@ -184,8 +184,8 @@ Target: arm-none-eabi
 Configured with: /mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/src/gcc/configure --build=x86_64-linux-gnu --host=i686-w64-mingw32 --target=arm-none-eabi --prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw --libexecdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/lib --infodir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/info --mandir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/man --htmldir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/html --pdfdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-mingw-wildcard --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-headers=yes --with-newlib --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/arm-none-eabi --with-libiconv-prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-gmp=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpfr=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpc=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-isl=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-libelf=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-pkgversion='GNU Tools for Arm Embedded Processors 9-2019-q4-major' --with-multilib-list=rmprofile
 Thread model: single
 gcc version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
- c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1plus.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj -g -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccCadiPt.s
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
+ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1plus.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj -g -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccwEf3pT.s
 GNU C++14 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (arm-none-eabi)
 	compiled by GNU C version 5.3.1 20160211, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.18-GMP
 
@@ -213,13 +213,13 @@ GNU C++14 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 170ff1c01984ee844c36675da8099675
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
- c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\v-sum\AppData\Local\Temp\ccCadiPt.s
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
+ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\v-sum\AppData\Local\Temp\ccwEf3pT.s
 GNU assembler version 2.33.1 (arm-none-eabi) using BFD version (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 2.33.1.20191025
 COMPILER_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/
 LIBRARY_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/thumb/v7e-m+fp/hard/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/;c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/;c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/
-COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
-[2/2] Linking CXX static library libcmTC_f4b05.a
+COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp'
+[2/2] Linking CXX static library libcmTC_b0ffd.a
 
 
 
@@ -246,9 +246,9 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(arm-none-eabi-gcc\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_f4b05 && [1/2] Building CXX object CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_b0ffd && [1/2] Building CXX object CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj]
   ignore line: [Using built-in specs.]
   ignore line: [Reading specs from c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/nano.specs]
   ignore line: [rename spec link to nano_link]
@@ -259,8 +259,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [Configured with: /mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/src/gcc/configure --build=x86_64-linux-gnu --host=i686-w64-mingw32 --target=arm-none-eabi --prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw --libexecdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/lib --infodir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/info --mandir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/man --htmldir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/html --pdfdir=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/share/doc/gcc-arm-none-eabi/pdf --enable-languages=c,c++ --enable-mingw-wildcard --disable-decimal-float --disable-libffi --disable-libgomp --disable-libmudflap --disable-libquadmath --disable-libssp --disable-libstdcxx-pch --disable-nls --disable-shared --disable-threads --disable-tls --with-gnu-as --with-gnu-ld --with-headers=yes --with-newlib --with-python-dir=share/gcc-arm-none-eabi --with-sysroot=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/install-mingw/arm-none-eabi --with-libiconv-prefix=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-gmp=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpfr=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-mpc=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-isl=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-libelf=/mnt/workspace/workspace/GCC-9-pipeline/jenkins-GCC-9-pipeline-100_20191030_1572397542/build-mingw/host-libs/usr --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm' --with-pkgversion='GNU Tools for Arm Embedded Processors 9-2019-q4-major' --with-multilib-list=rmprofile]
   ignore line: [Thread model: single]
   ignore line: [gcc version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (GNU Tools for Arm Embedded Processors 9-2019-q4-major) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1plus.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj -g -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccCadiPt.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/cc1plus.exe -isystem =/include/newlib-nano -quiet -v -imultilib thumb/v7e-m+fp/hard -iprefix c:\progra~2\gnutoo~1\92019-~1\bin\../lib/gcc/arm-none-eabi/9.2.1/ -isysroot c:\progra~2\gnutoo~1\92019-~1\bin\../arm-none-eabi -D__USES_INITFINI__ C:/Program Files (x86)/CMake/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 -march=armv7e-m+fp -auxbase-strip CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj -g -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Wno-unused-parameter -version -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -o C:\Users\v-sum\AppData\Local\Temp\ccwEf3pT.s]
   ignore line: [GNU C++14 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20191025 (release) [ARM/arm-9-branch revision 277599] (arm-none-eabi)]
   ignore line: [	compiled by GNU C version 5.3.1 20160211  GMP version 6.1.0  MPFR version 3.1.4  MPC version 1.0.3  isl version isl-0.18-GMP]
   ignore line: []
@@ -288,8 +288,8 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 170ff1c01984ee844c36675da8099675]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\v-sum\AppData\Local\Temp\ccCadiPt.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [ c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/bin/as.exe -v -march=armv7e-m -mfloat-abi=hard -mfpu=fpv4-sp-d16 -meabi=5 -o CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj C:\Users\v-sum\AppData\Local\Temp\ccwEf3pT.s]
   ignore line: [GNU assembler version 2.33.1 (arm-none-eabi) using BFD version (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 2.33.1.20191025]
   ignore line: [COMPILER_PATH=c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/]
@@ -301,8 +301,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../lib/gcc/arm-none-eabi/9.2.1/../../../../arm-none-eabi/lib/]
   ignore line: [c:/progra~2/gnutoo~1/92019-~1/bin/../arm-none-eabi/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_f4b05.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
-  ignore line: [[2/2] Linking CXX static library libcmTC_f4b05.a]
+  ignore line: [COLLECT_GCC_OPTIONS='-mthumb' '-mcpu=cortex-m4' '-mfloat-abi=hard' '-mfpu=fpv4-sp-d16' '-specs=nano.specs' '-ffunction-sections' '-fdata-sections' '-fno-strict-aliasing' '-fno-builtin' '-fshort-enums' '-Wall' '-Wextra' '-Wuninitialized' '-Wshadow' '-Wdouble-promotion' '-Wno-unused-parameter' '-g' '-v' '-o' 'CMakeFiles/cmTC_b0ffd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-march=armv7e-m+fp']
+  ignore line: [[2/2] Linking CXX static library libcmTC_b0ffd.a]
   ignore line: []
   ignore line: []
   implicit libs: []
@@ -311,13 +311,13 @@ Parsed CXX implicit link information from above output:
 
 
 Determining if the __arm__ exist passed with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_dbbc8 && [1/2] Building C object CMakeFiles/cmTC_dbbc8.dir/CheckSymbolExists.c.obj
-[2/2] Linking C static library libcmTC_dbbc8.a
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_d0e9b && [1/2] Building C object CMakeFiles/cmTC_d0e9b.dir/CheckSymbolExists.c.obj
+[2/2] Linking C static library libcmTC_d0e9b.a
 
 
-File C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 
 int main(int argc, char** argv)

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/lib/threadx/common
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/threadx/common
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

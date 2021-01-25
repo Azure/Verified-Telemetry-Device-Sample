@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/lib/wiced_sdk
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/lib/wiced_sdk
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

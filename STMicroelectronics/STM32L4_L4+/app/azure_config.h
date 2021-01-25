@@ -19,30 +19,58 @@ typedef enum
 #define WIFI_PASSWORD ""
 #define WIFI_MODE     WPA2_PSK_AES
 
-// ----------------------------------------------------------------------------
-// Azure IoT Hub Connection Transport
-// Define to use the legacy MQTT connection, else Azure RTOS SDK for Azure IoT
-// ----------------------------------------------------------------------------
+/* This sample uses Symmetric key (SAS) to connect to IoT Hub by default,
+   simply defining USE_DEVICE_CERTIFICATE and setting your device certificate in sample_device_identity.c
+   to connect to IoT Hub with x509 certificate. Set up X.509 security in your Azure IoT Hub,
+   refer to https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-security-x509-get-started  */
+/* #define USE_DEVICE_CERTIFICATE                      1  */
+
+/*
+TODO`s: Configure core settings of application for your IoTHub.
+*/
 
 // ----------------------------------------------------------------------------
 // Azure IoT Dynamic Provisioning Service
 // Define this to use the DPS service, otherwise direct IoT Hub
 // ----------------------------------------------------------------------------
-//#define ENABLE_DPS
+#define ENABLE_DPS
 
-// ----------------------------------------------------------------------------
-// Azure IoT Hub config
-// ----------------------------------------------------------------------------
-#define IOT_HUB_HOSTNAME ""
-#define IOT_DEVICE_ID    ""
-#define IOT_PRIMARY_KEY  ""
+#ifndef ENABLE_DPS
 
-// ----------------------------------------------------------------------------
-// Azure IoT DPS config
-// ----------------------------------------------------------------------------
-#define IOT_DPS_ENDPOINT        "global.azure-devices-provisioning.net"
-#define IOT_DPS_ID_SCOPE        ""
-#define IOT_DPS_REGISTRATION_ID ""
+/* Required when DPS is not used.  */
+/* These values can be picked from device connection string which is of format : HostName=<host1>;DeviceId=<device1>;SharedAccessKey=<key1>
+   IOT_HUB_HOSTNAME can be set to <host1>,
+   IOT_DEVICE_ID can be set to <device1>,
+   DEVICE_SYMMETRIC_KEY can be set to <key1>.  */
+#ifndef IOT_HUB_HOSTNAME
+#define IOT_HUB_HOSTNAME                                   ""
+#endif /* IOT_HOST_NAME */
+
+#ifndef IOT_DEVICE_ID
+#define IOT_DEVICE_ID                                   ""
+#endif /* IOT_DEVICE_ID */
+
+#else /* !ENABLE_DPS */
+
+/* Required when DPS is used.  */
+#ifndef ENDPOINT
+#define ENDPOINT                                    ""
+#endif /* ENDPOINT */
+
+#ifndef ID_SCOPE
+#define ID_SCOPE                                    ""
+#endif /* ID_SCOPE */
+
+#ifndef REGISTRATION_ID
+#define REGISTRATION_ID                             ""
+#endif /* REGISTRATION_ID */
+
+#endif /* ENABLE_DPS */
+
+/* Optional SYMMETRIC KEY.  */
+#ifndef DEVICE_SYMMETRIC_KEY
+#define DEVICE_SYMMETRIC_KEY                        ""
+#endif /* DEVICE_SYMMETRIC_KEY */
 
 /* Optional module ID.  */
 #ifndef MODULE_ID

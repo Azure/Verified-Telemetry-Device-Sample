@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/core/lib/netxduo
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/netxduo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,11 +34,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/ports/cortex_m4/gnu/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/common/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/addons/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/crypto_libraries/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/nx_secure/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/ports/cortex_m4/gnu/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/common/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/addons/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/crypto_libraries/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/nx_secure/cmake_install.cmake")
 
 endif()
 

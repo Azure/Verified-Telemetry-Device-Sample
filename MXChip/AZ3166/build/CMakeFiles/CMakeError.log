@@ -23,11 +23,11 @@ collect2.exe: error: ld returned 1 exit status
 
 
 Determining if the __x86_64__ exist failed with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_d6b5c && [1/2] Building C object CMakeFiles/cmTC_d6b5c.dir/CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_d6b5c.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~2\GNUTOO~1\92019-~1\bin\AR19DD~1.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_d6b5c.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_418c2 && [1/2] Building C object CMakeFiles/cmTC_418c2.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_418c2.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\GNUTOO~1\92019-~1\bin\AR19DD~1.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_418c2.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
 CheckSymbolExists.c: In function 'main':
 CheckSymbolExists.c:7:19: error: '__x86_64__' undeclared (first use in this function)
     7 |   return ((int*)(&__x86_64__))[argc];
@@ -40,7 +40,7 @@ cc1.exe: all warnings being treated as errors
 ninja: build stopped: subcommand failed.
 
 
-File C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 
 int main(int argc, char** argv)
@@ -54,11 +54,11 @@ int main(int argc, char** argv)
 #endif
 }
 Determining if the __i386__ exist failed with the following output:
-Change Dir: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
+Change Dir: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/cmake/ninja cmTC_94406 && [1/2] Building C object CMakeFiles/cmTC_94406.dir/CheckSymbolExists.c.obj
-FAILED: CMakeFiles/cmTC_94406.dir/CheckSymbolExists.c.obj 
-C:\PROGRA~2\GNUTOO~1\92019-~1\bin\AR19DD~1.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_94406.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
+Run Build Command(s):C:/Users/v-sum/Desktop/vT_PrivateBeta/v/cmake/ninja cmTC_8ab41 && [1/2] Building C object CMakeFiles/cmTC_8ab41.dir/CheckSymbolExists.c.obj
+FAILED: CMakeFiles/cmTC_8ab41.dir/CheckSymbolExists.c.obj 
+C:\PROGRA~2\GNUTOO~1\92019-~1\bin\AR19DD~1.EXE   -mthumb -mcpu=cortex-m4 -mfloat-abi=hard -mfpu=fpv4-sp-d16 --specs=nano.specs -ffunction-sections -fdata-sections -fno-strict-aliasing -fno-builtin -fshort-enums -Wall -Wextra -Wuninitialized -Wshadow -Wdouble-promotion -Werror -Wno-unused-parameter  -O0 -g3   -std=gnu99 -o CMakeFiles/cmTC_8ab41.dir/CheckSymbolExists.c.obj   -c CheckSymbolExists.c
 CheckSymbolExists.c: In function 'main':
 CheckSymbolExists.c:7:19: error: '__i386__' undeclared (first use in this function)
     7 |   return ((int*)(&__i386__))[argc];
@@ -71,7 +71,7 @@ cc1.exe: all warnings being treated as errors
 ninja: build stopped: subcommand failed.
 
 
-File C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+File C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
 
 int main(int argc, char** argv)

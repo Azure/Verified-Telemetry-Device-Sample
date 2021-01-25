@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/lib
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,12 +34,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/threadx/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/netxduo/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/jsmn/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/verified_telemetry/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/stm32cubef4/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/AzureRTOS/verified-telemetry-device-sample/MXChip/AZ3166/build/lib/wiced_sdk/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/threadx/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/jsmn/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/verified_telemetry/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/stm32cubef4/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/wiced_sdk/cmake_install.cmake")
 
 endif()
 
