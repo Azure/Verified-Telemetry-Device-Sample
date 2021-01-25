@@ -1,6 +1,6 @@
-![](https://github.com/azure-rtos/getting-started/workflows/Markdown%20links/badge.svg)
-![](https://github.com/azure-rtos/getting-started/workflows/AZ3166/badge.svg)
-![](https://github.com/azure-rtos/getting-started/workflows/STM32L4_L4+/badge.svg)
+![](https://github.com/Azure/Verified-Telemetry-Device-Sample/workflows/Markdown%20links/badge.svg)
+![](https://github.com/Azure/Verified-Telemetry-Device-Sample/workflows/AZ3166/badge.svg)
+![](https://github.com/Azure/Verified-Telemetry-Device-Sample/workflows/STM32L4_L4+/badge.svg)
 
 # Getting Started with Verified Telemetry with Azure RTOS and Azure IoT
 
