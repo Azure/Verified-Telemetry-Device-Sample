@@ -8,7 +8,7 @@ These Getting Started guides shows device developers how to include Verified Tel
   * [B-L475E-IOT01A](STMicroelectronics/STM32L4_L4+)
   * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
-# Verified Telemetry Library
+# [Verified Telemetry Library](https://github.com/Azure/Verified-Telemetry)
 - Verified Telemetry is a state-of-the-art solution to determine the working of the sensor, i.e., working or faulty, consequently used to determine the quality of the sensed data. 
 - This is achieved by devising an intelligent fingerprint for a sensor to determine the status of the sensor.  
 - The sensor fingerprint captures electrical properties of the sensor such as voltage and current using seamless software code running on the IoT device. 
