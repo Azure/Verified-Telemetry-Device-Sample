@@ -7,3 +7,6 @@
 [submodule "core/lib/Verified-Telemetry"]
 	path = core/lib/Verified-Telemetry
 	url = https://github.com/Azure/Verified-Telemetry.git
+[submodule "core/lib/jsmn/src"]
+	path = core/lib/jsmn/src
+	url = https://github.com/zserge/jsmn.git
