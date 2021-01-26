@@ -23,7 +23,7 @@ set(VT_DEVICE "MXCHIP_AZ3166")
 add_subdirectory(${CORE_LIB_DIR}/threadx threadx)
 add_subdirectory(${CORE_LIB_DIR}/netxduo netxduo)
 add_subdirectory(${CORE_LIB_DIR}/jsmn jsmn)
-add_subdirectory(${CORE_LIB_DIR}/verified-telemetry verified_telemetry)
+add_subdirectory(${CORE_LIB_DIR}/Verified-Telemetry verified_telemetry)
 
 add_subdirectory(stm32cubef4)
 add_subdirectory(wiced_sdk)
