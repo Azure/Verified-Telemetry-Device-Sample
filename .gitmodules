@@ -7,3 +7,15 @@
 [submodule "core/lib/verified-telemetry"]
 	path = core/lib/verified-telemetry
 	url = https://github.com/Azure/Verified-Telemetry.git
+[submodule "core/lib/netxduo"]
+	path = core/lib/netxduo
+	url = https://github.com/azure-rtos/netxduo.git
+[submodule "core/lib/jsmn"]
+	path = core/lib/jsmn
+	url = https://github.com/zserge/jsmn.git
+[submodule "core/lib/--force"]
+	path = core/lib/--force
+	url = https://github.com/azure-rtos/netxduo.git
+[submodule "core/lib/Verified-Telemetry"]
+	path = core/lib/Verified-Telemetry
+	url = https://github.com/Azure/Verified-Telemetry.git
