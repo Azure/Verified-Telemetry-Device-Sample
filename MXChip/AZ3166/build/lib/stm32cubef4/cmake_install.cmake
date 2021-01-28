@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/lib/stm32cubef4
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/V/MXChip/AZ3166/lib/stm32cubef4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

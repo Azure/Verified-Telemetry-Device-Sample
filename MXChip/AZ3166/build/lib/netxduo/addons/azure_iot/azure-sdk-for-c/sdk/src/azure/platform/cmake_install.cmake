@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/platform
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/V/core/lib/netxduo/addons/azure_iot/azure-sdk-for-c/sdk/src/azure/platform
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

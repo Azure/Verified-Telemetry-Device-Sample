@@ -336,7 +336,7 @@ rule C_EXECUTABLE_LINKER__mxchip_azure_iot_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files (x86)\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\v-sum\Desktop\vT_PrivateBeta\v\MXChip\AZ3166 -BC:\Users\v-sum\Desktop\vT_PrivateBeta\v\MXChip\AZ3166\build
+  command = "C:\Program Files (x86)\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\v-sum\Desktop\vT_PrivateBeta\V\MXChip\AZ3166 -BC:\Users\v-sum\Desktop\vT_PrivateBeta\V\MXChip\AZ3166\build
   description = Re-running CMake...
   generator = 1
 
@@ -345,7 +345,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = C:\Users\v-sum\Desktop\vT_PrivateBeta\v\cmake\ninja $FILE_ARG -t clean $TARGETS
+  command = C:\Users\v-sum\Desktop\vT_PrivateBeta\V\cmake\ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -353,6 +353,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = C:\Users\v-sum\Desktop\vT_PrivateBeta\v\cmake\ninja -t targets
+  command = C:\Users\v-sum\Desktop\vT_PrivateBeta\V\cmake\ninja -t targets
   description = All primary targets available:
 

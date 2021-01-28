@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/netxduo/addons/azure_iot/azure_iot_security_module
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/V/core/lib/netxduo/addons/azure_iot/azure_iot_security_module
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/V/MXChip/AZ3166/build/lib/netxduo/addons/azure_iot/azure_iot_security_module/iot-security-module-core/cmake_install.cmake")
 
 endif()
 

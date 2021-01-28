@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/netxduo/nx_secure
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/V/core/lib/netxduo/nx_secure
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

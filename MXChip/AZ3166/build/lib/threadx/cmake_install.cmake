@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/core/lib/threadx
+# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/V/core/lib/threadx
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/threadx/ports/cortex_m4/gnu/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/threadx/common/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/V/MXChip/AZ3166/build/lib/threadx/ports/cortex_m4/gnu/cmake_install.cmake")
+  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/V/MXChip/AZ3166/build/lib/threadx/common/cmake_install.cmake")
 
 endif()
 

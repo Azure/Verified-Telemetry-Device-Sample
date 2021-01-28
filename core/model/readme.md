@@ -9,8 +9,8 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](./v
 | **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
 | **Commands** | `resetFingerprintTemplate` | This command will reset the template fingerprint |
 
-## [Getting started guide](./sample/gsg.json) interface has the following components:
-1. Device Component using the [Device Sensors](./sample/device.json) interface. This represents the Default Device Component from the ODMs.
+## [Getting started guide](./gsg.json) interface has the following components:
+1. Device Component using the [Device Sensors](./device.json) interface. This represents the Default Device Component from the ODMs.
 1. vTsoilMoistureExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for soilMoistureExternal telemetry.
 1. vTaccelerometerXExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for accelerometerXExternal telemetry.
 
