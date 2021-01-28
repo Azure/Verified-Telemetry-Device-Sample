@@ -1,4 +1,6 @@
-/* Copyright (c) Microsoft Corporation.*/
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
+
 #include "sample_pnp_device_component.h"
 #include "board_init.h"
 #include "sensor.h"

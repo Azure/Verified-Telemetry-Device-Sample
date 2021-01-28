@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166
+# Install script for directory: C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/mxchip_azure_iot")
+  set(CMAKE_INSTALL_PREFIX "C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn/out/install/x64-Debug (default)")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -29,15 +29,7 @@ endif()
 
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "TRUE")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/core_src/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/lib/cmake_install.cmake")
-  include("C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/app/cmake_install.cmake")
-
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -48,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/v-sum/Desktop/vT_PrivateBeta/v/MXChip/AZ3166/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn/out/build/x64-Debug (default)/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
