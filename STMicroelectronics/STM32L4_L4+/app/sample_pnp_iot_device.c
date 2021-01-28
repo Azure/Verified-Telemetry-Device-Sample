@@ -133,7 +133,7 @@ static UINT exponential_retry_count;
 
 
 static SAMPLE_PNP_DEVICE_COMPONENT sample_device;
-static const CHAR sample_device_component[] = "device";
+static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported; 
 static UINT sample_device_properties_sent = 0;
 
