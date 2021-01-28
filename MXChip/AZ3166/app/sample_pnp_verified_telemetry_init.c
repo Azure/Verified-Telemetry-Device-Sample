@@ -1,4 +1,6 @@
-/* Copyright (c) Microsoft Corporation.*/
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
+
 #include "board_init.h"
 #include "pnp_fallcurve_component.h"
 #include "pnp_verified_telemetry.h"

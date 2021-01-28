@@ -1,4 +1,6 @@
-/* Copyright (c) Microsoft Corporation.*/
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
+
 #ifndef SAMPLE_PNP_DEVICE_COMPONENT_H
 #define SAMPLE_PNP_DEVICE_COMPONENT_H
 

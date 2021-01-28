@@ -12,6 +12,8 @@
     >   * [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
+    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
+    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 

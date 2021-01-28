@@ -9,6 +9,8 @@
     > * The [MXChip AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXChip DevKit)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
+    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
+    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 
@@ -173,7 +175,7 @@ After the build completes, confirm that the binary files were created in the fol
 
 ### Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     ***Verified Telemetry***
 
-### Conect Sensors         ***Verified Telemetry***
+### Connect Sensors         ***Verified Telemetry***
 
 Refer to the table below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
 
