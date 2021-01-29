@@ -9,6 +9,7 @@
     > * The [MXChip AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXChip DevKit)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
+    > * [MXChip Edge Connector](https://www.sparkfun.com/products/13989)
     > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
     > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
