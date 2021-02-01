@@ -15,8 +15,8 @@ typedef enum
 // ----------------------------------------------------------------------------
 // WiFi connection config
 // ----------------------------------------------------------------------------
-#define WIFI_SSID     "ZTE"
-#define WIFI_PASSWORD "8349405921"
+#define WIFI_SSID     ""
+#define WIFI_PASSWORD ""
 #define WIFI_MODE     WPA2_PSK_AES
 
 /* This sample uses Symmetric key (SAS) to connect to IoT Hub by default,
@@ -47,7 +47,7 @@ TODO`s: Configure core settings of application for your IoTHub.
 #endif /* IOT_HOST_NAME */
 
 #ifndef IOT_DEVICE_ID
-#define IOT_DEVICE_ID                                   "beta_test"
+#define IOT_DEVICE_ID                                   ""
 #endif /* IOT_DEVICE_ID */
 
 #else /* !ENABLE_DPS */
@@ -69,7 +69,7 @@ TODO`s: Configure core settings of application for your IoTHub.
 
 /* Optional SYMMETRIC KEY.  */
 #ifndef DEVICE_SYMMETRIC_KEY
-#define DEVICE_SYMMETRIC_KEY                        "IfwmW5vxIaYQmvGfy+kNlzYvBz/vIyYwX8leQ2+cTiM="
+#define DEVICE_SYMMETRIC_KEY                        ""
 #endif /* DEVICE_SYMMETRIC_KEY */
 
 /* Optional module ID.  */

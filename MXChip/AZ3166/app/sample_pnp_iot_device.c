@@ -20,6 +20,7 @@
 
 /* Verified Telemetry */
 #include "pnp_verified_telemetry.h"
+#include "pnp_middleware_helper.h"
 #include "sample_pnp_verified_telemetry_init.h"
 
 #ifndef SAMPLE_MAX_EXPONENTIAL_BACKOFF_IN_SEC
