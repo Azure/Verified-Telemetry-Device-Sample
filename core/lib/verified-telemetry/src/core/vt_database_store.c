@@ -7,7 +7,7 @@ void storeinflash(VT_DATABASE* database_ptr, uint32_t* fallcurvearray,int sampli
 
 
 
-uint vt_database_store(VT_DATABASE* database_ptr, uint32_t* fallcurvearray, int sampling_frequency, int sensorid)
+uint32_t  vt_database_store(VT_DATABASE* database_ptr, uint32_t* fallcurvearray, int sampling_frequency, int sensorid)
 {
     int falltime;
     double pearson_coefficient;
@@ -17,8 +17,9 @@ uint vt_database_store(VT_DATABASE* database_ptr, uint32_t* fallcurvearray, int 
         _vt_database_store_falltime(database_ptr, falltime, sensorid);
         _vt_database_store_pearsoncoefficient(database_ptr, pearson_coefficient, sensorid);
 
-        if (database_ptr->vt_flash_address != 0x00)
+        if (database_ptr->vt_flash_address != 0x00){
             storeinflash(database_ptr, fallcurvearray, sampling_frequency, sensorid);
+        }
 
         return VT_SUCCESS;
     }
@@ -27,10 +28,11 @@ uint vt_database_store(VT_DATABASE* database_ptr, uint32_t* fallcurvearray, int 
 }
 
 
-uint _vt_database_store_fingerprint(VT_DATABASE* database_ptr, uint32_t* fallcurvearray,int sampling_frequency, int sensorid)
+uint32_t  _vt_database_store_fingerprint(VT_DATABASE* database_ptr, uint32_t* fallcurvearray,int sampling_frequency, int sensorid)
 {
-    if (database_ptr == NULL)
+    if (database_ptr == NULL){
         return (VT_PTR_ERROR);
+    }
 
     *(*(database_ptr->_vt_fingerprintdb + database_ptr->_vt_total_fingerprints) + 0) = sensorid;
     *(*(database_ptr->_vt_fingerprintdb + database_ptr->_vt_total_fingerprints) + 1) = sampling_frequency;
@@ -40,7 +42,7 @@ uint _vt_database_store_fingerprint(VT_DATABASE* database_ptr, uint32_t* fallcur
     return VT_SUCCESS;
 }
 
-uint _vt_database_store_falltime(VT_DATABASE* database_ptr, int fall_time, int sensorid)
+uint32_t  _vt_database_store_falltime(VT_DATABASE* database_ptr, int fall_time, int sensorid)
 {
     int i;
 
@@ -62,7 +64,7 @@ uint _vt_database_store_falltime(VT_DATABASE* database_ptr, int fall_time, int s
     return VT_SUCCESS;
 }
 
-uint _vt_database_store_pearsoncoefficient(VT_DATABASE* database_ptr, double pearson_coefficient, int sensorid)
+uint32_t  _vt_database_store_pearsoncoefficient(VT_DATABASE* database_ptr, double pearson_coefficient, int sensorid)
 {
     int i;
 
