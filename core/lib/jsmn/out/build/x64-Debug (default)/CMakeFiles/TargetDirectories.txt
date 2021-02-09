@@ -1,3 +1,0 @@
-C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn/out/build/x64-Debug (default)/CMakeFiles/jsmn.dir
-C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn/out/build/x64-Debug (default)/CMakeFiles/edit_cache.dir
-C:/Repos/Github-Verified-Telemetry-Device-Sample/core/lib/jsmn/out/build/x64-Debug (default)/CMakeFiles/rebuild_cache.dir

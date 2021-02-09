@@ -11,9 +11,13 @@ on:
 jobs:
   markdown-link-check:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-    - uses: gaurav-nelson/github-action-markdown-link-check@v1
-      with:
-        use-quiet-mode: 'yes'
-        max-depth: 3
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.VT_ACCESS_TOKEN }}
+
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          max-depth: 3

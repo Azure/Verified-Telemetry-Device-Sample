@@ -22,7 +22,7 @@ set(VT_DEVICE "STM_BL475EIOT01A")
 # Core libraries
 add_subdirectory(${CORE_LIB_DIR}/threadx threadx)
 add_subdirectory(${CORE_LIB_DIR}/jsmn jsmn)
-add_subdirectory(${CORE_LIB_DIR}/verified-telemetry verified_telemetry)
+add_subdirectory(${CORE_LIB_DIR}/Verified-Telemetry verified_telemetry)
 
 # Using a local copy of NetXDuo that has been customized for this boards WiFi module
 add_subdirectory(netxduo)

@@ -21,6 +21,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
+          token: ${{ secrets.VT_ACCESS_TOKEN }}
           submodules: recursive
 
       - name: arm-none-eabi-gcc
