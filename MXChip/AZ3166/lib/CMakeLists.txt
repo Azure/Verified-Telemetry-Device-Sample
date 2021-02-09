@@ -13,8 +13,8 @@ set(NX_USER_FILE "${CMAKE_CURRENT_LIST_DIR}/netxduo/nx_user.h" CACHE STRING "Ena
 set(NXD_ENABLE_AZURE_IOT ON CACHE BOOL "Enable Azure IoT")
 set(NXD_ENABLE_FILE_SERVERS OFF CACHE BOOL "Disable fileX dependency by netxduo")
 
-# Enable security module
-set(NX_AZURE_DISABLE_IOT_SECURITY_MODULE OFF CACHE BOOL "Security Module")
+# Disable security module
+set(NX_AZURE_DISABLE_IOT_SECURITY_MODULE ON CACHE BOOL "Security Module")
 
 # Select Hardware for Verified Telemetry
 set(VT_DEVICE "MXCHIP_AZ3166")
