@@ -1,4 +1,6 @@
-/* Copyright (c) Microsoft Corporation.*/
+/* Copyright (c) Microsoft Corporation.
+   Licensed under the MIT License. */
+
 #include <stdio.h>
 
 #include "nx_api.h"
@@ -18,7 +20,6 @@
 /* Verified Telemetry */
 #include "pnp_verified_telemetry.h"
 #include "pnp_middleware_helper.h"
-
 #include "sample_pnp_verified_telemetry_init.h"
 
 #ifndef SAMPLE_MAX_EXPONENTIAL_BACKOFF_IN_SEC
@@ -133,7 +134,7 @@ static UINT exponential_retry_count;
 
 
 static SAMPLE_PNP_DEVICE_COMPONENT sample_device;
-static const CHAR sample_device_component[] = "device";
+static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported; 
 static UINT sample_device_properties_sent = 0;
 

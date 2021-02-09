@@ -33,7 +33,7 @@ TODO`s: Configure core settings of application for your IoTHub.
 // Azure IoT Dynamic Provisioning Service
 // Define this to use the DPS service, otherwise direct IoT Hub
 // ----------------------------------------------------------------------------
-#define ENABLE_DPS
+// #define ENABLE_DPS
 
 #ifndef ENABLE_DPS
 
@@ -43,7 +43,7 @@ TODO`s: Configure core settings of application for your IoTHub.
    IOT_DEVICE_ID can be set to <device1>,
    DEVICE_SYMMETRIC_KEY can be set to <key1>.  */
 #ifndef IOT_HUB_HOSTNAME
-#define IOT_HUB_HOSTNAME                                   ""
+#define IOT_HUB_HOSTNAME                                   "AzureRtosPnP.azure-devices.net"
 #endif /* IOT_HOST_NAME */
 
 #ifndef IOT_DEVICE_ID
