@@ -4,21 +4,25 @@
 
 # Getting Started with Verified Telemetry with Azure RTOS and Azure IoT
 
-These Getting Started guides shows device developers how to include Verified Telemetry with Azure IoT on Azure RTOS. 
+## Getting Started Guides
+
+These Getting Started guides shows device developers how to include Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/).
 
 * MXCHIP: 
   * [AZ3166](MXChip/AZ3166)
-* STMicroelectronics: 
+* STMicroelectronics:
   * [B-L475E-IOT01A](STMicroelectronics/STM32L4_L4+)
   * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
-# [Verified Telemetry Library](https://github.com/Azure/Verified-Telemetry)
-- Verified Telemetry is a state-of-the-art solution to determine the working of the sensor, i.e., working or faulty, consequently used to determine the quality of the sensed data. 
-- This is achieved by devising an intelligent fingerprint for a sensor to determine the status of the sensor.  
-- The sensor fingerprint captures electrical properties of the sensor such as voltage and current using seamless software code running on the IoT device. 
+## Verified Telemetry
+Verified Telemetry is a state-of-the-art solution to determine the functioning state of a device sensor, working or faulty.
 
-# Solution Template
-We have built a [sample solution template](https://github.com/Azure/Verified-Telemetry-Solution-Sample) which uses Grafana, InfluxDB and a Node.js backend to communicate with Azure IoT Hub and showcase how the Verified Telemetry features can be utilised in real world scenarios.
+This is achieved by collecting an intelligent fingerprint for the sensor, and measuring future variance from this fingerprint to imply the sensors status.
 
-# PnP Model Files for Verified Telemetry
-PnP model files of common Verified Telemetry like [Verified Telemetry Information Interface](core/model/vTInfo.json) would be published soon in the Azure PnP model repo.
+The fingerprint captures electrical properties of the sensor, such as voltage and current, using the Verified Telemetry Device SDK integrated directly on the IoT device.
+
+|Component |Description |
+|-|-|
+|[Verified Telemetry Device SDK](https://github.com/Azure/Verified-Telemetry) |The SDK which builds on the Azure RTOS middleware |
+|[Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample) |These Getting Started guides shows device developers how to combine Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/). |
+|[Verified Telemetry Solution Sample](https://github.com/Azure/Verified-Telemetry-Solution-Sample) | Uses InfluxDB, Grafana and the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) to communicate with [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) and showcase how the Verified Telemetry features can be utilized in real world scenarios.|
