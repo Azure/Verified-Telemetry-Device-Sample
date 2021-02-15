@@ -185,8 +185,10 @@ Refer to the table below to connect the two sensors: [ADXL335](https://www.spark
 |---------------|----------------------|-----------------------------|------------|
 | ADXL335       | X Axis analog output | PC0                           | A5        |
 | ADXL335       | VCC                  | PB8                           | D15       |
+| ADXL335       | GND                  | GND                           | GND       |
 | Soil Moisture | Analog Out           | PC1                           | A4        |
 | Soil Moisture | VCC                  | PB9                          | D14        |
+| Soil Moisture | GND                  | GND                          | GND        |
 
 ### Confirm device connection details
 
