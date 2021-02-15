@@ -24,7 +24,7 @@ The Getting Started guides shows device developers how to include Verified Telem
   * [B-L475E-IOT01A](STMicroelectronics/STM32L4_L4+)
   * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
-Note: Verified Telemetry status is supported only to analog sensors. We are currently working on extending the SDK to support digital sensors. 
+  > Note: Verified Telemetry status is supported only to analog sensors. We are currently working on extending the SDK to support digital sensors. 
 
 ## License
-The Azure Verified Telemetry Getting Started guides are licensed under the [MIT] license. 
+The Azure Verified Telemetry Getting Started guides are licensed under the [MIT](./LICENSE.txt) license. 
