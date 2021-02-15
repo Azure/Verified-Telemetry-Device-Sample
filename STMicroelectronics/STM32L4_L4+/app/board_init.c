@@ -19,6 +19,7 @@
 
 UART_HandleTypeDef UartHandle;
 ADC_HandleTypeDef hadc1;
+TIM_HandleTypeDef htim7;
 RTC_HandleTypeDef RtcHandle;
 TIM_HandleTypeDef TimCCHandle;
 extern SPI_HandleTypeDef hspi;
@@ -32,7 +33,7 @@ static uint32_t t_TIM_CC1_Pulse;
 #define DEFAULT_TIM_CC1_PULSE 4000
 
 // Defines related to Clock configuration
-#define RTC_ASYNCH_PREDIV 0x7F   // LSE as RTC clock
+#define RTC_ASYNCH_PREDIV 0x7F // LSE as RTC clock
 #define RTC_SYNCH_PREDIV  0x00FF // LSE as RTC clock
 
 #define REG32(x) (*(volatile unsigned int*)(x))
@@ -308,6 +309,16 @@ static void InitTimers(void)
     {
         STM32_Error_Handler();
     }
+
+    htim7.Instance               = TIM7;
+    htim7.Init.Prescaler         = 80-1;
+    htim7.Init.CounterMode       = TIM_COUNTERMODE_UP;
+    htim7.Init.Period            = 65535;
+    htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+    if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
+    {
+        STM32_Error_Handler();
+    }
 }
 
 /**
@@ -481,6 +492,6 @@ static void MX_GPIO_Init(void)
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
 
     /*Configure GPIO pin : PB8 */
-    GPIO_InitStruct.Pin   = GPIO_PIN_9;
+    GPIO_InitStruct.Pin = GPIO_PIN_9;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
