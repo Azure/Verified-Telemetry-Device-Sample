@@ -617,23 +617,8 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT *pnp_client_
                                                                          &component_ptr, &component_len,
                                                                          &name_value_reader) == NX_AZURE_IOT_SUCCESS)
     {
-        if (pnp_vt_process_reported_property_sync(verified_telemetry_DB, pnp_client_ptr,
-                                                        component_ptr, component_len,
-                                                        &name_value_reader, version)== NX_AZURE_IOT_SUCCESS)
-        {
-            printf("property synced on one of the Verified Telemetry components\r\n");
-        }
-        else
-        {
-            if (component_ptr)
-            {
-                printf("Component=%.*s is not implemented by the Device\r\n", component_len, component_ptr);
-            }
-            else
-            {
-                printf("Root component is not implemented by the Device\r\n");
-            }
-        }
+        pnp_vt_process_reported_property_sync(
+                verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version);
     }
 }
 

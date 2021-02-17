@@ -267,7 +267,7 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT *handle, NX_AZ
     }
 
     nx_azure_iot_json_writer_deinit(&json_writer);
-    printf("Component %.*s Telemetry message send: %.*s.\r\n", handle -> component_name_length,
+    printf("Component %.*s Telemetry message send: %.*s.\r\n\n", handle -> component_name_length,
            handle -> component_name_ptr, buffer_length, scratch_buffer);
 
     return(status);
