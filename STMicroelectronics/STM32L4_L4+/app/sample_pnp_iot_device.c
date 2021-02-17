@@ -566,9 +566,6 @@ static VOID sample_command_action(SAMPLE_CONTEXT* sample_context_ptr)
                   &json_writer,
                   &status_code)) == NX_AZURE_IOT_SUCCESS)
     {
-        printf("Successfully executed command %.*s on of the Verified Telemetry components\r\n",
-            pnp_command_name_length,
-            pnp_command_name_ptr);
         response_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
     }
     else
@@ -611,7 +608,7 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
                 verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version) ==
             NX_AZURE_IOT_SUCCESS)
         {
-            printf("property updated on one of the Verified Telemetry components\r\n");
+            printf("Verified Telemetry Property updated\r\n\n");
         }
         else
         {

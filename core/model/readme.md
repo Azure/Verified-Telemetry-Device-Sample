@@ -7,7 +7,7 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](./v
 | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
 | **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
 | **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
-| **Commands** | `resetFingerprintTemplate` | This command will reset the template fingerprint |
+| **Commands** | `setResetFingerprintTemplate` | This command will reset the template fingerprint |
 | **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
 
 ## [Getting started guide](./gsg.json) interface has the following components:
