@@ -342,7 +342,7 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](../
 | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
 | **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
 | **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in CSV string. |
-| **Commands** | `resetFingerprintTemplate` | This command will reset the template fingerprint |
+| **Commands** | `setResetFingerprintTemplate` | This command will reset the template fingerprint |
 
 ##Steps to setup Verified Telemetry components vTsoilMoistureExternal and vTaccelerometerXExternal ***Verified Telemetry***
 
@@ -350,11 +350,11 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](../
 
     ![Setting enableVerifiedTelemetry true ](media/azure-iot-explorer-enableVT.png)
 
-* Issue command `resetFingerprintTemplate` in the vTsoilMoistureExternal component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal'
+* Issue command `setResetFingerprintTemplate` in the vTsoilMoistureExternal component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal'
 
     ![Issue command to setup VT for telemetry soilMoistureExternal](media/azure-iot-explorer-resetSM.png)
 
-* Issue command `resetFingerprintTemplate` in the vTaccelerometerXExternal component for setting up Verified Telemetry for the telemetry named 'accelerometerXExternal'
+* Issue command `setResetFingerprintTemplate` in the vTaccelerometerXExternal component for setting up Verified Telemetry for the telemetry named 'accelerometerXExternal'
 
     ![Issue command to setup VT for telemetry accelerometerXExternal](media/azure-iot-explorer-resetAcc.png)
 

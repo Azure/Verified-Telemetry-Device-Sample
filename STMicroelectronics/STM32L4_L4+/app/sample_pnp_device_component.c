@@ -120,7 +120,7 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
         return (NX_NOT_SUCCESSFUL);
     }
 
-    UINT soilMoistureADCData  = adc_read(&hadc1, ADC_CHANNEL_2);
+    UINT soilMoistureADCData = adc_read(&hadc1, ADC_CHANNEL_2);
     UINT accelerometerADCData = adc_read(&hadc1, ADC_CHANNEL_1);
 
     float temperature = BSP_TSENSOR_ReadTemp();
@@ -277,11 +277,8 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     nx_azure_iot_json_writer_deinit(&json_writer);
-    printf("Component %.*s Telemetry message send: %.*s.\r\n",
-        handle->component_name_length,
-        handle->component_name_ptr,
-        buffer_length,
-        scratch_buffer);
+    printf("Component %.*s Telemetry message send: %.*s.\r\n\n", handle -> component_name_length,
+           handle -> component_name_ptr, buffer_length, scratch_buffer);
 
     return (status);
 }
