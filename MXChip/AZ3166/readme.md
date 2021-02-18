@@ -313,8 +313,10 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](../
 |---|---|---|
 | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
 | **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
-| **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in CSV string. |
+| **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
+| **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
 | **Commands** | `setResetFingerprintTemplate` | This command will reset the template fingerprint |
+| **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
 
 ##Steps to setup Verified Telemetry components vTsoilMoistureExternal and vTaccelerometerXExternal ***Verified Telemetry***
 
