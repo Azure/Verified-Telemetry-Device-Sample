@@ -120,8 +120,8 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
         return (NX_NOT_SUCCESSFUL);
     }
 
-    UINT soilMoistureADCData = adc_read(&hadc1, ADC_CHANNEL_2);
-    UINT accelerometerADCData = adc_read(&hadc1, ADC_CHANNEL_1);
+    UINT soilMoistureADCData = adc_read(&hadc1, ADC_CHANNEL_1);
+    UINT accelerometerADCData = adc_read(&hadc1, ADC_CHANNEL_2);
 
     float temperature = BSP_TSENSOR_ReadTemp();
     float humidity    = BSP_HSENSOR_ReadHumidity();

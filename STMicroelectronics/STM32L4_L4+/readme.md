@@ -177,7 +177,7 @@ After the build completes, confirm that two binary files were created. There's a
 
     > Note: During the flashing process, a LED rapidly toggles between red and green on the STM DevKit.
 
-### Conect Sensors         ***Verified Telemetry***
+### Connect Sensors         ***Verified Telemetry***
 
 Refer to the table and image below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
 
