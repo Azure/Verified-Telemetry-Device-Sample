@@ -179,16 +179,19 @@ After the build completes, confirm that two binary files were created. There's a
 
 ### Conect Sensors         ***Verified Telemetry***
 
-Refer to the table below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
+Refer to the table and image below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
 
 | Sensor Name   | Sensor Pin           | MCU Pin | Devkit Pin |
 |---------------|----------------------|-----------------------------|------------|
-| ADXL335       | X Axis analog output | PC0                           | A5        |
+| ADXL335       | X Axis analog output | PC1                           | A4        |
 | ADXL335       | VCC                  | PB8                           | D15       |
 | ADXL335       | GND                  | GND                           | GND       |
-| Soil Moisture | Analog Out           | PC1                           | A4        |
+| Soil Moisture | Analog Out           | PC0                           | A5        |
 | Soil Moisture | VCC                  | PB9                          | D14        |
 | Soil Moisture | GND                  | GND                          | GND        |
+
+
+![B-L475E-IOT01A Sensor Connections](media/B-L475E-IOT01A_sensor_connections.png)
 
 ### Confirm device connection details
 
