@@ -3,20 +3,26 @@
 ![](https://github.com/Azure/Verified-Telemetry-Device-Sample/workflows/STM32L4_L4+/badge.svg)
 
 # Getting Started with Verified Telemetry, Azure RTOS and Azure IoT
+## Table of Contents
 
-## Verified Telemetry
-Verified Telemetry (VT) is a state-of-the-art solution to determine the health of the sensor, i.e., working or faulty, which is consequently used to determine the quality of the sensed data. This is achieved by devising an intelligent “sensor fingerprint”, a set of unique electrical characteristics that differs between working and faulty sensors. The fingerprints can detect faults for a wide variety of off-the-shelf sensors and can be easily implemented with lightweight software code running on the IoT device.
+* [Verified Telemetry Overview](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prerequisites)
+* [Links to board specific Device Samples](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-the-development-environment)
+* [Verified Telemetry Concepts](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-azure-resources)
+* [Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#connect-sensors-for-verified-telemetry)
+* [Steps to setup Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-and-flash-firmware)
+## Verified Telemetry Overview
+Verified Telemetry (VT) is a state-of-the-art solution to determine the health of the sensor, i.e., working or faulty, which is consequently used to determine the quality of the sensed data. This is achieved by devising an intelligent “sensor fingerprint”, a set of unique electrical characteristics that differs between working and faulty sensors. The fingerprints can detect faults for a wide variety of off-the-shelf sensors and can be easily implemented with lightweight software code running on the IoT device. 
 
 
 | |Description |
 |-|-|
 |[Verified Telemetry Device SDK](https://github.com/Azure/Verified-Telemetry) |The SDK which builds on the Azure RTOS middleware |
 |[Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample) |These Getting Started guides shows device developers how to combine Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/). |
-|[Verified Telemetry Solution Sample](https://github.com/Azure/Verified-Telemetry-Solution-Sample) | Uses InfluxDB, Grafana and the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) to communicate with [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) and showcase how the Verified Telemetry features can be utilized in real world scenarios.|
+|[Verified Telemetry Custom Solution Sample](https://github.com/Azure/Verified-Telemetry-Solution-Sample) | Uses InfluxDB, Grafana and the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) to communicate with [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) and showcase how the Verified Telemetry features can be utilized in real world scenarios.|
 
-## Getting Started Guides
+## Links to board specific Device Samples
 
-The Getting Started guides shows device developers how to include Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/). Please find the following board specific guides:
+The device samples shows device developers how to include Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/). Please find the following board specific guides:
 
 * MXCHIP: 
   * [AZ3166](MXChip/AZ3166)
@@ -25,6 +31,81 @@ The Getting Started guides shows device developers how to include Verified Telem
   * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
   > Note: Verified Telemetry status is supported only to analog sensors. We are currently working on extending the SDK to support digital sensors. 
+
+## Verified Telemetry Concepts
+A few key concepts are introduced and discussed below
+
+### Sensor Fingerprint
+
+* Sensor Fingerprint is an electrical characteristic that is measured by the IoT device for a particular sensor
+* The Sensor fingerprint of a working sensor differs from that of a sensor with fault
+
+### Sensor Fingerprint Template
+
+* Sensor fingerprint template is a fingerprint of a working sensor
+* The fingerprint template is collected by the IoT device and stored locally and in the Digital Twin
+
+### Sensor Fingerprint Collection
+* Sensor Fingerprint Collection is a process where the IoT device measures the fingerprint of a sensor
+* In the device samples, sensor fingerprint is collected at the same frequency at which telemetry is sent by the IoT device 
+
+### Sensor Fingerprint Evaluation
+* A sensor fingerprint that is collected is then compared with the stored sensor fingerprint template
+* If the collected fingeprint matches with the sensor fingerprint template, the sensor is classified as WORKING, otherwise FAULTY
+
+### Telemetry Status
+* The telemetry status of the telemetry that is generated by the sensor is tagged "true" if the sensor is working and "false" if the sensor has a fault
+* The telemetry status for each telemetry that supports Verified Telemetry feature exists as a non-writable property in the Digital Twin
+
+### Fingerprint Template Syncronization at Boot
+* If the sensor fingerprint template exists in the Digital Twin, it is fetched and updated on the device when the device boots/resets
+* If the sensor fingerprint template does not exist in the Digital Twin, the template on device remains empty after boot and subsequent sensor fingerprint evaluation cannot be performed
+
+### Verified Telmetry Interface
+The PnP interface of Verified Telemetry is defined in [Verified Telemetry Information](./core/model/vTInfo.json).
+
+| Type | Name | Description |
+|---|---|---|
+| **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
+| **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
+| **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
+| **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
+| **Commands** | `setResetFingerprintTemplate` | This command will set/reset the template fingerprint |
+| **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
+
+## Verified Telemetry Device Sample
+* The device samples showcase how to setup a device using the sample code which supports Verified Telmetry
+* The samples include a device component of the following interface - 
+    | Tab | Type | Name | Description |
+    |---|---|---|---|
+    | **Interface** | Interface | `Sample Device` | Example standard Device Model for getting started with Verified Telemetry/Dependable IoT Guide |
+    | **Properties (read-only)** | Property | `ledState` | The current state of the LED |
+    | **Commands** | Command | `setLedState` | Enable or disable the LED |
+    | **Telemetry** | Telemetry | `soilMoistureExternal`, `accelerometerXExternal`, `temperature`, `pressure`, `humidityPercentage`, `acceleration`, `magnetic` | Telemetries originating from various onboard and external sensors |
+* The following telemetries support Verified Telemetry:
+    1. soilMoistureExternal
+    1. accelerometerXExternal
+* For each of these telemetries there exists a component which implements the [Verified Telemetry Information](./core/model/vTInfo.json) Interface
+    | Telemetry | Component Name | 
+    |---|---|
+    | soilMoistureExternal | vTsoilMoistureExternal | 
+    | accelerometerXExternal | vTaccelerometerXExternal | 
+* The 'telemetryStatus' property present inside each of these components represents whether the respective telemetry is verified or has a fault.
+* The 'enableVerifiedTelemetry' property controls whether Fingerprint Collection and Evaluation is implemented or not. When this property is set to 'false', Telemetry Verification cannot be performed. 
+
+## Steps to setup end-to-end Verified Telemetry demo
+
+1. Setup one of the board specific device samples: 
+    * MXCHIP: 
+      * [AZ3166](MXChip/AZ3166)
+    * STMicroelectronics:
+      * [B-L475E-IOT01A](STMicroelectronics/STM32L4_L4+)
+      * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
+
+1. To understand how to interact and consume Verified Telemetry information, refer to one of the following guides - 
+    * Interact with Verified Telemetry using [Azure IoT Explorer Sample](docs/vTIoTExplorerSample.md) 
+    * Interact with Verified Telemetry using our [custom Solution Sample Template](https://github.com/Azure/Verified-Telemetry-Solution-Sample) which uses a Grafana Dashboard
+
 
 ## License
 The Azure Verified Telemetry Getting Started guides are licensed under the [MIT](./LICENSE.txt) license. 

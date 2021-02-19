@@ -282,6 +282,6 @@ You can use the **Termite** utility to monitor communication and confirm that yo
 ## Next Steps ***Verified Telemetry***
 * With this sample, you have now setup Verified Telemetry device sample on STM Devkit
 * To understand how to interact and consume Verified Telemetry components, refer to one of the following guides - 
-    * Interact with Verified Telemetry using [Azure IoT Explorer Sample](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) 
-    * Interact with Verified Telemetry using our [custom Solution Sample Template](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) which uses a Grafana Dashboard
-* For steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry)
+    * Interact with Verified Telemetry using [Azure IoT Explorer Sample]([Azure IoT Explorer Sample](../../docs/vTIoTExplorerSample.md) ) 
+    * Interact with Verified Telemetry using our [custom Solution Sample Template](https://github.com/Azure/Verified-Telemetry-Solution-Sample) which uses a Grafana Dashboard
+* For steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://github.com/Azure/Verified-Telemetry)
