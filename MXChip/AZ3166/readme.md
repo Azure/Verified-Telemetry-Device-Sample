@@ -1,9 +1,27 @@
 # Getting started with the MXChip AZ3166 IoT DevKit for Verified Telemetry
+**Total completion time**:  30 minutes
+
+In this tutorial you use Verified Telemetry and Azure RTOS to connect the MXChip AZ3166 IoT DevKit (hereafter, the MXChip DevKit) to Azure IoT and provide the feature of Telemetry Verification to two telemetries. 
+
+You will complete the following tasks:
+
+* Install a set of embedded development tools for programming the MXChip DevKit in C
+* Connect two external sensors whose telemetry would be supported by Verified Telemetry feature
+* Build an image and flash it onto the MXChip DevKit
+## Table of Contents
+
+* [Prerequisites](https://github.com/Azure/Verified-Telemetry#architecture)
+* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry#file-structure)
+* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry#dependencies)
+* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry#samples)
+* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry#samples)
+* [Next Steps](https://github.com/Azure/Verified-Telemetry#samples)
 
 ## Prerequisites
 
-* A PC running Microsoft Windows (Windows 10 recommended)
+* A PC running Microsoft Windows 10
 * If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
     > * The [MXChip AZ3166 IoT DevKit](https://aka.ms/iot-devkit) (MXChip DevKit)
@@ -128,21 +146,42 @@ Confirm that you have the copied the following values from the JSON output to us
 > * `deviceId`
 > * `primaryKey`
 
-## Prepare the device
+## Connect Sensors for Verified Telemetry
+This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to MXChip Devkit
+* Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     ***Verified Telemetry***
 
+* Connect Sensors         ***Verified Telemetry***
+
+    Refer to the table and images below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
+
+    | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
+    |---------------|----------------------|-----------------------------|------------|
+    | ADXL335       | X Axis analog output | 4                           | PA5        |
+    | ADXL335       | VCC                  | 8                           | PC13       |
+    | ADXL335       | GND                  | GND                           | GND       |
+    | Soil Moisture | Analog Out           | 0                           | PB0        |
+    | Soil Moisture | VCC                  | 12                          | PB2        |
+    | Soil Moisture | GND                  | GND                          | GND        |
+
+    ![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
+
+## Prepare and Flash Firmware
 To connect the MXChip DevKit to Azure, you'll modify a configuration file for Wi-Fi and Azure IoT settings, rebuild the image, and flash the image to the device.
 
 ### Add configuration
+1. Open the following file in a text editor:
 
-1. In a text editor, edit the file *getting-started\MXChip\AZ3166\app\azure_config.h* to set the Wi-Fi constants to the following values from your local environment.
+    > *Verified-Telemetry-Device-Sample\MXChip\AZ3166\app\azure_config.h*
+
+1. Set the Wi-Fi constants to the following values from your local environment.
 
     |Constant name|Value|
     |-------------|-----|
     |`WIFI_SSID` |{*Your Wi-Fi ssid*}|
     |`WIFI_PASSWORD` |{*Your Wi-Fi password*}|
-    |`WIFI_MODE` |{*Your Wi-Fi security type*}|
+    |`WIFI_MODE` |{*One of the enumerated Wi-Fi mode values in the file.*}|
 
-1. Edit the same file to set the Azure IoT device information constants to the values that you saved after you created Azure resources.
+1. Set the Azure IoT device information constants to the values that you saved after you created Azure resources.
 
     |Constant name|Value|
     |-------------|-----|
@@ -150,15 +189,17 @@ To connect the MXChip DevKit to Azure, you'll modify a configuration file for Wi
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
     |`IOT_PRIMARY_KEY` |{*Your primaryKey value*}|
 
+1. Save and close the file.
+
 ### Build the image
 
 In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:
 
-> *getting-started\MXChip\AZ3166\tools\rebuild.bat*
+> *Verified-Telemetry-Device-Sample\MXChip\AZ3166\tools\rebuild.bat*
 
 After the build completes, confirm that the binary files were created in the following path:
 
-> *getting-started\MXChip/AZ3166\build\app\mxchip_azure_iot.bin*
+> *Verified-Telemetry-Device-Sample\MXChip/AZ3166\build\app\mxchip_azure_iot.bin*
 
 ### Flash the image
 
@@ -174,184 +215,67 @@ After the build completes, confirm that the binary files were created in the fol
 
     > Note: During the flashing process, the RED LED toggled on MXChip DevKit. The process completes in a few seconds without further notification.
 
-### Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     ***Verified Telemetry***
-
-### Connect Sensors         ***Verified Telemetry***
-
-Refer to the table and images below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
-
-| Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
-|---------------|----------------------|-----------------------------|------------|
-| ADXL335       | X Axis analog output | 4                           | PA5        |
-| ADXL335       | VCC                  | 8                           | PC13       |
-| ADXL335       | GND                  | GND                           | GND       |
-| Soil Moisture | Analog Out           | 0                           | PB0        |
-| Soil Moisture | VCC                  | 12                          | PB2        |
-| Soil Moisture | GND                  | GND                          | GND        |
-
-![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
-
 ### Confirm device connection details
-
 You can use the **Termite** utility to monitor communication and confirm that your device is set up correctly.
 > Note: If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](../../docs/troubleshooting.md).
-
-1. Open Device Manager and find the COM port for the MXChip IoT DevKit.
-
-    ![COM Port](./media/com_port.png)
 
 1. Start **Termite**.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
-
     * **Baud rate**: 115,200
-    * **Data bits**: 8
-    * **Stop bits**: 1
+    * **Port**: The port that your MXChip DevKit is connected to. If there are multiple port options in the dropdown, you can find the correct port to use. Open Windows **Device Manager**, and view **Ports** to identify which port to use.
 
-    ![Termite](./media/termite-settings.png)
-
+    ![Termite settings](media/termite-settings.png)
 1. Select OK.
+1. Press the **Reset** button on the device. The button is black and is labeled on the device.
+1. In the **Termite** console, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
 
-    Now you can view the terminal output. The MXChip DevKit provides initialization messages about your connection and key protocols, and then publishes telemetry from the sensors on the device.
+    ```output
+    Starting Azure thread
 
-    ![Termite](./media/termite.png)
+    Initializing WiFi
+        Connecting to SSID 'XXX'
+    SUCCESS: WiFi connected to XXX
 
-## Setup Azure IoT Hub details in Azure IoT Explorer
+    Initializing DHCP
+        IP address: 192.168.0.2
+        Mask: 255.255.255.0
+        Gateway: 192.168.0.1
+    SUCCESS: DHCP initialized
 
+    Initializing DNS client
+        DNS address: 116.72.253.254
+    SUCCESS: DNS client initialized
 
-To add a connection to your IoT hub:
+    Initializing SNTP client
+        SNTP server 0.pool.ntp.org
+        SNTP IP address: 80.249.145.122
+        SNTP time update: Feb 18, 2021 21:7:34.812 UTC 
+    SUCCESS: SNTP initialized
 
-1. In your CLI console, run the [az iot hub show-connection-string](https://docs.microsoft.com/en-us/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-show-connection-string) command to get the connection string for your IoT hub.
+    IoTHub Host Name: XXX.azure-devices.net; Device ID: MyMXChipDevice.
+    Connected to IoTHub.
+    Component sampleDevice Telemetry message send: {"soilMoistureExternal":2542,"accelerometerXExternal":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
 
-    ```shell
-    az iot hub show-connection-string --name {YourIoTHubName}
+    Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
+    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+
+    Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
+    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+
+    Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
+    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+
+    Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
+    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+
+    Received all properties
+
     ```
-
-1. Copy the connection string without the surrounding quotation characters.
-1. In Azure IoT Explorer, select **IoT hubs > Add connection**.
-1. Paste the connection string into the **Connection string** box.
-1. Select **Save**.
-
-    ![Azure IoT Explorer connection string](media/azure-iot-explorer-create-connection.png)
-
-If the connection succeeds, the Azure IoT Explorer switches to a **Devices** view and lists your device.
-
-## Add PnP Model Files  ***Verified Telemetry***
-
-To add a device model to IoT Explorer:
-
-1. Navigate to **Home**.
-1. Select **IoT Plug and Play Settings**.
-1. Select **Add > Local folder**.
-1. Select **Pick a folder**.
-1. Browse to */verified-telemetry-device-sample/core/model/*. The folder contains the Verified Telemetry Interface and sample model files.
-1. Click **Select**.
-1. Select **Save**.
-
-    ![Azure IoT Explorer add device model](media/azure-iot-explorer-PnPModelPath.png)
-
-## Access the IoT Plug and Play components ***Verified Telemetry***
-
-To access the IoT Plug and Play components on your device:
-
-1. Select **IoT hubs > View devices in this hub**.
-1. Select your device.
-1. Select **IoT Plug and Play components**.
-
-    ![Azure IoT Explorer Plug and Play components](media/azure-iot-explorer-Components.png)
-
-## Sample Device component  ***Verified Telemetry***
-
-The [Device Sensors Interface](../../core/model/sample/device.json) contains telemetries, properties and commands for the demo device.
-
-| Tab | Type | Name | Description |
-|---|---|---|---|
-| **Interface** | Interface | `Sample Device` | Example standard Device Model for getting started with Verified Telemetry/Dependable IoT Guide |
-| **Properties (read-only)** | Property | `ledState` | The current state of the LED |
-| **Commands** | Command | `setLedState` | Enable or disable the LED |
-| **Telemetry** | Telemetry | `soilMoistureExternal`, `accelerometerXExternal`, `temperature`, `pressure`, `humidityPercentage`, `acceleration`, `magnetic` | Telemetries originating from various onboard and external sensors |
-
-### View Telemetry from Device component ***Verified Telemetry***
-
-To view telemetry from Sample Device component:
-
-1. Select the **Telemetry** tab.
-1. Select **Start**.  IoT Explorer displays telemetry using the interval set in device code.
-
-    ```json
-    6:50:36 PM, 11/20/2020:
-    {
-    "body": {
-        "soilMoistureExternal": 312,
-        "accelerometerXExternal": 1981,
-        "temperature": 30.93,
-        "pressure": 952.8,
-        "humidityPercentage": 88.17,
-        "acceleration": -5.06,
-        "magnetic": 12
-    },
-    "enqueuedTime": "2020-11-20T13:20:36.189Z",
-    "properties": {}
-    }
-    6:50:29 PM, 11/20/2020:
-    {
-    "body": {
-        "soilMoistureExternal": 313,
-        "accelerometerXExternal": 1977,
-        "temperature": 30.92,
-        "pressure": 952.76,
-        "humidityPercentage": 88.19,
-        "acceleration": -5,
-        "magnetic": 25.5
-    },
-    "enqueuedTime": "2020-11-20T13:20:29.281Z",
-    "properties": {}
-    }
-    ```
-## Verified Telemetry Information Interface ***Verified Telemetry***
-The main interface of Verified Telemetry is [Verified Telemetry Information](../../core/model/vTInfo.json).
-
-| Type | Name | Description |
-|---|---|---|
-| **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
-| **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
-| **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
-| **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
-| **Commands** | `setResetFingerprintTemplate` | This command will reset the template fingerprint |
-| **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
-
-##Steps to setup Verified Telemetry components vTsoilMoistureExternal and vTaccelerometerXExternal ***Verified Telemetry***
-
-* Ensure `enableVerifiedTelemetry` from the root/default component is true
-
-    ![Setting enableVerifiedTelemetry true ](media/azure-iot-explorer-enableVT.png)
-
-* Issue command `setResetFingerprintTemplate` in the vTsoilMoistureExternal component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal'
-
-    ![Issue command to setup VT for telemetry soilMoistureExternal](media/azure-iot-explorer-resetSM.png)
-
-* Issue command `setResetFingerprintTemplate` in the vTaccelerometerXExternal component for setting up Verified Telemetry for the telemetry named 'accelerometerXExternal'
-
-    ![Issue command to setup VT for telemetry accelerometerXExternal](media/azure-iot-explorer-resetAcc.png)
-
-## Consuming Verified Telemetry Information  ***Verified Telemetry***
-* The property `deviceStatus` from the root/default component indicates whether all the telemetries supported by Verified Telemetry are working or not
-
-    ![Checking deviceStatus ](media/azure-iot-explorer-OverallStatus.png)
-
-* The property `telemetryStatus` in the vTsoilMoistureExternal component indicates whether the telemetry'soilMoistureExternal' is correct or not
-
-    ![Checking telemetryStatus for telemetry soilMoistureExternal](media/azure-iot-explorer-SMStatus.png)
-
-* The property `telemetryStatus` in the vTaccelerometerXExternal component indicates whether the telemetry'accelerometerXExternal' is correct or not
-
-    ![Checking telemetryStatus for telemetry accelerometerXExternal](media/azure-iot-explorer-AccStatus.png)
-
-* In case of fault with the Soil Moisture sensor, the property `telemetryStatus` in the vTsoilMoistureExternal component would be false indicating that the telemetry'soilMoistureExternal' is NOT correct and should not be consumed by upstream processes
-   
-    ![Fault in telemetry soilMoistureExternal](media/azure-iot-explorer-SMStatusFault.png)
 
 ## Next Steps ***Verified Telemetry***
-* With this sample, you have now setup Verified Telemetry/Dependable IoT on MXChip with Azure RTOS and Azure IoT
-* Refer to our [sample Solution Template](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) to understand how the additional data from Verified Telemetry can help to increase data quality
-* For further steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry)
+* With this sample, you have now setup Verified Telemetry device sample on MXChip Devkit
+* To understand how to interact and consume Verified Telemetry components, refer to one of the following guides - 
+    * Interact with Verified Telemetry using [Azure IoT Explorer Sample](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) 
+    * Interact with Verified Telemetry using our [custom Solution Sample Template](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry-solution-sample) which uses a Grafana Dashboard
+* For steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://dev.azure.com/DependableIoT/DependableIoT-AzureIoT/_git/verified-telemetry)
