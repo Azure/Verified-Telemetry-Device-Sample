@@ -178,7 +178,7 @@ After the build completes, confirm that the binary files were created in the fol
 
 ### Connect Sensors         ***Verified Telemetry***
 
-Refer to the table below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
+Refer to the table and images below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
 
 | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
 |---------------|----------------------|-----------------------------|------------|
@@ -188,6 +188,8 @@ Refer to the table below to connect the two sensors: [ADXL335](https://www.spark
 | Soil Moisture | Analog Out           | 0                           | PB0        |
 | Soil Moisture | VCC                  | 12                          | PB2        |
 | Soil Moisture | GND                  | GND                          | GND        |
+
+![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
 
 ### Confirm device connection details
 
