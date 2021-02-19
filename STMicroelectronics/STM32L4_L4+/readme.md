@@ -10,12 +10,13 @@ You will complete the following tasks:
 * Build an image and flash it onto the STM DevKit
 ## Table of Contents
 
-* [Prerequisites](https://github.com/Azure/Verified-Telemetry#architecture)
-* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry#file-structure)
-* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry#dependencies)
-* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry#samples)
-* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry#samples)
-* [Next Steps](https://github.com/Azure/Verified-Telemetry#samples)
+* [Prerequisites](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#prerequisites)
+* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#prepare-the-development-environment)
+* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#prepare-azure-resources)
+* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#connect-sensors-for-verified-telemetry)
+* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#prepare-and-flash-firmware)
+* [Next Steps](https://github.com/Azure/Verified-Telemetry-Device-Sample/STMicroelectronics/STM32L4_L4%2B#next-steps-verified-telemetry)
+
 
 ## Prerequisites
 
