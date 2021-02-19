@@ -10,12 +10,12 @@ You will complete the following tasks:
 * Build an image and flash it onto the MXChip DevKit
 ## Table of Contents
 
-* [Prerequisites](https://github.com/Azure/Verified-Telemetry#architecture)
-* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry#file-structure)
-* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry#dependencies)
-* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry#samples)
-* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry#samples)
-* [Next Steps](https://github.com/Azure/Verified-Telemetry#samples)
+* [Prerequisites](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prerequisites)
+* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-the-development-environment)
+* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-azure-resources)
+* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#connect-sensors-for-verified-telemetry)
+* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-and-flash-firmware)
+* [Next Steps](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#next-steps-verified-telemetry)
 
 ## Prerequisites
 
