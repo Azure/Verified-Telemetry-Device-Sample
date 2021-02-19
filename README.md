@@ -61,17 +61,17 @@ A few key concepts are introduced and discussed below
     * If the sensor fingerprint template exists in the Digital Twin, it is fetched and updated on the device when the device boots/resets
     * If the sensor fingerprint template does not exist in the Digital Twin, the template on device remains empty after boot and subsequent sensor fingerprint evaluation cannot be performed
 
-### Verified Telmetry Interface
-The PnP interface of Verified Telemetry is defined in [Verified Telemetry Information](./core/model/vTInfo.json).
+1. Verified Telmetry Interface
+    The PnP interface of Verified Telemetry is defined in [Verified Telemetry Information](./core/model/vTInfo.json).
 
-| Type | Name | Description |
-|---|---|---|
-| **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
-| **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
-| **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
-| **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
-| **Commands** | `setResetFingerprintTemplate` | This command will set/reset the template fingerprint |
-| **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
+    | Type | Name | Description |
+    |---|---|---|
+    | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
+    | **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
+    | **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
+    | **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
+    | **Commands** | `setResetFingerprintTemplate` | This command will set/reset the template fingerprint |
+    | **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
 
 ## Verified Telemetry Device Sample
 * The device samples showcase how to setup a device using the sample code which supports Verified Telmetry
