@@ -1,8 +1,8 @@
 # Setup Verified Telemetry and consume Verified Telemetry information using Azure IoT Explorer 
 ## Table of Contents
 
-* [Steps to setup Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prerequisites)
-* [Consuming Verified Telemetry Information ](https://github.com/Azure/Verified-Telemetry-Device-Sample/MXChip/AZ3166#prepare-the-development-environment)
+* [Steps to setup Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prerequisites)
+* [Consuming Verified Telemetry Information ](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prepare-the-development-environment)
 ## Steps to setup Verified Telemetry
 
 ### Complete one of the board specific device samples: 
