@@ -62,8 +62,8 @@ A few key concepts are introduced and discussed below
     * If the sensor fingerprint template does not exist in the Digital Twin, the template on device remains empty after boot and subsequent sensor fingerprint evaluation cannot be performed
 
 1. Verified Telmetry Interface
-    The PnP interface of Verified Telemetry is defined in [Verified Telemetry Information](./core/model/vTInfo.json).
 
+    The PnP interface of Verified Telemetry is defined in [Verified Telemetry Information](./core/model/vTInfo.json)
     | Type | Name | Description |
     |---|---|---|
     | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
