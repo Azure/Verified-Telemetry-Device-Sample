@@ -37,7 +37,27 @@
       "@type": "Property",
       "name": "fingerprintTemplateConfidenceMetric", 
       "displayName" : "Fingerprint Template Confidence Metric",
-      "schema": "string"
+      "schema": {
+        "@type": "Enum",
+        "valueSchema": "integer",
+        "enumValues": [
+          {
+            "name": "high",
+            "displayName": "HIGH",
+            "enumValue": 100
+          },
+          {
+            "name": "medium",
+            "displayName": "MEDIUM",
+            "enumValue": 50
+          },
+          {
+            "name": "low",
+            "displayName": "LOW",
+            "enumValue": 0
+          }
+        ]
+      }
     },
     {
       "@type": "Command",
