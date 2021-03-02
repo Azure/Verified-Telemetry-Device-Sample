@@ -1,8 +1,8 @@
 # Setup Verified Telemetry and consume Verified Telemetry information using Azure IoT Explorer 
 ## Table of Contents
 
-* [Steps to setup Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prerequisites)
-* [Consuming Verified Telemetry Information ](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prepare-the-development-environment)
+* [Steps to setup Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/blob/main/docs/vTIoTExplorerSample.md#steps-to-setup-verified-telemetry)
+* [Consuming Verified Telemetry Information ](https://github.com/Azure/Verified-Telemetry-Device-Sample/blob/main/docs/vTIoTExplorerSample.md#consuming-verified-telemetry-information)
 ## Steps to setup Verified Telemetry
 
 ### Complete one of the board specific device samples: 
@@ -86,3 +86,9 @@ To access the IoT Plug and Play components on your device:
 * In case of fault with the Soil Moisture sensor, the property `telemetryStatus` in the vTsoilMoistureExternal component would be false indicating that the telemetry'soilMoistureExternal' has a FAULT and should not be consumed by upstream processes
    
     ![Fault in telemetry soilMoistureExternal](media/azure-iot-explorer-SMStatusFault.png)
+
+## Next Steps
+* With this sample, you have now setup and interacted with a Verified Telemetry device sample
+* To understand how to modify your existing IoT solution to utilize Verified Telemetry Information, refer to the following documentation - 
+    * [Fetching Verified Telemetry Information for your Custom Solution](https://github.com/Azure/Verified-Telemetry-Solution-Sample/blob/main/docs/customSolution.md) 
+* For steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://github.com/Azure/Verified-Telemetry)
