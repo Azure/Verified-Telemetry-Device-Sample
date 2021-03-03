@@ -11,16 +11,22 @@ The main interface of Verified Telemetry is [Verified Telemetry Information](./v
 | **Commands** | `setResetFingerprintTemplate` | This command will reset the template fingerprint |
 | **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
 
+## Verified Telemetry Device Interface
+The [Verified Telemetry Device Information](./vTDevice.json) Interface implements and conveys device wide Verified Telemetry Settings and Information 
+| Type | Name | Description |
+|---|---|---|
+| **Properties (writable)** | `enableVerifiedTelemetry` | Controls whether Fingerprint Collection and Evaluation is implemented or not. When this property is set to 'false', Telemetry Verification cannot be performed.  |
+| **Properties (read-only)** | `deviceStatus` | Device status is set to false if any sensor supported by VT has a fault. |
+
 ## [Getting started guide](./gsg.json) interface has the following components:
 1. Device Component using the [Device Sensors](./device.json) interface. This represents the Default Device Component from the ODMs.
+1. vTDevice Component uses the [Verified Telemetry Device Information](./vTDevice.json) interface.
 1. vTsoilMoistureExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for soilMoistureExternal telemetry.
 1. vTaccelerometerXExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for accelerometerXExternal telemetry.
 
-
 | Type | Name | Description |
 |---|---|---|
-| **Properties (read-only)** | `deviceStatus` | Overall Device Status (Working or Faulty). e.g., A device status is set to Faulty if any of the sensor has a fault. |
-| **Properties (writable)** | `enableVerifiedTelemetry` | Enable Verified Telemetry (True/False). e.g., True enables Verified Telemetry functionalities. |
 | **Interface** | `sampleDevice` | Default Device Component from the ODM. |
+| **Interface** | `vTDevice` | Device Level Verified Telemetry component |
 | **Interface** | `vTsoilMoistureExternal` |  The Verified Telemetry component for soilMoistureExternal telemetry. |
 | **Interface** | `vTaccelerometerXExternal` | The Verified Telemetry component for accelerometerXExternal telemetry. |

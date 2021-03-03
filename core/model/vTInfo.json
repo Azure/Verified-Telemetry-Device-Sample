@@ -1,6 +1,6 @@
 {
   "@context": "dtmi:dtdl:context;2",
-  "@id": "dtmi:azure:verifiedtelemetry:telemetryinfomation;1",
+  "@id": "dtmi:azure:verifiedtelemetry:telemetryinformation;1",
   "@type": "Interface",
   "displayName": "Verified Telemetry Information",
   "description": "Provides information about Verified Telemetry for the associated telemetry and supporting Fingerprint Information",

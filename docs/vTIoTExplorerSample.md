@@ -56,7 +56,7 @@ To access the IoT Plug and Play components on your device:
     ![Azure IoT Explorer Plug and Play components](media/azure-iot-explorer-Components.png)
 
 ### Enable Verified Telemetry
-* Ensure `enableVerifiedTelemetry` from the root/default component is true
+* Ensure `enableVerifiedTelemetry` from the vTDevice component is true
 
     ![Setting enableVerifiedTelemetry true ](media/azure-iot-explorer-enableVT.png)
 
@@ -71,7 +71,7 @@ To access the IoT Plug and Play components on your device:
     ![Issue command to setup VT for telemetry accelerometerXExternal](media/azure-iot-explorer-resetAcc.png)
 
 ## Consuming Verified Telemetry Information  
-* The property `deviceStatus` from the root/default component indicates whether all the telemetries supported by Verified Telemetry are verified or not
+* The property `deviceStatus` from the vTDevice component indicates whether all the telemetries supported by Verified Telemetry are verified or not
 
     ![Checking deviceStatus ](media/azure-iot-explorer-OverallStatus.png)
 
