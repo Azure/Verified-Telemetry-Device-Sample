@@ -624,7 +624,7 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
            NX_AZURE_IOT_SUCCESS)
     {
         if (pnp_vt_process_property_update(
-                verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version) ==
+                verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version, message_type) ==
             NX_AZURE_IOT_SUCCESS)
         {
             printf("Verified Telemetry Property updated\r\n\n");
