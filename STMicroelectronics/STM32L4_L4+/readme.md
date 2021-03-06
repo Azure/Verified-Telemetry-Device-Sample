@@ -1,5 +1,5 @@
 # Getting started with the STMicroelectronics B-L475E-IOT01A / B-L4S5I-IOTOA1 Discovery kits for Verified Telemetry
-**Total completion time**:  30 minutes
+**Total completion time**:  40 minutes
 
 In this tutorial you use Verified Telemetry and Azure RTOS to connect the B-L475E-IOT01A / B-L4S5I-IOTOA1 Discovery kits (hereafter, the STM DevKit) to Azure IoT and provide the feature of Telemetry Verification to two telemetries. 
 
