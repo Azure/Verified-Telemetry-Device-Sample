@@ -142,6 +142,7 @@ static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported;
 static UINT sample_device_properties_sent = 0;
 
+static const CHAR sample_vTDevice_component[] = "vTDevice";
 static const CHAR sample_fallcurve_1_component[] = "vTaccelerometerXExternal";
 static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal";
 static void* verified_telemetry_DB               = NULL;
@@ -402,6 +403,9 @@ static VOID sample_initialize_iothub(SAMPLE_CONTEXT* context)
     else if ((status = nx_azure_iot_pnp_client_component_add(
                   iotpnp_client_ptr, (const UCHAR*)sample_device_component, sizeof(sample_device_component) - 1)) ||
              (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
+                  (const UCHAR*)sample_vTDevice_component,
+                  sizeof(sample_vTDevice_component) - 1)) ||
+             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
                   (const UCHAR*)sample_fallcurve_1_component,
                   sizeof(sample_fallcurve_1_component) - 1)) ||
              (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
@@ -645,6 +649,9 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
         pnp_vt_process_reported_property_sync(
                 verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version);
     }
+
+    pnp_vt_send_desired_property_after_boot(verified_telemetry_DB,
+                                            pnp_client_ptr, message_type);
 }
 
 static VOID sample_device_desired_property_action(SAMPLE_CONTEXT* context)
