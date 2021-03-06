@@ -33,7 +33,7 @@ TODO`s: Configure core settings of application for your IoTHub.
 // Azure IoT Dynamic Provisioning Service
 // Define this to use the DPS service, otherwise direct IoT Hub
 // ----------------------------------------------------------------------------
-#define ENABLE_DPS
+// #define ENABLE_DPS
 
 #ifndef ENABLE_DPS
 
