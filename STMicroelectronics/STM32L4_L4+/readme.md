@@ -60,7 +60,7 @@ To run the setup script:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    > *Verified-Telemetry-Device-Sample\STMicroelectronics\STM32L4_L4+\tools\get-toolchain.bat*
 
     After the installation completes, the Azure IoT Explorer opens automatically. Keep the IoT Explorer open, you'll use it in later steps.
 
