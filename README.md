@@ -92,7 +92,11 @@ A few key concepts are introduced and discussed below
     | soilMoistureExternal | vTsoilMoistureExternal | 
     | accelerometerXExternal | vTaccelerometerXExternal | 
 * The 'telemetryStatus' property present inside each of these components represents whether the respective telemetry is verified or has a fault.
-* The 'enableVerifiedTelemetry' property controls whether Fingerprint Collection and Evaluation is implemented or not. When this property is set to 'false', Telemetry Verification cannot be performed. 
+* The 'vTDevice' component implements the [Verified Telemetry Device Information](./core/model/vTDevice.json) Interface - 
+    | Type | Name | Description |
+    |---|---|---|
+    | **Properties (writable)** | `enableVerifiedTelemetry` | Controls whether Fingerprint Collection and Evaluation is implemented or not. When this property is set to 'false', Telemetry Verification cannot be performed.  |
+    | **Properties (read-only)** | `deviceStatus` | Device status is set to false if any sensor supported by VT has a fault. |
 
 ## Steps to setup end-to-end Verified Telemetry demo
 
