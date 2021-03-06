@@ -188,7 +188,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
-    |`IOT_PRIMARY_KEY` |{*Your primaryKey value*}|
+    |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
 
 1. Save and close the file.
 
