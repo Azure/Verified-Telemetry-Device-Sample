@@ -1,5 +1,5 @@
 # Getting started with the MXChip AZ3166 IoT DevKit for Verified Telemetry
-**Total completion time**:  30 minutes
+**Total completion time**:  40 minutes
 
 In this tutorial you use Verified Telemetry and Azure RTOS to connect the MXChip AZ3166 IoT DevKit (hereafter, the MXChip DevKit) to Azure IoT and provide the feature of Telemetry Verification to two telemetries. 
 
