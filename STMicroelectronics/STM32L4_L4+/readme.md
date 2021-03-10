@@ -47,7 +47,7 @@ git clone --recursive https://github.com/Azure/Verified-Telemetry-Device-Sample.
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you have installed these tools in another tutorial in the getting started guide, you don't need to do it again.
 
 > Note: The setup script installs the following tools:
 > * [GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm): Compile
@@ -149,17 +149,17 @@ Confirm that you have the copied the following values from the JSON output to us
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
 * Connect Sensors         ***Verified Telemetry***
 
-    Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors: 
+
+    Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
 
     | Sensor Name   | Sensor Pin           | MCU Pin | Devkit Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | Soil Moisture Sensor 1 | Analog Out           | PC0                           | A5        |
-    | Soil Moisture Sensor 1 | VCC                  | PB9                          | D14        |
-    | Soil Moisture Sensor 1 | GND                  | GND                          | GND        |
-    | Soil Moisture Sensor 2       | Analog Out | PC1                           | A4        |
-    | Soil Moisture Sensor 2       | VCC                  | PB8                           | D15       |
-    | Soil Moisture Sensor 2       | GND                  | GND                           | GND       |
-    
+    | Soil Moisture 1 | Analog Out           | PC0                           | A5        |
+    | Soil Moisture 1 | VCC                  | PB9                          | D14        |
+    | Soil Moisture 1 | GND                  | GND                          | GND        |
+    | Soil Moisture 2       | Analog Out  | PC1                           | A4        |
+    | Soil Moisture 2       | VCC                  | PB8                           | D15       |
+    | Soil Moisture 2       | GND                  | GND                           | GND       |
 
 
     ![B-L475E-IOT01A Sensor Connections](media/B-L475E-IOT01A_sensor_connections.png)

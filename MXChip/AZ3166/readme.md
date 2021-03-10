@@ -47,7 +47,7 @@ git clone --recursive https://github.com/Azure/Verified-Telemetry-Device-Sample.
 
 ### Install the tools
 
-The cloned repo contains a setup script that installs and configures the required tools. If you installed these tools in another tutorial in the getting started guide, you don't need to do it again.
+The cloned repo contains a setup script that installs and configures the required tools. If you have installed these tools in another tutorial in the getting started guide, you don't need to do it again.
 
 > Note: The setup script installs the following tools:
 > * [GCC](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm): Compile
@@ -58,8 +58,9 @@ The cloned repo contains a setup script that installs and configures the require
 To run the setup script:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
-
+ 
     > *Verified-Telemetry-Device-Sample\tools\get-toolchain.bat*
+
 
     After the installation completes, the Azure IoT Explorer opens automatically. Keep the IoT Explorer open, you'll use it in later steps.
 
@@ -151,15 +152,17 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
 
 * Connect Sensors         ***Verified Telemetry***
 
-    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors
+
+    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
+
     | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | Soil Moisture Sensor 1 | Analog Out           | 0                           | PB0        |
-    | Soil Moisture Sensor 1 | VCC                  | 12                          | PB2        |
-    | Soil Moisture Sensor 1 | GND                  | GND                          | GND        |
-    | Soil Moisture Sensor 2       | Analog Out | 4                           | PA5        |
-    | Soil Moisture Sensor 2       | VCC                  | 8                           | PC13       |
-    | Soil Moisture Sensor 2       | GND                  | GND                           | GND       |
+    | Soil Moisture 1 | Analog Out           | 0                           | PB0        |
+    | Soil Moisture 1 | VCC                  | 12                          | PB2        |
+    | Soil Moisture 1| GND                  | GND                          | GND        |
+    | Soil Moisture 2       | Analog Out  | 4                           | PA5        |
+    | Soil Moisture 2       | VCC                  | 8                           | PC13       |
+    | Soil Moisture 2       | GND                  | GND                           | GND       |
     
 
     ![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
