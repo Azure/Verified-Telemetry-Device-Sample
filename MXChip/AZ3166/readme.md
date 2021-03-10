@@ -28,8 +28,7 @@ You will complete the following tasks:
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
     > * [MXChip Edge Connector](https://www.sparkfun.com/products/13989)
-    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
-    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 
@@ -59,8 +58,9 @@ The cloned repo contains a setup script that installs and configures the require
 To run the setup script:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
+ 
+    > *Verified-Telemetry-Device-Sample\tools\get-toolchain.bat*
 
-    > *Verified-Telemetry-Device-Sample/tools/get-toolchain.bat*
 
     After the installation completes, the Azure IoT Explorer opens automatically. Keep the IoT Explorer open, you'll use it in later steps.
 
@@ -152,6 +152,7 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
 
 * Connect Sensors         ***Verified Telemetry***
 
+
     Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
 
     | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
@@ -162,6 +163,7 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
     | Soil Moisture 2       | Analog Out  | 4                           | PA5        |
     | Soil Moisture 2       | VCC                  | 8                           | PC13       |
     | Soil Moisture 2       | GND                  | GND                           | GND       |
+    
 
     ![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
 
@@ -187,7 +189,7 @@ To connect the MXChip DevKit to Azure, you'll modify a configuration file for Wi
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
-    |`IOT_PRIMARY_KEY` |{*Your primaryKey value*}|
+    |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
 
 1. Save and close the file.
 

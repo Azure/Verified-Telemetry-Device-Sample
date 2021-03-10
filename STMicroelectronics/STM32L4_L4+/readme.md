@@ -30,8 +30,7 @@ You will complete the following tasks:
     >   * [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
-    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
-    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 
@@ -149,6 +148,7 @@ Confirm that you have the copied the following values from the JSON output to us
 ## Connect Sensors for Verified Telemetry
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
 * Connect Sensors         ***Verified Telemetry***
+
 
     Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
 
