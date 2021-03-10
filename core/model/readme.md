@@ -21,12 +21,12 @@ The [Verified Telemetry Device Information](./vTDevice.json) Interface implement
 ## [Getting started guide](./gsg.json) interface has the following components:
 1. Device Component using the [Device Sensors](./device.json) interface. This represents the Default Device Component from the ODMs.
 1. vTDevice Component uses the [Verified Telemetry Device Information](./vTDevice.json) interface.
-1. vTsoilMoistureExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for soilMoistureExternal telemetry.
-1. vTaccelerometerXExternal Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for accelerometerXExternal telemetry.
+1. vTsoilMoistureExternal1 Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for soilMoistureExternal1 telemetry.
+1. vTsoilMoistureExternal2 Component using the [Verified Telemetry Information](./vTInfo.json). This represents the verified telemetry component for soilMoistureExternal2 telemetry.
 
-| Type | Name | Description |
-|---|---|---|
-| **Interface** | `sampleDevice` | Default Device Component from the ODM. |
-| **Interface** | `vTDevice` | Device Level Verified Telemetry component |
-| **Interface** | `vTsoilMoistureExternal` |  The Verified Telemetry component for soilMoistureExternal telemetry. |
-| **Interface** | `vTaccelerometerXExternal` | The Verified Telemetry component for accelerometerXExternal telemetry. |
+| Type | Name | Description | Interface ID |
+|---|---|---|---|
+| **Component** | `sampleDevice` | Default Device Component from the manufacturer. | dtmi:azure:verifiedtelemetry:sample:GSG;1 |
+| **Component** | `vTDevice` | Device Level Verified Telemetry component | dtmi:azure:verifiedtelemetry:deviceinformation;1 | 
+| **Component** | `vTsoilMoistureExternal1` | The Verified Telemetry component for soilMoistureExternal1 telemetry. | dtmi:azure:verifiedtelemetry:telemetryinformation;1 | 
+| **Component** | `vTsoilMoistureExternal2` | The Verified Telemetry component for soilMoistureExternal2 telemetry. | dtmi:azure:verifiedtelemetry:telemetryinformation;1 | 

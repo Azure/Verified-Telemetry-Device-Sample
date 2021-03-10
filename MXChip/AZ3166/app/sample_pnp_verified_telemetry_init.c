@@ -26,7 +26,7 @@ void* sample_pnp_verified_telemetry_user_init()
 {
     UINT status;
     if ((status = pnp_fallcurve_init(&sample_fallcurve_1,
-             (UCHAR*)"vTaccelerometerXExternal",
+             (UCHAR*)"vTsoilMoistureExternal2",
              GPIOC,
              GPIO_PIN_13,
              &hadc1,
@@ -34,14 +34,14 @@ void* sample_pnp_verified_telemetry_user_init()
              &htim14,
              fallcurve_components,
              connected_sensors,
-             (UCHAR*)"accelerometerXExternal",
+             (UCHAR*)"soilMoistureExternal2",
              NUMBER_OF_VT_ENABLED_TELEMETRIES)))
     {
-        printf("Failed to initialize vTaccelerometerXExternal component: error code = 0x%08x\r\n", status);
+        printf("Failed to initialize vTsoilMoistureExternal2 component: error code = 0x%08x\r\n", status);
     }
 
     else if ((status = pnp_fallcurve_init(&sample_fallcurve_2,
-                  (UCHAR*)"vTsoilMoistureExternal",
+                  (UCHAR*)"vTsoilMoistureExternal1",
                   GPIOB,
                   GPIO_PIN_2,
                   &hadc1,
@@ -49,10 +49,10 @@ void* sample_pnp_verified_telemetry_user_init()
                   &htim14,
                   fallcurve_components,
                   connected_sensors,
-                  (UCHAR*)"soilMoistureExternal",
+                  (UCHAR*)"soilMoistureExternal1",
                   NUMBER_OF_VT_ENABLED_TELEMETRIES)))
     {
-        printf("Failed to initialize vTsoilMoistureExternal component: error code = 0x%08x\r\n", status);
+        printf("Failed to initialize vTsoilMoistureExternal1 component: error code = 0x%08x\r\n", status);
     }
     else if ((status = pnp_vt_init(&verified_telemetry_DB,
                   (UCHAR*)"vTDevice",  

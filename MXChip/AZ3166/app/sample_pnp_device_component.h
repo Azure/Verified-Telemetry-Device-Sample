@@ -21,11 +21,11 @@ extern "C"
 
         UINT component_name_length;
 
-        /* Soil Moisture Sensor data of this device component */
-        double soilMoistureExternalRaw;
+        /* Soil Moisture Sensor 1 data of this device component */
+        double soilMoistureExternal1Raw;
 
         /* Humidity Sensor (DHT22) data of this device component */
-        double accelerometerXExternalRaw;
+        double soilMoistureExternal2Raw;
 
         /* Temperature Sensor data of this device component */
         double sensorTemperature;
