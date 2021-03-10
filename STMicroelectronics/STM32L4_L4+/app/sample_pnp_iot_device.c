@@ -22,6 +22,12 @@
 #include "pnp_verified_telemetry.h"
 #include "sample_pnp_verified_telemetry_init.h"
 
+#define ENDPOINT                     "global.azure-devices-provisioning.net"
+#define MODULE_ID                    ""
+#define NX_AZURE_IOT_STACK_SIZE      (2048)
+#define NX_AZURE_IOT_THREAD_PRIORITY (4)
+#define SAMPLE_MAX_BUFFER            (256)
+
 #ifndef SAMPLE_MAX_EXPONENTIAL_BACKOFF_IN_SEC
 #define SAMPLE_MAX_EXPONENTIAL_BACKOFF_IN_SEC (10 * 60)
 #endif /* SAMPLE_MAX_EXPONENTIAL_BACKOFF_IN_SEC */
@@ -140,9 +146,10 @@ static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported;
 static UINT sample_device_properties_sent = 0;
 
-static const CHAR sample_vTDevice_component[] = "vTDevice";
+
+static const CHAR sample_vTDevice_component[]    = "vTDevice";
 static const CHAR sample_fallcurve_1_component[] = "vTsoilMoistureExternal2";
-static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal";
+static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal1";
 static void* verified_telemetry_DB               = NULL;
 
 static UCHAR scratch_buffer[2096];
@@ -392,9 +399,8 @@ static VOID sample_initialize_iothub(SAMPLE_CONTEXT* context)
     }
     else if ((status = nx_azure_iot_pnp_client_component_add(
                   iotpnp_client_ptr, (const UCHAR*)sample_device_component, sizeof(sample_device_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-                  (const UCHAR*)sample_vTDevice_component,
-                  sizeof(sample_vTDevice_component) - 1)) ||
+             (status = nx_azure_iot_pnp_client_component_add(
+                  iotpnp_client_ptr, (const UCHAR*)sample_vTDevice_component, sizeof(sample_vTDevice_component) - 1)) ||
              (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
                   (const UCHAR*)sample_fallcurve_1_component,
                   sizeof(sample_fallcurve_1_component) - 1)) ||
@@ -627,17 +633,15 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
         }
     }
     copy_json_reader = *json_reader_ptr;
-    while (nx_azure_iot_pnp_client_reported_component_property_value_next(pnp_client_ptr,
-                                                                         &copy_json_reader, message_type,
-                                                                         &component_ptr, &component_len,
-                                                                         &name_value_reader) == NX_AZURE_IOT_SUCCESS)
+    while (nx_azure_iot_pnp_client_reported_component_property_value_next(
+               pnp_client_ptr, &copy_json_reader, message_type, &component_ptr, &component_len, &name_value_reader) ==
+           NX_AZURE_IOT_SUCCESS)
     {
         pnp_vt_process_reported_property_sync(
-                verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version);
+            verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version);
     }
 
-    pnp_vt_send_desired_property_after_boot(verified_telemetry_DB,
-                                            pnp_client_ptr, message_type);
+    pnp_vt_send_desired_property_after_boot(verified_telemetry_DB, pnp_client_ptr, message_type);
 }
 
 static VOID sample_device_desired_property_action(SAMPLE_CONTEXT* context)
