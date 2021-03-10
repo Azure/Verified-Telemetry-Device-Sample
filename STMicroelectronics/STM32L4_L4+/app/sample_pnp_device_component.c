@@ -15,8 +15,8 @@
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
 /* Telemetry key */
-static const CHAR telemetry_name_soilMoistureExternalRaw[]   = "soilMoistureExternal";
-static const CHAR telemetry_name_accelerometerXExternalRaw[] = "accelerometerXExternal";
+static const CHAR telemetry_name_soilMoistureExternal1Raw[]   = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
 static const CHAR telemetry_name_sensorTemperature[]         = "temperature";
 static const CHAR telemetry_name_sensorPressure[]            = "pressure";
 static const CHAR telemetry_name_sensorHumidity[]            = "humidityPercentage";
@@ -101,8 +101,8 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
 
     handle->component_name_ptr        = component_name_ptr;
     handle->component_name_length     = component_name_length;
-    handle->soilMoistureExternalRaw   = default_sensor_reading;
-    handle->accelerometerXExternalRaw = default_sensor_reading;
+    handle->soilMoistureExternal1Raw   = default_sensor_reading;
+    handle->soilMoistureExternal2Raw = default_sensor_reading;
     handle->sensorTemperature         = default_sensor_reading;
     handle->sensorPressure            = default_sensor_reading;
     handle->sensorHumidity            = default_sensor_reading;
@@ -120,8 +120,8 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
         return (NX_NOT_SUCCESSFUL);
     }
 
-    UINT soilMoistureADCData = adc_read(&hadc1, ADC_CHANNEL_1);
-    UINT accelerometerADCData = adc_read(&hadc1, ADC_CHANNEL_2);
+    UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
+    UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
 
     float temperature = BSP_TSENSOR_ReadTemp();
     float humidity    = BSP_HSENSOR_ReadHumidity();
@@ -131,8 +131,8 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     int16_t accXYZ[3];
     BSP_ACCELERO_AccGetXYZ(accXYZ);
 
-    handle->soilMoistureExternalRaw   = soilMoistureADCData;
-    handle->accelerometerXExternalRaw = accelerometerADCData;
+    handle->soilMoistureExternal1Raw   = soilMoisture1ADCData;
+    handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
 
     handle->sensorTemperature  = temperature;
     handle->sensorPressure     = pressure;
@@ -224,14 +224,14 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
     if (nx_azure_iot_json_writer_append_begin_object(&json_writer) ||
         nx_azure_iot_json_writer_append_property_with_double_value(&json_writer,
-            (UCHAR*)telemetry_name_soilMoistureExternalRaw,
-            sizeof(telemetry_name_soilMoistureExternalRaw) - 1,
-            handle->soilMoistureExternalRaw,
+            (UCHAR*)telemetry_name_soilMoistureExternal1Raw,
+            sizeof(telemetry_name_soilMoistureExternal1Raw) - 1,
+            handle->soilMoistureExternal1Raw,
             DOUBLE_DECIMAL_PLACE_DIGITS) ||
         nx_azure_iot_json_writer_append_property_with_double_value(&json_writer,
-            (UCHAR*)telemetry_name_accelerometerXExternalRaw,
-            sizeof(telemetry_name_accelerometerXExternalRaw) - 1,
-            handle->accelerometerXExternalRaw,
+            (UCHAR*)telemetry_name_soilMoistureExternal2Raw,
+            sizeof(telemetry_name_soilMoistureExternal2Raw) - 1,
+            handle->soilMoistureExternal2Raw,
             DOUBLE_DECIMAL_PLACE_DIGITS) ||
         nx_azure_iot_json_writer_append_property_with_double_value(&json_writer,
             (UCHAR*)telemetry_name_sensorTemperature,

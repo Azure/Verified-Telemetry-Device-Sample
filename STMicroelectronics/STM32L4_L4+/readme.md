@@ -1,5 +1,5 @@
 # Getting started with the STMicroelectronics B-L475E-IOT01A / B-L4S5I-IOTOA1 Discovery kits for Verified Telemetry
-**Total completion time**:  30 minutes
+**Total completion time**:  40 minutes
 
 In this tutorial you use Verified Telemetry and Azure RTOS to connect the B-L475E-IOT01A / B-L4S5I-IOTOA1 Discovery kits (hereafter, the STM DevKit) to Azure IoT and provide the feature of Telemetry Verification to two telemetries. 
 
@@ -30,8 +30,7 @@ You will complete the following tasks:
     >   * [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
-    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
-    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 
@@ -60,7 +59,7 @@ To run the setup script:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    > *Verified-Telemetry-Device-Sample\tools\get-toolchain.bat*
 
     After the installation completes, the Azure IoT Explorer opens automatically. Keep the IoT Explorer open, you'll use it in later steps.
 
@@ -150,16 +149,17 @@ Confirm that you have the copied the following values from the JSON output to us
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
 * Connect Sensors         ***Verified Telemetry***
 
-    Refer to the table and image below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
+    Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors: 
 
     | Sensor Name   | Sensor Pin           | MCU Pin | Devkit Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | ADXL335       | X Axis analog output | PC1                           | A4        |
-    | ADXL335       | VCC                  | PB8                           | D15       |
-    | ADXL335       | GND                  | GND                           | GND       |
-    | Soil Moisture | Analog Out           | PC0                           | A5        |
-    | Soil Moisture | VCC                  | PB9                          | D14        |
-    | Soil Moisture | GND                  | GND                          | GND        |
+    | Soil Moisture Sensor 1 | Analog Out           | PC0                           | A5        |
+    | Soil Moisture Sensor 1 | VCC                  | PB9                          | D14        |
+    | Soil Moisture Sensor 1 | GND                  | GND                          | GND        |
+    | Soil Moisture Sensor 2       | Analog Out | PC1                           | A4        |
+    | Soil Moisture Sensor 2       | VCC                  | PB8                           | D15       |
+    | Soil Moisture Sensor 2       | GND                  | GND                           | GND       |
+    
 
 
     ![B-L475E-IOT01A Sensor Connections](media/B-L475E-IOT01A_sensor_connections.png)
@@ -188,7 +188,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
-    |`IOT_PRIMARY_KEY` |{*Your primaryKey value*}|
+    |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
 
 1. Save and close the file.
 
@@ -260,19 +260,19 @@ You can use the **Termite** utility to monitor communication and confirm that yo
 
     IoTHub Host Name: XXX.azure-devices.net; Device ID: MySTMDevice.
     Connected to IoTHub.
-    Component sampleDevice Telemetry message send: {"soilMoistureExternal":2542,"accelerometerXExternal":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
+    Component sampleDevice Telemetry message send: {"soilMoistureExternal1":2542,"soilMoistureExternal2":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Received all properties
     ```

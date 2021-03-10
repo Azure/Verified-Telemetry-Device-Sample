@@ -56,39 +56,52 @@ To access the IoT Plug and Play components on your device:
     ![Azure IoT Explorer Plug and Play components](media/azure-iot-explorer-Components.png)
 
 ### Enable Verified Telemetry
-* Ensure `enableVerifiedTelemetry` from the vTDevice component is true
+* Navigate to vTDevice Component -> Properties (writable)
+* The `enableVerifiedTelemetry` property should be set to true by default. 
+    ![Default enableVerifiedTelemetry value ](media/azure-iot-explorer-enableVTdefault.png)
+* However, if it is false or there is a blank field, update the `enableVerifiedTelemetry` property to true
 
     ![Setting enableVerifiedTelemetry true ](media/azure-iot-explorer-enableVT.png)
 
-### Collect Fingerprint Template for telemetry soilMoistureExternal
-* Issue command `setResetFingerprintTemplate` in the vTsoilMoistureExternal component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal'
+### Collect Fingerprint Template for telemetry soilMoistureExternal1
+* Navigate to vTsoilMoistureExternal1 Component -> Commands 
+* Issue command `setResetFingerprintTemplate` in the vTsoilMoistureExternal1 component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal1'
 
-    ![Issue command to setup VT for telemetry soilMoistureExternal](media/azure-iot-explorer-resetSM.png)
+    ![Issue command to setup VT for telemetry soilMoistureExternal1](media/azure-iot-explorer-resetSM.png)
 
-### Collect Fingerprint Template for telemetry accelerometerXExternal
-* Issue command `setResetFingerprintTemplate` in the vTaccelerometerXExternal component for setting up Verified Telemetry for the telemetry named 'accelerometerXExternal'
+### Collect Fingerprint Template for telemetry soilMoistureExternal2
+* Navigate to vTsoilMoistureExternal2 Component -> Commands 
+* Issue command `setResetFingerprintTemplate` in the vTsoilMoistureExternal2 component for setting up Verified Telemetry for the telemetry named 'soilMoistureExternal2'
 
-    ![Issue command to setup VT for telemetry accelerometerXExternal](media/azure-iot-explorer-resetAcc.png)
+    ![Issue command to setup VT for telemetry soilMoistureExternal2](media/azure-iot-explorer-resetAcc.png)
 
 ## Consuming Verified Telemetry Information  
-* The property `deviceStatus` from the vTDevice component indicates whether all the telemetries supported by Verified Telemetry are verified or not
+* Navigate to vTDevice Component -> Properties (read-only)
+* Click on Refresh
+* The property `deviceStatus` indicates whether all the telemetries supported by Verified Telemetry are verified or not
 
     ![Checking deviceStatus ](media/azure-iot-explorer-OverallStatus.png)
 
-* The property `telemetryStatus` in the vTsoilMoistureExternal component indicates whether the telemetry'soilMoistureExternal' is verified or not
+* Navigate to vTsoilMoistureExternal1 Component -> Properties (read-only)
+* Click on Refresh
+* The property `telemetryStatus` in the vTsoilMoistureExternal1 component indicates whether the telemetry'soilMoistureExternal1' is verified or not
 
-    ![Checking telemetryStatus for telemetry soilMoistureExternal](media/azure-iot-explorer-SMStatus.png)
+    ![Checking telemetryStatus for telemetry soilMoistureExternal1](media/azure-iot-explorer-SMStatus.png)
 
-* The property `telemetryStatus` in the vTaccelerometerXExternal component indicates whether the telemetry'accelerometerXExternal' is verified or not
+* Navigate to vTsoilMoistureExternal2 Component -> Properties (read-only)
+* Click on Refresh
+* The property `telemetryStatus` in the vTsoilMoistureExternal2 component indicates whether the telemetry'soilMoistureExternal2' is verified or not
 
-    ![Checking telemetryStatus for telemetry accelerometerXExternal](media/azure-iot-explorer-AccStatus.png)
+    ![Checking telemetryStatus for telemetry soilMoistureExternal2](media/azure-iot-explorer-AccStatus.png)
 
-* In case of fault with the Soil Moisture sensor, the property `telemetryStatus` in the vTsoilMoistureExternal component would be false indicating that the telemetry'soilMoistureExternal' has a FAULT and should not be consumed by upstream processes
+* In case of fault with the Soil Moisture Sensor 1, the property `telemetryStatus` in the vTsoilMoistureExternal1 component would be false indicating that the telemetry'soilMoistureExternal1' has a FAULT and should not be consumed by upstream processes
+    > NOTE: To simulate a faulty sensor, just disconnect Soil Moisture Sensor 1 which would create an Open Port fault!
    
-    ![Fault in telemetry soilMoistureExternal](media/azure-iot-explorer-SMStatusFault.png)
+    ![Fault in telemetry soilMoistureExternal1](media/azure-iot-explorer-SMStatusFault.png)
 
 ## Next Steps
 * With this sample, you have now setup and interacted with a Verified Telemetry device sample
+* To see how a solution sample can utilise Verified Telemetry Data, refer to our [Custom Solution Sample](https://github.com/Azure/Verified-Telemetry-Solution-Sample) which uses a Grafana Dashboard
 * To understand how to modify your existing IoT solution to utilize Verified Telemetry Information, refer to the following documentation - 
     * [Fetching Verified Telemetry Information for your Custom Solution](https://github.com/Azure/Verified-Telemetry-Solution-Sample/blob/main/docs/customSolution.md) 
 * For steps to include Verified Telemetry in your existing solution, refer to documentation in the [Verified Telemetry Library](https://github.com/Azure/Verified-Telemetry)

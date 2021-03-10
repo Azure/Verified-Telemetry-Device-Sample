@@ -1,5 +1,5 @@
 # Getting started with the MXChip AZ3166 IoT DevKit for Verified Telemetry
-**Total completion time**:  30 minutes
+**Total completion time**:  40 minutes
 
 In this tutorial you use Verified Telemetry and Azure RTOS to connect the MXChip AZ3166 IoT DevKit (hereafter, the MXChip DevKit) to Azure IoT and provide the feature of Telemetry Verification to two telemetries. 
 
@@ -28,8 +28,7 @@ You will complete the following tasks:
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
     > * [MXChip Edge Connector](https://www.sparkfun.com/products/13989)
-    > * [Analog Accelerometer ADXL335](https://www.sparkfun.com/products/9269)
-    > * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
 
 ## Prepare the development environment
 
@@ -60,7 +59,7 @@ To run the setup script:
 
 1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
-    > *getting-started\tools\get-toolchain.bat*
+    > *Verified-Telemetry-Device-Sample\tools\get-toolchain.bat*
 
     After the installation completes, the Azure IoT Explorer opens automatically. Keep the IoT Explorer open, you'll use it in later steps.
 
@@ -152,16 +151,16 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
 
 * Connect Sensors         ***Verified Telemetry***
 
-    Refer to the table and images below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
-
+    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors
     | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | ADXL335       | X Axis analog output | 4                           | PA5        |
-    | ADXL335       | VCC                  | 8                           | PC13       |
-    | ADXL335       | GND                  | GND                           | GND       |
-    | Soil Moisture | Analog Out           | 0                           | PB0        |
-    | Soil Moisture | VCC                  | 12                          | PB2        |
-    | Soil Moisture | GND                  | GND                          | GND        |
+    | Soil Moisture Sensor 1 | Analog Out           | 0                           | PB0        |
+    | Soil Moisture Sensor 1 | VCC                  | 12                          | PB2        |
+    | Soil Moisture Sensor 1 | GND                  | GND                          | GND        |
+    | Soil Moisture Sensor 2       | Analog Out | 4                           | PA5        |
+    | Soil Moisture Sensor 2       | VCC                  | 8                           | PC13       |
+    | Soil Moisture Sensor 2       | GND                  | GND                           | GND       |
+    
 
     ![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
 
@@ -187,7 +186,7 @@ To connect the MXChip DevKit to Azure, you'll modify a configuration file for Wi
     |-------------|-----|
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
-    |`IOT_PRIMARY_KEY` |{*Your primaryKey value*}|
+    |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
 
 1. Save and close the file.
 
@@ -255,19 +254,19 @@ You can use the **Termite** utility to monitor communication and confirm that yo
 
     IoTHub Host Name: XXX.azure-devices.net; Device ID: MyMXChipDevice.
     Connected to IoTHub.
-    Component sampleDevice Telemetry message send: {"soilMoistureExternal":2542,"accelerometerXExternal":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
+    Component sampleDevice Telemetry message send: {"soilMoistureExternal1":2542,"soilMoistureExternal2":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Received all properties
 

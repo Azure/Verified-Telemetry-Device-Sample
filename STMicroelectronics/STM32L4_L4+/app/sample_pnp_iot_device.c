@@ -141,7 +141,7 @@ bool sample_led_state_reported;
 static UINT sample_device_properties_sent = 0;
 
 static const CHAR sample_vTDevice_component[] = "vTDevice";
-static const CHAR sample_fallcurve_1_component[] = "vTaccelerometerXExternal";
+static const CHAR sample_fallcurve_1_component[] = "vTsoilMoistureExternal2";
 static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal";
 static void* verified_telemetry_DB               = NULL;
 
