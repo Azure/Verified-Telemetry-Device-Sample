@@ -152,16 +152,16 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
 
 * Connect Sensors         ***Verified Telemetry***
 
-    Refer to the table and images below to connect the two sensors: [ADXL335](https://www.sparkfun.com/products/9269) & [Soil Moisture](https://www.dfrobot.com/product-1385.html)
+    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
 
     | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | ADXL335       | X Axis analog output | 4                           | PA5        |
-    | ADXL335       | VCC                  | 8                           | PC13       |
-    | ADXL335       | GND                  | GND                           | GND       |
-    | Soil Moisture | Analog Out           | 0                           | PB0        |
-    | Soil Moisture | VCC                  | 12                          | PB2        |
-    | Soil Moisture | GND                  | GND                          | GND        |
+    | Soil Moisture 1 | Analog Out           | 0                           | PB0        |
+    | Soil Moisture 1 | VCC                  | 12                          | PB2        |
+    | Soil Moisture 1| GND                  | GND                          | GND        |
+    | Soil Moisture 2       | X Axis analog output | 4                           | PA5        |
+    | Soil Moisture 2       | VCC                  | 8                           | PC13       |
+    | Soil Moisture 2       | GND                  | GND                           | GND       |
 
     ![MXChip Sensor Connections](./media/MXChip_sensor_connections.png)
 
