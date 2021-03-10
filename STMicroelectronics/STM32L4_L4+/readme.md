@@ -157,7 +157,7 @@ This sample showcases Verified Telemetry feature for telemetry generated from tw
     | Soil Moisture 1 | Analog Out           | PC0                           | A5        |
     | Soil Moisture 1 | VCC                  | PB9                          | D14        |
     | Soil Moisture 1 | GND                  | GND                          | GND        |
-    | Soil Moisture 2       | X Axis analog output | PC1                           | A4        |
+    | Soil Moisture 2       | Analog Out  | PC1                           | A4        |
     | Soil Moisture 2       | VCC                  | PB8                           | D15       |
     | Soil Moisture 2       | GND                  | GND                           | GND       |
 
@@ -260,19 +260,19 @@ You can use the **Termite** utility to monitor communication and confirm that yo
 
     IoTHub Host Name: XXX.azure-devices.net; Device ID: MySTMDevice.
     Connected to IoTHub.
-    Component sampleDevice Telemetry message send: {"soilMoistureExternal":2542,"accelerometerXExternal":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
+    Component sampleDevice Telemetry message send: {"soilMoistureExternal1":2542,"soilMoistureExternal2":1499,"temperature":31.63,"pressure":954.44,"humidityPercentage":58.34,"acceleration":-70.57,"magnetic":561}.
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry accelerometerXExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal2 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Fingerprint Template NOT Available! Please invoke command setResetFingerprintTemplate
-    Telemetry soilMoistureExternal cannot be verified as a Fingerprint Template is not available!
+    Telemetry soilMoistureExternal1 cannot be verified as a Fingerprint Template is not available!
 
     Received all properties
     ```
