@@ -14,5 +14,4 @@ extern TIM_HandleTypeDef htim7;
 void board_init(void);
 int hardware_rand(void);
 
-
 #endif // _BOARD_INIT_H

@@ -15,13 +15,13 @@
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
 /* Telemetry key */
-static const CHAR telemetry_name_soilMoistureExternal1Raw[]  = "soilMoistureExternal1";
-static const CHAR telemetry_name_soilMoistureExternal2Raw[]  = "soilMoistureExternal2";
-static const CHAR telemetry_name_sensorTemperature[]         = "temperature";
-static const CHAR telemetry_name_sensorPressure[]            = "pressure";
-static const CHAR telemetry_name_sensorHumidity[]            = "humidityPercentage";
-static const CHAR telemetry_name_sensorAcceleration[]        = "acceleration";
-static const CHAR telemetry_name_sensorMagnetic[]            = "magnetic";
+static const CHAR telemetry_name_soilMoistureExternal1Raw[] = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+static const CHAR telemetry_name_sensorTemperature[]        = "temperature";
+static const CHAR telemetry_name_sensorPressure[]           = "pressure";
+static const CHAR telemetry_name_sensorHumidity[]           = "humidityPercentage";
+static const CHAR telemetry_name_sensorAcceleration[]       = "acceleration";
+static const CHAR telemetry_name_sensorMagnetic[]           = "magnetic";
 
 /* Pnp command supported */
 static const CHAR set_led_state[] = "setLedState";
@@ -49,12 +49,12 @@ UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
     ADC_ChannelConfTypeDef sConfig = {0};
 
-    sConfig.Channel = ADC_Channel;
-    sConfig.Rank = ADC_REGULAR_RANK_1;
+    sConfig.Channel      = ADC_Channel;
+    sConfig.Rank         = ADC_REGULAR_RANK_1;
     sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
-    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+    sConfig.SingleDiff   = ADC_SINGLE_ENDED;
     sConfig.OffsetNumber = ADC_OFFSET_NONE;
-    sConfig.Offset = 0;
+    sConfig.Offset       = 0;
 
     HAL_ADC_ConfigChannel(ADC_Controller, &sConfig);
 
@@ -104,16 +104,16 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
         return (NX_NOT_SUCCESSFUL);
     }
 
-    handle->component_name_ptr        = component_name_ptr;
-    handle->component_name_length     = component_name_length;
-    handle->soilMoistureExternal1Raw  = default_sensor_reading;
-    handle->soilMoistureExternal2Raw  = default_sensor_reading;
-    handle->sensorTemperature         = default_sensor_reading;
-    handle->sensorPressure            = default_sensor_reading;
-    handle->sensorHumidity            = default_sensor_reading;
-    handle->sensorAcceleration        = default_sensor_reading;
-    handle->sensorMagnetic            = default_sensor_reading;
-    handle->sensorLEDState            = false;
+    handle->component_name_ptr       = component_name_ptr;
+    handle->component_name_length    = component_name_length;
+    handle->soilMoistureExternal1Raw = default_sensor_reading;
+    handle->soilMoistureExternal2Raw = default_sensor_reading;
+    handle->sensorTemperature        = default_sensor_reading;
+    handle->sensorPressure           = default_sensor_reading;
+    handle->sensorHumidity           = default_sensor_reading;
+    handle->sensorAcceleration       = default_sensor_reading;
+    handle->sensorMagnetic           = default_sensor_reading;
+    handle->sensorLEDState           = false;
 
     return (NX_AZURE_IOT_SUCCESS);
 }
@@ -137,7 +137,7 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     int16_t accXYZ[3];
     BSP_ACCELERO_AccGetXYZ(accXYZ);
 
-    handle->soilMoistureExternal1Raw   = soilMoisture1ADCData;
+    handle->soilMoistureExternal1Raw = soilMoisture1ADCData;
     handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
 
     handle->sensorTemperature  = temperature;
@@ -283,8 +283,11 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     nx_azure_iot_json_writer_deinit(&json_writer);
-    printf("Component %.*s Telemetry message send: %.*s.\r\n\n", handle -> component_name_length,
-           handle -> component_name_ptr, buffer_length, scratch_buffer);
+    printf("Component %.*s Telemetry message send: %.*s.\r\n\n",
+        handle->component_name_length,
+        handle->component_name_ptr,
+        buffer_length,
+        scratch_buffer);
 
     return (status);
 }
