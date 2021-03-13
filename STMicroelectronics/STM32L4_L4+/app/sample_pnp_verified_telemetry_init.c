@@ -29,7 +29,7 @@ void* sample_pnp_verified_telemetry_user_init()
              (UCHAR*)"vTsoilMoistureExternal2",
              GPIOB,
              GPIO_PIN_8,
-             &hadc1,
+             &hadc3,
              ADC_CHANNEL_2,
              &htim7,
              fallcurve_components,

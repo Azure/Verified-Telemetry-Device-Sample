@@ -15,8 +15,8 @@
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
 /* Telemetry key */
-static const CHAR telemetry_name_soilMoistureExternal1Raw[]   = "soilMoistureExternal1";
-static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+static const CHAR telemetry_name_soilMoistureExternal1Raw[]  = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[]  = "soilMoistureExternal2";
 static const CHAR telemetry_name_sensorTemperature[]         = "temperature";
 static const CHAR telemetry_name_sensorPressure[]            = "pressure";
 static const CHAR telemetry_name_sensorHumidity[]            = "humidityPercentage";
@@ -45,22 +45,27 @@ static void set_led_state_action(bool level)
     }
 }
 
-LONG adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
+UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel = ADC_Channel;
-    sConfig.Rank    = 1;
-    // sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+    sConfig.Rank = ADC_REGULAR_RANK_1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
+    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+    sConfig.OffsetNumber = ADC_OFFSET_NONE;
+    sConfig.Offset = 0;
+
     HAL_ADC_ConfigChannel(ADC_Controller, &sConfig);
 
     HAL_ADC_Start(ADC_Controller);
     if (HAL_ADC_PollForConversion(ADC_Controller, 10) == HAL_OK)
     {
-        return (float)(HAL_ADC_GetValue(ADC_Controller));
+        return (HAL_ADC_GetValue(ADC_Controller));
     }
+    HAL_ADC_Stop(ADC_Controller);
 
-    return -1;
+    return 0;
 }
 
 /* Implementation of Set LED state command of device component  */
@@ -101,8 +106,8 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
 
     handle->component_name_ptr        = component_name_ptr;
     handle->component_name_length     = component_name_length;
-    handle->soilMoistureExternal1Raw   = default_sensor_reading;
-    handle->soilMoistureExternal2Raw = default_sensor_reading;
+    handle->soilMoistureExternal1Raw  = default_sensor_reading;
+    handle->soilMoistureExternal2Raw  = default_sensor_reading;
     handle->sensorTemperature         = default_sensor_reading;
     handle->sensorPressure            = default_sensor_reading;
     handle->sensorHumidity            = default_sensor_reading;
@@ -121,7 +126,8 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     }
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
-    UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
+    HAL_Delay(1000);
+    UINT soilMoisture2ADCData = adc_read(&hadc3, ADC_CHANNEL_2);
 
     float temperature = BSP_TSENSOR_ReadTemp();
     float humidity    = BSP_HSENSOR_ReadHumidity();
