@@ -114,10 +114,13 @@ void board_init(void)
     // Initialize timers
     InitTimers();
 
+    // Initialize GPIO
     MX_GPIO_Init();
 
+    // Initialize ADC1 Controller
     MX_ADC1_Init();
 
+    // Initialize ADC3 Controller
     MX_ADC3_Init();
 }
 
@@ -415,18 +418,10 @@ void SPI3_IRQHandler(void)
 static void MX_ADC1_Init(void)
 {
 
-    /* USER CODE BEGIN ADC1_Init 0 */
-
-    /* USER CODE END ADC1_Init 0 */
-
     ADC_MultiModeTypeDef multimode = {0};
     ADC_ChannelConfTypeDef sConfig = {0};
 
-    /* USER CODE BEGIN ADC1_Init 1 */
-
-    /* USER CODE END ADC1_Init 1 */
-    /** Common config
-     */
+    /** Common config*/
     hadc1.Instance                   = ADC1;
     hadc1.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV4;
     hadc1.Init.Resolution            = ADC_RESOLUTION_12B;
@@ -447,15 +442,15 @@ static void MX_ADC1_Init(void)
     {
         STM32_Error_Handler();
     }
-    /** Configure the ADC multi-mode
-     */
+
+    /** Configure the ADC multi-mode*/
     multimode.Mode = ADC_MODE_INDEPENDENT;
     if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
     {
         STM32_Error_Handler();
     }
-    /** Configure Regular Channel
-     */
+
+    /** Configure Regular Channel*/
     sConfig.Channel      = ADC_CHANNEL_1;
     sConfig.Rank         = ADC_REGULAR_RANK_1;
     sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
@@ -466,9 +461,6 @@ static void MX_ADC1_Init(void)
     {
         STM32_Error_Handler();
     }
-    /* USER CODE BEGIN ADC1_Init 2 */
-
-    /* USER CODE END ADC1_Init 2 */
 }
 
 /**
@@ -478,18 +470,9 @@ static void MX_ADC1_Init(void)
  */
 static void MX_ADC3_Init(void)
 {
-
-    /* USER CODE BEGIN ADC3_Init 0 */
-
-    /* USER CODE END ADC3_Init 0 */
-
     ADC_ChannelConfTypeDef sConfig = {0};
 
-    /* USER CODE BEGIN ADC3_Init 1 */
-
-    /* USER CODE END ADC3_Init 1 */
-    /** Common config
-     */
+    /** Common config*/
     hadc3.Instance                   = ADC3;
     hadc3.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV4;
     hadc3.Init.Resolution            = ADC_RESOLUTION_12B;
@@ -510,8 +493,8 @@ static void MX_ADC3_Init(void)
     {
         STM32_Error_Handler();
     }
-    /** Configure Regular Channel
-     */
+
+    /** Configure Regular Channel*/
     sConfig.Channel      = ADC_CHANNEL_2;
     sConfig.Rank         = ADC_REGULAR_RANK_1;
     sConfig.SamplingTime = ADC_SAMPLETIME_640CYCLES_5;
@@ -522,9 +505,6 @@ static void MX_ADC3_Init(void)
     {
         STM32_Error_Handler();
     }
-    /* USER CODE BEGIN ADC3_Init 2 */
-
-    /* USER CODE END ADC3_Init 2 */
 }
 
 /**
