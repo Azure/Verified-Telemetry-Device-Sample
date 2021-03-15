@@ -47,6 +47,7 @@ static void set_led_state_action(bool level)
 
 UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
+    UINT value;
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel      = ADC_Channel;
@@ -61,11 +62,11 @@ UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
     HAL_ADC_Start(ADC_Controller);
     if (HAL_ADC_PollForConversion(ADC_Controller, 10) == HAL_OK)
     {
-        return (HAL_ADC_GetValue(ADC_Controller));
+        value = HAL_ADC_GetValue(ADC_Controller);
     }
     HAL_ADC_Stop(ADC_Controller);
 
-    return 0;
+    return value;
 }
 
 /* Implementation of Set LED state command of device component  */
