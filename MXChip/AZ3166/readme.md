@@ -148,12 +148,12 @@ Confirm that you have the copied the following values from the JSON output to us
 
 ## Connect Sensors for Verified Telemetry
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to MXChip Devkit
-* Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     ***Verified Telemetry***
+* Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     
 
-* Connect Sensors         ***Verified Telemetry***
+* Connect Sensors         
 
 
-    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
+    Refer to the table and images below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors. 
 
     | Sensor Name   | Sensor Pin           | Sparkfun Edge Connector Pin | MXChip Pin |
     |---------------|----------------------|-----------------------------|------------|
@@ -230,7 +230,7 @@ You can use the **Termite** utility to monitor communication and confirm that yo
     ![Termite settings](media/termite-settings.png)
 1. Select OK.
 1. Press the **Reset** button on the device. The button is black and is labeled on the device.
-1. In the **Termite** console, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT.
+1. In the **Termite** console, check the following checkpoint values to confirm that the device is initialized and connected to Azure IoT. This now completes flashing VT code to the device. Please follow the next steps below to interact with the device.
 
     ```output
     Starting Azure thread

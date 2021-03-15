@@ -11,12 +11,12 @@
 * [Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#verified-telemetry-device-sample)
 * [Steps to setup end-to-end Verified Telemetry demo](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#steps-to-setup-end-to-end-verified-telemetry-demo)
 ## Verified Telemetry Overview
-Verified Telemetry (VT) is a state-of-the-art solution to determine the health of the sensor, i.e., working or faulty, which is consequently used to determine the quality of the sensed data. This is achieved by devising an intelligent “sensor fingerprint”, a set of unique electrical characteristics that differs between working and faulty sensors. The fingerprints can detect faults for a wide variety of off-the-shelf sensors and can be easily implemented with lightweight software code running on the IoT device. 
+Verified Telemetry (VT) is a state-of-the-art solution to determine the health of the sensor, i.e., working or faulty, which is consequently used to determine the quality of the sensed data. This is achieved by devising an intelligent “sensor fingerprint”, a set of unique electrical characteristics that differs between working and faulty sensors. The fingerprints can detect faults for a wide variety of off-the-shelf sensors and can be easily implemented with lightweight software code running on the IoT device. VT code is split into three repositories as described below: 
 
 
 | |Description |
 |-|-|
-|[Verified Telemetry Device SDK](https://github.com/Azure/Verified-Telemetry) |The SDK which builds on the Azure RTOS middleware |
+|[Verified Telemetry Device SDK](https://github.com/Azure/Verified-Telemetry) |The SDK which builds on the Azure RTOS middleware and describes how to integrate VT into existing device code. |
 |[Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample) |These Getting Started guides shows device developers how to combine Verified Telemetry with [Azure IoT](https://azure.microsoft.com/overview/iot/) and [Azure RTOS](https://docs.microsoft.com/azure/rtos/). |
 |[Verified Telemetry Custom Solution Sample](https://github.com/Azure/Verified-Telemetry-Solution-Sample) | Uses InfluxDB, Grafana and the [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node) to communicate with [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) and showcase how the Verified Telemetry features can be utilized in real world scenarios.|
 
@@ -33,7 +33,7 @@ The device samples shows device developers how to include Verified Telemetry wit
   > Note: Verified Telemetry status is supported only to analog sensors. We are currently working on extending the SDK to support digital sensors. 
 
 ## Verified Telemetry Concepts
-A few key concepts are introduced and discussed below
+A few key concepts of VT are introduced and discussed below:
 
 1. Sensor Fingerprint
 
@@ -43,7 +43,7 @@ A few key concepts are introduced and discussed below
 1. Sensor Fingerprint Template
 
     * Sensor fingerprint template is a fingerprint of a working sensor
-    * The fingerprint template is collected by the IoT device and stored locally and in the Digital Twin
+    * The fingerprint template is collected by the IoT device, ideally when the sensor is provisioned first and stored locally and in the Digital Twin
 
 1. Sensor Fingerprint Collection
     * Sensor Fingerprint Collection is a process where the IoT device measures the fingerprint of a sensor
@@ -58,7 +58,7 @@ A few key concepts are introduced and discussed below
     * The telemetry status for each telemetry that supports Verified Telemetry feature exists as a non-writable property in the Digital Twin
 
 1. Fingerprint Template Synchronization at Boot
-    * If the sensor fingerprint template exists in the Digital Twin, it is fetched and updated on the device when the device boots/resets
+    * If the sensor fingerprint template exists in the Digital Twin, it is fetched and updated on the device when the device boots/resets. This ensures fingerprint template is collected only once when device is provisioned. 
     * If the sensor fingerprint template does not exist in the Digital Twin, the template on device remains empty after boot and subsequent sensor fingerprint evaluation cannot be performed
 
 1. Verified Telmetry Interface
@@ -69,9 +69,9 @@ A few key concepts are introduced and discussed below
     | **Properties (read-only)** | `telemetryStatus` | Status of the telemetry, i.e. Working/Faulty to which the component of this interface is asscoiated. |
     | **Properties (read-only)** | `fingerprintType` | Type of the fingerprint (String). e.g., FallCurve or CurrentSense or Custom. |
     | **Properties (read-only)** | `fingerprintTemplate` | Template Fingerprint information in a Map |
-    | **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on how much the Fingerprint Template can be trusted |
-    | **Commands** | `setResetFingerprintTemplate` | This command will set/reset the template fingerprint |
-    | **Commands** | `retrainFingerprintTemplate` | This command will retrain the template fingerprint |
+    | **Properties (read-only)** | `fingerprintTemplateConfidenceMetric` | Stores information on the Fingerprint Template confidence, i.e., high, meidum or low |
+    | **Commands** | `setResetFingerprintTemplate` | This command will set or reset the template fingerprint |
+    | **Commands** | `retrainFingerprintTemplate` | This command will append a new fingerprint to the exsiting template fingerprint |
 
 ## Verified Telemetry Device Sample
 * The device samples showcase how to setup a device using the sample code which supports Verified Telmetry
