@@ -15,8 +15,8 @@
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
 /* Telemetry key */
-static const CHAR telemetry_name_soilMoistureExternal1Raw[]   = "soilMoistureExternal1";
-static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+static const CHAR telemetry_name_soilMoistureExternal1Raw[]  = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[]  = "soilMoistureExternal2";
 static const CHAR telemetry_name_sensorTemperature[]         = "temperature";
 static const CHAR telemetry_name_sensorPressure[]            = "pressure";
 static const CHAR telemetry_name_sensorHumidity[]            = "humidityPercentage";
@@ -47,7 +47,7 @@ static void set_led_state_action(bool level)
 
 UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
-    UINT value;
+    UINT value = 0;
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel      = ADC_Channel;
