@@ -41,22 +41,24 @@ static void set_led_state_action(bool level)
     }
 }
 
-LONG adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
+UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
+    UINT value = 0;
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel      = ADC_Channel;
     sConfig.Rank         = 1;
-    sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+    sConfig.SamplingTime = ADC_SAMPLETIME_480CYCLES;
     HAL_ADC_ConfigChannel(ADC_Controller, &sConfig);
 
     HAL_ADC_Start(ADC_Controller);
     if (HAL_ADC_PollForConversion(ADC_Controller, 10) == HAL_OK)
     {
-        return (float)(HAL_ADC_GetValue(ADC_Controller));
+        value =  HAL_ADC_GetValue(ADC_Controller);
     }
+    HAL_ADC_Stop(ADC_Controller);
 
-    return -1;
+    return value;
 }
 
 /* Implementation of Set LED state command of device component  */
@@ -116,14 +118,14 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
         return (NX_NOT_SUCCESSFUL);
     }
 
-    UINT soilMoisture1ADCData          = adc_read(&hadc1, ADC_CHANNEL_8);
+    UINT soilMoisture1ADCData         = adc_read(&hadc1, ADC_CHANNEL_8);
     UINT soilMoisture2ADCData         = adc_read(&hadc1, ADC_CHANNEL_5);
     lps22hb_t lps22hb_data            = lps22hb_data_read();
     hts221_data_t hts221_data         = hts221_data_read();
     lsm6dsl_data_t lsm6dsl_data       = lsm6dsl_data_read();
     lis2mdl_data_t lis2mdl_data       = lis2mdl_data_read();
-    handle->soilMoistureExternal1Raw   = soilMoisture1ADCData;
-    handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
+    handle->soilMoistureExternal1Raw  = soilMoisture1ADCData;
+    handle->soilMoistureExternal2Raw  = soilMoisture2ADCData;
     handle->sensorTemperature         = lps22hb_data.temperature_degC;
     handle->sensorPressure            = lps22hb_data.pressure_hPa;
     handle->sensorHumidity            = hts221_data.humidity_perc;
