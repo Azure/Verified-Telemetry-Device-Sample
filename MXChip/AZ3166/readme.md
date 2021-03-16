@@ -150,10 +150,10 @@ Confirm that you have the copied the following values from the JSON output to us
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to MXChip Devkit
 * Connect Sparkfun Edge Connector which is available [here](https://www.sparkfun.com/products/13989)     
 
-![MXChip Edge Connector - Connection](./media/mxchip-connection.gif)
+    ![MXChip Edge Connector - Connection](./media/mxchip-connection.gif)
 
 * This is how MXChip should look from the bottom after you connect the Edge Connector
-![MXChip Edge Connector - After Connection](./media/mxchip-connection-bottom.jpeg)
+    ![MXChip Edge Connector - After Connection](./media/mxchip-connection-bottom.jpeg)
 
 * Connect Sensors         
 
