@@ -970,15 +970,16 @@ static UINT sample_components_init()
 {
     UINT status;
 
+    verified_telemetry_DB = sample_pnp_verified_telemetry_user_init();
+
     if ((status = sample_pnp_device_init(&sample_device,
              (UCHAR*)sample_device_component,
              sizeof(sample_device_component) - 1,
-             SAMPLE_DEFAULT_DEVICE_SENSOR_READING)))
+             SAMPLE_DEFAULT_DEVICE_SENSOR_READING,
+             verified_telemetry_DB)))
     {
         printf("Failed to initialize %s: error code = 0x%08x\r\n", sample_device_component, status);
     }
-
-    verified_telemetry_DB = sample_pnp_verified_telemetry_user_init();
 
     sample_led_state_reported     = 0;
     sample_device_properties_sent = 0;

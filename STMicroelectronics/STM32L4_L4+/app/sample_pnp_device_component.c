@@ -9,6 +9,7 @@
 #include "stm32l475e_iot01_magneto.h"
 #include "stm32l475e_iot01_psensor.h"
 #include "stm32l475e_iot01_tsensor.h"
+#include "pnp_verified_telemetry.h"
 
 #define DOUBLE_DECIMAL_PLACE_DIGITS   (2)
 #define SAMPLE_COMMAND_SUCCESS_STATUS (200)
@@ -98,7 +99,8 @@ static UINT sample_pnp_device_set_led_state_command(SAMPLE_PNP_DEVICE_COMPONENT*
 UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     UCHAR* component_name_ptr,
     UINT component_name_length,
-    double default_sensor_reading)
+    double default_sensor_reading,
+    void* verified_telemetry_DB)
 {
     if (handle == NX_NULL)
     {
@@ -115,6 +117,7 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     handle->sensorAcceleration        = default_sensor_reading;
     handle->sensorMagnetic            = default_sensor_reading;
     handle->sensorLEDState            = false;
+    handle->verified_telemetry_DB     = verified_telemetry_DB;
 
     return (NX_AZURE_IOT_SUCCESS);
 }
@@ -194,7 +197,6 @@ UINT sample_pnp_device_process_command(SAMPLE_PNP_DEVICE_COMPONENT* handle,
 UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZURE_IOT_PNP_CLIENT* iotpnp_client_ptr)
 {
     UINT status;
-    NX_PACKET* packet_ptr;
     NX_AZURE_IOT_JSON_WRITER json_writer;
     UINT buffer_length;
 
@@ -210,22 +212,10 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
         return (status);
     }
 
-    /* Create a telemetry message packet. */
-    if ((status = nx_azure_iot_pnp_client_telemetry_message_create(iotpnp_client_ptr,
-             handle->component_name_ptr,
-             handle->component_name_length,
-             &packet_ptr,
-             NX_WAIT_FOREVER)))
-    {
-        printf("Telemetry message create failed!: error code = 0x%08x\r\n", status);
-        return (status);
-    }
-
     /* Build telemetry JSON payload */
     if (nx_azure_iot_json_writer_with_buffer_init(&json_writer, scratch_buffer, sizeof(scratch_buffer)))
     {
         printf("Telemetry message failed to build message\r\n");
-        nx_azure_iot_pnp_client_telemetry_message_delete(packet_ptr);
         return (NX_NOT_SUCCESSFUL);
     }
     if (nx_azure_iot_json_writer_append_begin_object(&json_writer) ||
@@ -268,17 +258,19 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     {
         printf("Telemetry message failed to build message\r\n");
         nx_azure_iot_json_writer_deinit(&json_writer);
-        nx_azure_iot_pnp_client_telemetry_message_delete(packet_ptr);
         return (NX_NOT_SUCCESSFUL);
     }
 
     buffer_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
-    if ((status = nx_azure_iot_pnp_client_telemetry_send(
-             iotpnp_client_ptr, packet_ptr, (UCHAR*)scratch_buffer, buffer_length, NX_WAIT_FOREVER)))
+    /* Create and send the telemetry message packet. */    
+    if ((status = pnp_vt_verified_telemetry_message_create_send(iotpnp_client_ptr,
+             handle->component_name_ptr,
+             handle->component_name_length,
+             NX_WAIT_FOREVER,
+             (UCHAR*)scratch_buffer, buffer_length, handle->verified_telemetry_DB)))
     {
-        printf("Telemetry message send failed!: error code = 0x%08x\r\n", status);
+        printf("Verified Telemetry message create and send failed!: error code = 0x%08x\r\n", status);
         nx_azure_iot_json_writer_deinit(&json_writer);
-        nx_azure_iot_pnp_client_telemetry_message_delete(packet_ptr);
         return (status);
     }
 
