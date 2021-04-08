@@ -45,12 +45,16 @@ extern "C"
         /* LED state of this device component */
         bool sensorLEDState;
 
+        /* Pointer to Verified Telemetry DB */
+        void* verified_telemetry_DB;
+
     } SAMPLE_PNP_DEVICE_COMPONENT;
 
     UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
         UCHAR* component_name_ptr,
         UINT component_name_length,
-        double default_sensor_reading);
+        double default_sensor_reading,
+        void* verified_telemetry_DB);
 
     UINT sample_pnp_device_process_command(SAMPLE_PNP_DEVICE_COMPONENT* handle,
         UCHAR* component_name_ptr,
