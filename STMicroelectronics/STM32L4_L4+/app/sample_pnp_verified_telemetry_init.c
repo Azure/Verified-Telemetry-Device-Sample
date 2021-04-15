@@ -58,7 +58,8 @@ void* sample_pnp_verified_telemetry_user_init()
                   (UCHAR*)"vTDevice",   
                   fallcurve_components,
                   NUMBER_OF_VT_ENABLED_TELEMETRIES,
-                  true)))
+                  true,
+                  FLASH_ADDRESS_DISABLED)))
     {
         printf("Failed to initialize Verified Telemetry: error code = 0x%08x\r\n", status);
     }
