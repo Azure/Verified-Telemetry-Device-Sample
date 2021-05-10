@@ -9,7 +9,7 @@
 #include "stm32l475e_iot01_magneto.h"
 #include "stm32l475e_iot01_psensor.h"
 #include "stm32l475e_iot01_tsensor.h"
-#include "pnp_verified_telemetry.h"
+#include "nx_verified_telemetry.h"
 
 #define DOUBLE_DECIMAL_PLACE_DIGITS   (2)
 #define SAMPLE_COMMAND_SUCCESS_STATUS (200)
@@ -128,6 +128,10 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     {
         return (NX_NOT_SUCCESSFUL);
     }
+
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
+    HAL_Delay(10);
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
     UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
@@ -263,11 +267,12 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
 
     buffer_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
     /* Create and send the telemetry message packet. */    
-    if ((status = pnp_vt_verified_telemetry_message_create_send(iotpnp_client_ptr,
-             handle->component_name_ptr,
-             handle->component_name_length,
-             NX_WAIT_FOREVER,
-             (UCHAR*)scratch_buffer, buffer_length, handle->verified_telemetry_DB)))
+    if ((status = nx_vt_verified_telemetry_message_create_send(handle->verified_telemetry_DB,
+            iotpnp_client_ptr,
+            handle->component_name_ptr,
+            handle->component_name_length,
+            NX_WAIT_FOREVER,
+            (UCHAR*)scratch_buffer, buffer_length)))
     {
         printf("Verified Telemetry message create and send failed!: error code = 0x%08x\r\n", status);
         nx_azure_iot_json_writer_deinit(&json_writer);

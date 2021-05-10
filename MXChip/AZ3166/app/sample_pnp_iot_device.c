@@ -954,6 +954,7 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context)
 
         if (app_events & SAMPLE_TELEMETRY_SEND_EVENT)
         {
+            nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
             sample_telemetry_action(context);
         }
 
@@ -976,8 +977,6 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context)
         {
             sample_connection_error_recover(context);
         }
-
-        nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
 
         sample_trigger_action(context);
     }

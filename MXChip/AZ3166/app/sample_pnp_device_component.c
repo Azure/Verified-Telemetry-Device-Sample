@@ -120,6 +120,9 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     {
         return (NX_NOT_SUCCESSFUL);
     }
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+    HAL_Delay(10);
 
     UINT soilMoisture1ADCData         = adc_read(&hadc1, ADC_CHANNEL_8);
     UINT soilMoisture2ADCData         = adc_read(&hadc1, ADC_CHANNEL_5);
