@@ -13,7 +13,6 @@ I2C_HandleTypeDef I2cHandle;
 
 UART_HandleTypeDef UartHandle;
 ADC_HandleTypeDef hadc1;
-TIM_HandleTypeDef htim14;
 
 #define I2C_ADDRESS 0x30F
 
@@ -212,15 +211,6 @@ static void TIM_Init(void) {
   HAL_TIM_PWM_ConfigChannel(&timer_handle, &channel_config, TIM_CHANNEL_2);
   HAL_TIM_PWM_Start(&timer_handle, TIM_CHANNEL_2);
 
-  htim14.Instance = TIM14;
-  htim14.Init.Prescaler = 92 - 1;
-  htim14.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim14.Init.Period = 65535;
-  htim14.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim14.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_Base_Init(&htim14) != HAL_OK) {
-    STM32_Error_Handler();
-  }
 }
 
 /**

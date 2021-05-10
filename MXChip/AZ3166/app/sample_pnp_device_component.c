@@ -5,7 +5,7 @@
 #include "board_init.h"
 #include "sensor.h"
 #include "stm32f4xx_hal.h"
-#include "pnp_verified_telemetry.h"
+#include "nx_verified_telemetry.h"
 
 #define DOUBLE_DECIMAL_PLACE_DIGITS   (2)
 #define SAMPLE_COMMAND_SUCCESS_STATUS (200)
@@ -250,11 +250,12 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
 
     buffer_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
     /* Create and send the telemetry message packet. */    
-    if ((status = pnp_vt_verified_telemetry_message_create_send(iotpnp_client_ptr,
+    if ((status = nx_vt_verified_telemetry_message_create_send(handle->verified_telemetry_DB,
+            iotpnp_client_ptr,
              handle->component_name_ptr,
              handle->component_name_length,
              NX_WAIT_FOREVER,
-             (UCHAR*)scratch_buffer, buffer_length, handle->verified_telemetry_DB)))
+             (UCHAR*)scratch_buffer, buffer_length)))
     {
         printf("Verified Telemetry message create and send failed!: error code = 0x%08x\r\n", status);
         nx_azure_iot_json_writer_deinit(&json_writer);

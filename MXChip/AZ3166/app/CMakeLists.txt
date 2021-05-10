@@ -16,8 +16,9 @@ set(SOURCES
     wwd_networking.c
 
     sample_pnp_iot_device.c
-    sample_pnp_verified_telemetry_init.c
     sample_pnp_device_component.c
+    sample_nx_verified_telemetry_init.c
+    sample_vt_device_driver.c
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
