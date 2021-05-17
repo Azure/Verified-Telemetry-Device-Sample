@@ -30,7 +30,6 @@ void* sample_nx_verified_telemetry_user_init()
     sample_device_driver.interrupt_enable = &vt_interrupt_enable;
     sample_device_driver.interrupt_disable = &vt_interrupt_disable;
 
-    printf("[VT CS] About to run vt_init()\r\n");
     if ((status = nx_vt_init((void*)(&verified_telemetry_DB),
         (UCHAR*)"vTDevice",
         true,
