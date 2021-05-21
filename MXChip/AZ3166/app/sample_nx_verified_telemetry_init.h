@@ -9,7 +9,9 @@ extern "C"
 {
 #endif
 
-    void* sample_nx_verified_telemetry_user_init();
+#include "nx_verified_telemetry.h"
+
+    NX_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init();
 
 #ifdef __cplusplus
 }

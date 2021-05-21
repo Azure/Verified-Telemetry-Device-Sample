@@ -7,10 +7,9 @@
 #include "nx_azure_iot_pnp_client.h"
 #include "nx_azure_iot_provisioning_client.h"
 
+#include "azure_config.h"
 #include "azure_iot_cert.h"
 #include "azure_iot_ciphersuites.h"
-//#include "sample_config.h"
-#include "azure_config.h"
 
 #include "board_init.h"
 
@@ -19,7 +18,6 @@
 
 /* Verified Telemetry */
 #include "nx_vt_middleware_helper.h"
-#include "nx_verified_telemetry.h"
 #include "sample_nx_verified_telemetry_init.h"
 
 #define ENDPOINT                     "global.azure-devices-provisioning.net"
@@ -146,11 +144,8 @@ static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported;
 static UINT sample_device_properties_sent = 0;
 
-
-static const CHAR sample_vTDevice_component[]    = "vTDevice";
-static const CHAR sample_fallcurve_1_component[] = "vTsoilMoistureExternal2";
-static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal1";
-static void* verified_telemetry_DB               = NULL;
+/* Verified Telemetry DB Pointer */
+NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB = NULL;
 
 static UCHAR scratch_buffer[2096];
 
@@ -399,23 +394,7 @@ static VOID sample_initialize_iothub(SAMPLE_CONTEXT* context)
     }
     else if ((status = nx_azure_iot_pnp_client_component_add(
                   iotpnp_client_ptr, (const UCHAR*)sample_device_component, sizeof(sample_device_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(
-                  iotpnp_client_ptr, (const UCHAR*)sample_vTDevice_component, sizeof(sample_vTDevice_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-                  (const UCHAR*)sample_fallcurve_1_component,
-                  sizeof(sample_fallcurve_1_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-                  (const UCHAR*)sample_fallcurve_2_component,
-                  sizeof(sample_fallcurve_2_component) - 1))
-        //                                                  ||
-        // (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-        //                                                  (const UCHAR *)sample_fallcurve_PC_component,
-        //                                                  sizeof(sample_fallcurve_PC_component) - 1))
-        //                                                  ||
-        // (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-        //                                                  (const UCHAR *)sample_fallcurve_Cert_component,
-        //                                                  sizeof(sample_fallcurve_Cert_component) - 1))
-    )
+             (status = nx_vt_azure_iot_pnp_client_component_add(verified_telemetry_DB, iotpnp_client_ptr)))
     {
         printf("Failed to add component to pnp client!: error code = 0x%08x\r\n", status);
     }
