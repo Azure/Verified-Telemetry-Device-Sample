@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "vt_fc_api.h": "c",
+        "vt_fc.h": "c",
+        "vt_fc_read.h": "c",
+        "nx_vt_middleware_helper.h": "c",
+        "nx_vt_fallcurve_component.h": "c"
+    }
+}

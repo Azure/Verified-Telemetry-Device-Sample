@@ -13,6 +13,7 @@ extern "C"
 #include "nx_azure_iot_json_reader.h"
 #include "nx_azure_iot_json_writer.h"
 #include "nx_azure_iot_pnp_client.h"
+#include "nx_verified_telemetry.h"
 
     typedef struct SAMPLE_PNP_DEVICE_COMPONENT_TAG
     {
@@ -46,7 +47,7 @@ extern "C"
         bool sensorLEDState;
 
         /* Pointer to Verified Telemetry DB */
-        void* verified_telemetry_DB;
+        NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB;
 
     } SAMPLE_PNP_DEVICE_COMPONENT;
 
@@ -54,7 +55,7 @@ extern "C"
         UCHAR* component_name_ptr,
         UINT component_name_length,
         double default_sensor_reading,
-        void* verified_telemetry_DB);
+        NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB);
 
     UINT sample_pnp_device_process_command(SAMPLE_PNP_DEVICE_COMPONENT* handle,
         UCHAR* component_name_ptr,

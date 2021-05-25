@@ -8,7 +8,6 @@
 
 extern UART_HandleTypeDef UartHandle;
 extern ADC_HandleTypeDef hadc1;
-extern TIM_HandleTypeDef htim7;
 
 void board_init(void);
 int hardware_rand(void);

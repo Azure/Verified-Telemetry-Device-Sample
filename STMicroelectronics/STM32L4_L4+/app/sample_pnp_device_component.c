@@ -9,20 +9,19 @@
 #include "stm32l475e_iot01_magneto.h"
 #include "stm32l475e_iot01_psensor.h"
 #include "stm32l475e_iot01_tsensor.h"
-#include "pnp_verified_telemetry.h"
 
 #define DOUBLE_DECIMAL_PLACE_DIGITS   (2)
 #define SAMPLE_COMMAND_SUCCESS_STATUS (200)
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
 /* Telemetry key */
-static const CHAR telemetry_name_soilMoistureExternal1Raw[]  = "soilMoistureExternal1";
-static const CHAR telemetry_name_soilMoistureExternal2Raw[]  = "soilMoistureExternal2";
-static const CHAR telemetry_name_sensorTemperature[]         = "temperature";
-static const CHAR telemetry_name_sensorPressure[]            = "pressure";
-static const CHAR telemetry_name_sensorHumidity[]            = "humidityPercentage";
-static const CHAR telemetry_name_sensorAcceleration[]        = "acceleration";
-static const CHAR telemetry_name_sensorMagnetic[]            = "magnetic";
+static const CHAR telemetry_name_soilMoistureExternal1Raw[] = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+static const CHAR telemetry_name_sensorTemperature[]        = "temperature";
+static const CHAR telemetry_name_sensorPressure[]           = "pressure";
+static const CHAR telemetry_name_sensorHumidity[]           = "humidityPercentage";
+static const CHAR telemetry_name_sensorAcceleration[]       = "acceleration";
+static const CHAR telemetry_name_sensorMagnetic[]           = "magnetic";
 
 /* Pnp command supported */
 static const CHAR set_led_state[] = "setLedState";
@@ -48,7 +47,7 @@ static void set_led_state_action(bool level)
 
 UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
-    UINT value = 0;
+    UINT value                     = 0;
     ADC_ChannelConfTypeDef sConfig = {0};
 
     sConfig.Channel      = ADC_Channel;
@@ -100,24 +99,24 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     UCHAR* component_name_ptr,
     UINT component_name_length,
     double default_sensor_reading,
-    void* verified_telemetry_DB)
+    NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB)
 {
     if (handle == NX_NULL)
     {
         return (NX_NOT_SUCCESSFUL);
     }
 
-    handle->component_name_ptr        = component_name_ptr;
-    handle->component_name_length     = component_name_length;
-    handle->soilMoistureExternal1Raw   = default_sensor_reading;
+    handle->component_name_ptr       = component_name_ptr;
+    handle->component_name_length    = component_name_length;
+    handle->soilMoistureExternal1Raw = default_sensor_reading;
     handle->soilMoistureExternal2Raw = default_sensor_reading;
-    handle->sensorTemperature         = default_sensor_reading;
-    handle->sensorPressure            = default_sensor_reading;
-    handle->sensorHumidity            = default_sensor_reading;
-    handle->sensorAcceleration        = default_sensor_reading;
-    handle->sensorMagnetic            = default_sensor_reading;
-    handle->sensorLEDState            = false;
-    handle->verified_telemetry_DB     = verified_telemetry_DB;
+    handle->sensorTemperature        = default_sensor_reading;
+    handle->sensorPressure           = default_sensor_reading;
+    handle->sensorHumidity           = default_sensor_reading;
+    handle->sensorAcceleration       = default_sensor_reading;
+    handle->sensorMagnetic           = default_sensor_reading;
+    handle->sensorLEDState           = false;
+    handle->verified_telemetry_DB    = verified_telemetry_DB;
 
     return (NX_AZURE_IOT_SUCCESS);
 }
@@ -128,6 +127,10 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     {
         return (NX_NOT_SUCCESSFUL);
     }
+
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
+    HAL_Delay(10);
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
     UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
@@ -140,7 +143,7 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
     int16_t accXYZ[3];
     BSP_ACCELERO_AccGetXYZ(accXYZ);
 
-    handle->soilMoistureExternal1Raw   = soilMoisture1ADCData;
+    handle->soilMoistureExternal1Raw = soilMoisture1ADCData;
     handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
 
     handle->sensorTemperature  = temperature;
@@ -262,12 +265,14 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     buffer_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
-    /* Create and send the telemetry message packet. */    
-    if ((status = pnp_vt_verified_telemetry_message_create_send(iotpnp_client_ptr,
+    /* Create and send the telemetry message packet. */
+    if ((status = nx_vt_verified_telemetry_message_create_send(handle->verified_telemetry_DB,
+             iotpnp_client_ptr,
              handle->component_name_ptr,
              handle->component_name_length,
              NX_WAIT_FOREVER,
-             (UCHAR*)scratch_buffer, buffer_length, handle->verified_telemetry_DB)))
+             (UCHAR*)scratch_buffer,
+             buffer_length)))
     {
         printf("Verified Telemetry message create and send failed!: error code = 0x%08x\r\n", status);
         nx_azure_iot_json_writer_deinit(&json_writer);
@@ -275,8 +280,11 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     nx_azure_iot_json_writer_deinit(&json_writer);
-    printf("Component %.*s Telemetry message send: %.*s.\r\n\n", handle -> component_name_length,
-           handle -> component_name_ptr, buffer_length, scratch_buffer);
+    printf("Component %.*s Telemetry message send: %.*s.\r\n\n",
+        handle->component_name_length,
+        handle->component_name_ptr,
+        buffer_length,
+        scratch_buffer);
 
     return (status);
 }

@@ -27,7 +27,6 @@
 
 extern UART_HandleTypeDef UartHandle;
 extern ADC_HandleTypeDef hadc1;
-extern TIM_HandleTypeDef htim14;
 
 /* Define prototypes. */
 void board_init(void);

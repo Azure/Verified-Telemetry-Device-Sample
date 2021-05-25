@@ -7,10 +7,9 @@
 #include "nx_azure_iot_pnp_client.h"
 #include "nx_azure_iot_provisioning_client.h"
 
+#include "azure_config.h"
 #include "azure_iot_cert.h"
 #include "azure_iot_ciphersuites.h"
-//#include "sample_config.h"
-#include "azure_config.h"
 
 #include "board_init.h"
 
@@ -18,9 +17,8 @@
 #include "sample_pnp_device_component.h"
 
 /* Verified Telemetry */
-#include "pnp_middleware_helper.h"
-#include "pnp_verified_telemetry.h"
-#include "sample_pnp_verified_telemetry_init.h"
+#include "nx_vt_middleware_helper.h"
+#include "sample_nx_verified_telemetry_init.h"
 
 #define ENDPOINT                     "global.azure-devices-provisioning.net"
 #define MODULE_ID                    ""
@@ -146,11 +144,8 @@ static const CHAR sample_device_component[] = "sampleDevice";
 bool sample_led_state_reported;
 static UINT sample_device_properties_sent = 0;
 
-
-static const CHAR sample_vTDevice_component[]    = "vTDevice";
-static const CHAR sample_fallcurve_1_component[] = "vTsoilMoistureExternal2";
-static const CHAR sample_fallcurve_2_component[] = "vTsoilMoistureExternal1";
-static void* verified_telemetry_DB               = NULL;
+/* Verified Telemetry DB Pointer */
+NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB = NULL;
 
 static UCHAR scratch_buffer[2096];
 
@@ -399,23 +394,7 @@ static VOID sample_initialize_iothub(SAMPLE_CONTEXT* context)
     }
     else if ((status = nx_azure_iot_pnp_client_component_add(
                   iotpnp_client_ptr, (const UCHAR*)sample_device_component, sizeof(sample_device_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(
-                  iotpnp_client_ptr, (const UCHAR*)sample_vTDevice_component, sizeof(sample_vTDevice_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-                  (const UCHAR*)sample_fallcurve_1_component,
-                  sizeof(sample_fallcurve_1_component) - 1)) ||
-             (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-                  (const UCHAR*)sample_fallcurve_2_component,
-                  sizeof(sample_fallcurve_2_component) - 1))
-        //                                                  ||
-        // (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-        //                                                  (const UCHAR *)sample_fallcurve_PC_component,
-        //                                                  sizeof(sample_fallcurve_PC_component) - 1))
-        //                                                  ||
-        // (status = nx_azure_iot_pnp_client_component_add(iotpnp_client_ptr,
-        //                                                  (const UCHAR *)sample_fallcurve_Cert_component,
-        //                                                  sizeof(sample_fallcurve_Cert_component) - 1))
-    )
+             (status = nx_vt_azure_iot_pnp_client_component_add(verified_telemetry_DB, iotpnp_client_ptr)))
     {
         printf("Failed to add component to pnp client!: error code = 0x%08x\r\n", status);
     }
@@ -566,7 +545,7 @@ static VOID sample_command_action(SAMPLE_CONTEXT* sample_context_ptr)
             pnp_command_name_ptr);
         response_length = nx_azure_iot_json_writer_get_bytes_used(&json_writer);
     }
-    else if ((status = pnp_vt_process_command(verified_telemetry_DB,
+    else if ((status = nx_vt_process_command(verified_telemetry_DB,
                   &(sample_context_ptr->iotpnp_client),
                   (UCHAR*)component_name_ptr,
                   component_name_length,
@@ -614,7 +593,7 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
                pnp_client_ptr, &copy_json_reader, message_type, &component_ptr, &component_len, &name_value_reader) ==
            NX_AZURE_IOT_SUCCESS)
     {
-        if (pnp_vt_process_property_update(
+        if (nx_vt_process_property_update(
                 verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version) ==
             NX_AZURE_IOT_SUCCESS)
         {
@@ -637,11 +616,11 @@ static VOID sample_desired_properties_parse(NX_AZURE_IOT_PNP_CLIENT* pnp_client_
                pnp_client_ptr, &copy_json_reader, message_type, &component_ptr, &component_len, &name_value_reader) ==
            NX_AZURE_IOT_SUCCESS)
     {
-        pnp_vt_process_reported_property_sync(
+        nx_vt_process_reported_property_sync(
             verified_telemetry_DB, pnp_client_ptr, component_ptr, component_len, &name_value_reader, version);
     }
 
-    pnp_vt_send_desired_property_after_boot(verified_telemetry_DB, pnp_client_ptr, message_type);
+    nx_vt_send_desired_property_after_boot(verified_telemetry_DB, pnp_client_ptr, message_type);
 }
 
 static VOID sample_device_desired_property_action(SAMPLE_CONTEXT* context)
@@ -707,9 +686,9 @@ static VOID sample_device_reported_property_action(SAMPLE_CONTEXT* context)
         }
     }
 
-    if ((status = pnp_vt_properties(verified_telemetry_DB, &(context->iotpnp_client))))
+    if ((status = nx_vt_properties(verified_telemetry_DB, &(context->iotpnp_client))))
     {
-        printf("Failed sample_pnp_vt_properties: error code = 0x%08x\r\n", status);
+        printf("Failed sample_nx_vt_properties: error code = 0x%08x\r\n", status);
     }
 }
 
@@ -925,6 +904,7 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context)
 
         if (app_events & SAMPLE_TELEMETRY_SEND_EVENT)
         {
+            nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
             sample_telemetry_action(context);
         }
 
@@ -970,7 +950,7 @@ static UINT sample_components_init()
 {
     UINT status;
 
-    verified_telemetry_DB = sample_pnp_verified_telemetry_user_init();
+    verified_telemetry_DB = sample_nx_verified_telemetry_user_init();
 
     if ((status = sample_pnp_device_init(&sample_device,
              (UCHAR*)sample_device_component,
