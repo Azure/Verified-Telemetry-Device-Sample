@@ -13,7 +13,7 @@ You will complete the following tasks:
 * [Prerequisites](#prerequisites)
 * [Prepare the development environment](#prepare-the-development-environment)
 * [Prepare Azure resources](#prepare-azure-resources)
-* [Connect Sensors for Verified Telemetry](connect-sensors-for-verified-telemetry)
+* [Connect Sensors for Verified Telemetry](#connect-sensors-for-verified-telemetry)
 * [Prepare and Flash Firmware](#prepare-and-flash-firmware)
 * [Next Steps](#next-steps-verified-telemetry)
 
