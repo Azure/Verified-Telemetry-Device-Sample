@@ -10,12 +10,12 @@ You will complete the following tasks:
 * Build an image and flash it onto the MXChip DevKit
 ## Table of Contents
 
-* [Prerequisites](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prerequisites)
-* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prepare-the-development-environment)
-* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prepare-azure-resources)
-* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#connect-sensors-for-verified-telemetry)
-* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#prepare-and-flash-firmware)
-* [Next Steps](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/MXChip/AZ3166#next-steps-verified-telemetry)
+* [Prerequisites](#prerequisites)
+* [Prepare the development environment](#prepare-the-development-environment)
+* [Prepare Azure resources](#prepare-azure-resources)
+* [Connect Sensors for Verified Telemetry](#connect-sensors-for-verified-telemetry)
+* [Prepare and Flash Firmware](#prepare-and-flash-firmware)
+* [Next Steps](#next-steps-verified-telemetry)
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ In this section, you create a new device instance and register it with the IoT h
 
 To register a device:
 
-1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command. This creates the simulated device identity.
+1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/en-us/cli/azure/iot/hub/device-identity?view=azure-cli-latest#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 

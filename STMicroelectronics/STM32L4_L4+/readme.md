@@ -10,12 +10,12 @@ You will complete the following tasks:
 * Build an image and flash it onto the STM DevKit
 ## Table of Contents
 
-* [Prerequisites](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#prerequisites)
-* [Prepare the development environment](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#prepare-the-development-environment)
-* [Prepare Azure resources](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#prepare-azure-resources)
-* [Connect Sensors for Verified Telemetry](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#connect-sensors-for-verified-telemetry)
-* [Prepare and Flash Firmware](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#prepare-and-flash-firmware)
-* [Next Steps](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main/STMicroelectronics/STM32L4_L4%2B#next-steps-verified-telemetry)
+* [Prerequisites](#prerequisites)
+* [Prepare the development environment](#prepare-the-development-environment)
+* [Prepare Azure resources](#prepare-azure-resources)
+* [Connect Sensors for Verified Telemetry](#connect-sensors-for-verified-telemetry)
+* [Prepare and Flash Firmware](#prepare-and-flash-firmware)
+* [Next Steps](#next-steps-verified-telemetry)
 
 
 ## Prerequisites
@@ -127,7 +127,7 @@ In this section, you create a new device instance and register it with the IoT h
 
 To register a device:
 
-1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command. This creates the simulated device identity.
+1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/iot/hub/device-identity?view=azure-cli-latest#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 

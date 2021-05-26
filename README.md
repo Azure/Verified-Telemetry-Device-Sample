@@ -5,11 +5,11 @@
 # Getting Started with Verified Telemetry, Azure RTOS and Azure IoT
 ## Table of Contents
 
-* [Verified Telemetry Overview](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#verified-telemetry-overview)
-* [Links to board specific Device Samples](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#links-to-board-specific-device-samples)
-* [Verified Telemetry Concepts](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#verified-telemetry-concepts)
-* [Verified Telemetry Device Sample](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#verified-telemetry-device-sample)
-* [Steps to setup end-to-end Verified Telemetry demo](https://github.com/Azure/Verified-Telemetry-Device-Sample/tree/main#steps-to-setup-end-to-end-verified-telemetry-demo)
+* [Verified Telemetry Overview](#verified-telemetry-overview)
+* [Links to board specific Device Samples](#links-to-board-specific-device-samples)
+* [Verified Telemetry Concepts](#verified-telemetry-concepts)
+* [Verified Telemetry Device Sample](#verified-telemetry-device-sample)
+* [Steps to setup end-to-end Verified Telemetry demo](#steps-to-setup-end-to-end-verified-telemetry-demo)
 ## Verified Telemetry Overview
 Verified Telemetry (VT) is a state-of-the-art solution to determine the health of the sensor, i.e., working or faulty, which is consequently used to determine the quality of the sensed data. This is achieved by devising an intelligent “sensor fingerprint”, a set of unique electrical characteristics that differs between working and faulty sensors. The fingerprints can detect faults for a wide variety of off-the-shelf sensors and can be easily implemented with lightweight software code running on the IoT device. VT code is split into three repositories as described below: 
 
