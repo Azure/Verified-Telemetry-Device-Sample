@@ -127,7 +127,7 @@ In this section, you create a new device instance and register it with the IoT h
 
 To register a device:
 
-1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command. This creates the simulated device identity.
+1. In your console, run the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/iot/hub/device-identity?view=azure-cli-latest#az_iot_hub_device_identity_create) command. This creates the simulated device identity.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
 
