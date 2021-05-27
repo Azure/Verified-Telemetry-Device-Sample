@@ -65,6 +65,7 @@ UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
         value = HAL_ADC_GetValue(ADC_Controller);
     }
     HAL_ADC_Stop(ADC_Controller);
+    HAL_Delay(200);
 
     return value;
 }
@@ -130,7 +131,7 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
 
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
-    tx_thread_sleep(20);
+    HAL_Delay(10);
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
     UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
