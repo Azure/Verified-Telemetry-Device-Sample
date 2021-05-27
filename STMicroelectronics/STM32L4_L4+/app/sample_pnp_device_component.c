@@ -130,7 +130,7 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
 
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
-    HAL_Delay(10);
+    tx_thread_sleep(20);
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
     UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
