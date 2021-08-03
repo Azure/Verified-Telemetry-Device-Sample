@@ -5,6 +5,8 @@
 #include "sample_vt_device_driver.h"
 #include <stdint.h>
 
+static char scratch_buffer[VT_MINIMUM_BUFFER_SIZE_BYTES];
+
 static NX_VERIFIED_TELEMETRY_DB verified_telemetry_DB;
 
 static NX_VT_OBJECT sample_signature_sensor_1;
@@ -20,17 +22,22 @@ NX_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init()
 {
     UINT status;
 
-    sample_device_driver.adc_init          = &vt_adc_init;
-    sample_device_driver.adc_read          = &vt_adc_read;
-    sample_device_driver.gpio_on           = &vt_gpio_on;
-    sample_device_driver.gpio_off          = &vt_gpio_off;
-    sample_device_driver.tick_init         = &vt_tick_init;
-    sample_device_driver.tick_deinit       = &vt_tick_deinit;
-    sample_device_driver.tick              = &vt_tick;
-    sample_device_driver.interrupt_enable  = &vt_interrupt_enable;
-    sample_device_driver.interrupt_disable = &vt_interrupt_disable;
+    sample_device_driver.adc_single_read_init           = &vt_adc_init;
+    sample_device_driver.adc_single_read                = &vt_adc_read;
+    sample_device_driver.gpio_on                        = &vt_gpio_on;
+    sample_device_driver.gpio_off                       = &vt_gpio_off;
+    sample_device_driver.tick_init                      = &vt_tick_init;
+    sample_device_driver.tick_deinit                    = &vt_tick_deinit;
+    sample_device_driver.tick                           = &vt_tick;
+    sample_device_driver.interrupt_enable               = &vt_interrupt_enable;
+    sample_device_driver.interrupt_disable              = &vt_interrupt_disable;
 
-    if ((status = nx_vt_init(&verified_telemetry_DB, (UCHAR*)"vTDevice", true, &sample_device_driver)))
+    if ((status = nx_vt_init(&verified_telemetry_DB, 
+            (UCHAR*)"vTDevice",
+            true, 
+            &sample_device_driver,
+            scratch_buffer,
+            sizeof(scratch_buffer))))
     {
         printf("Failed to configure Verified Telemetry settings: error code = 0x%08x\r\n", status);
     }
