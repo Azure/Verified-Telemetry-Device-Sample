@@ -16,12 +16,12 @@ set(NXD_ENABLE_FILE_SERVERS OFF CACHE BOOL "Disable fileX dependency by netxduo"
 # Azure Security Center
 set(NX_AZURE_DISABLE_IOT_SECURITY_MODULE ON CACHE BOOL "Security Center")
 
-# Select Hardware for Verified Telemetry
-set(VT_DEVICE "STM_BL475EIOT01A")
-
 # Core libraries
 add_subdirectory(${CORE_LIB_DIR}/threadx threadx)
 add_subdirectory(${CORE_LIB_DIR}/jsmn jsmn)
+
+# Add Verified Telemetry
+set(VT_MIDDLEWARE_RTOS "AZURE_RTOS")
 add_subdirectory(${CORE_LIB_DIR}/Verified-Telemetry verified_telemetry)
 
 # Using a local copy of NetXDuo that has been customized for this boards WiFi module

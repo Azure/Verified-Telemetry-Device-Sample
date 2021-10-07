@@ -16,14 +16,14 @@ set(NXD_ENABLE_FILE_SERVERS OFF CACHE BOOL "Disable fileX dependency by netxduo"
 # Disable security module
 set(NX_AZURE_DISABLE_IOT_SECURITY_MODULE ON CACHE BOOL "Security Module")
 
-# Select Hardware for Verified Telemetry
-set(VT_DEVICE "MXCHIP_AZ3166")
+# Add Verified Telemetry
+set(VT_MIDDLEWARE_RTOS "AZURE_RTOS")
+add_subdirectory(${CORE_LIB_DIR}/Verified-Telemetry verified_telemetry)
 
 # Core libraries
 add_subdirectory(${CORE_LIB_DIR}/threadx threadx)
 add_subdirectory(${CORE_LIB_DIR}/netxduo netxduo)
 add_subdirectory(${CORE_LIB_DIR}/jsmn jsmn)
-add_subdirectory(${CORE_LIB_DIR}/Verified-Telemetry verified_telemetry)
 
 add_subdirectory(stm32cubef4)
 add_subdirectory(wiced_sdk)
