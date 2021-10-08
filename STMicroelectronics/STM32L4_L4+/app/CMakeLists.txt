@@ -26,12 +26,12 @@ function(create_target TARGET STARTUP LINKER)
     target_link_libraries(${TARGET}
         azrtos::threadx
         azrtos::netxduo
+	    az::iot::vt
 
         stm32cubel4
         netx_driver
         app_common
         jsmn
-	    verified_telemetry
     )
 
     target_link_options(${TARGET}

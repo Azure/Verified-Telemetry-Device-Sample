@@ -26,12 +26,12 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 target_link_libraries(${PROJECT_NAME}
     azrtos::threadx
     azrtos::netxduo
+    az::iot::vt
 
     stm32cubef4
     wiced_sdk
     app_common
     jsmn
-    verified_telemetry
 )
 
 target_link_options(${PROJECT_NAME}
