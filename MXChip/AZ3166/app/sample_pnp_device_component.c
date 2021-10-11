@@ -57,7 +57,7 @@ UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
         value = HAL_ADC_GetValue(ADC_Controller);
     }
     HAL_ADC_Stop(ADC_Controller);
-    HAL_Delay(200);
+    tx_thread_sleep(20);
 
     return value;
 }
