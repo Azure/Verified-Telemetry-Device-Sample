@@ -78,5 +78,44 @@ NX_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init()
         printf("Failed to initialize VT for soilMoistureExternal2 telemetry: error code = 0x%08x\r\n", status);
     }
 
+<<<<<<< Updated upstream
+=======
+    sample_handle_sensor_3.adc_id                      = vt_adc_id_sensor_3;
+    sample_handle_sensor_3.adc_controller              = (void*)&vt_adc_controller_sensor_3;
+    sample_handle_sensor_3.adc_channel                 = (void*)&vt_adc_channel_sensor_3;
+    sample_handle_sensor_3.currentsense_adc_ref_volt   = CURRENTSENSE_EXTERNAL_ADC_REF_VOLT;
+    sample_handle_sensor_3.currentsense_adc_resolution = CURRENTSENSE_EXTERNAL_ADC_RESOLUTION;
+    sample_handle_sensor_3.currentsense_mV_to_mA       = 1.0f / (CURRENTSENSE_SHUNT_RESISTOR * CURRENTSENSE_OPAMP_GAIN);
+
+    if ((status = nx_vt_signature_init(&verified_telemetry_DB,
+             &sample_signature_sensor_3,
+             (UCHAR*)"PMSExternal1",
+             VT_SIGNATURE_TYPE_CURRENTSENSE,
+             (UCHAR*)"PMSExternal1",
+             true,
+             &sample_handle_sensor_3)))
+    {
+        printf("Failed to initialize VT for PMSExternal1 telemetry: error code = 0x%08x\r\n", status);
+    }
+
+    sample_handle_sensor_4.adc_id                      = vt_adc_id_sensor_4;
+    sample_handle_sensor_4.adc_controller              = (void*)&vt_adc_controller_sensor_4;
+    sample_handle_sensor_4.adc_channel                 = (void*)&vt_adc_channel_sensor_4;
+    sample_handle_sensor_4.currentsense_adc_ref_volt   = CURRENTSENSE_EXTERNAL_ADC_REF_VOLT;
+    sample_handle_sensor_4.currentsense_adc_resolution = CURRENTSENSE_EXTERNAL_ADC_RESOLUTION;
+    sample_handle_sensor_4.currentsense_mV_to_mA       = 1.0f / (CURRENTSENSE_SHUNT_RESISTOR * CURRENTSENSE_OPAMP_GAIN);
+
+    if ((status = nx_vt_signature_init(&verified_telemetry_DB,
+             &sample_signature_sensor_4,
+             (UCHAR*)"temperatureExternal2",
+             VT_SIGNATURE_TYPE_CURRENTSENSE,
+             (UCHAR*)"temperatureExternal2",
+             true,
+             &sample_handle_sensor_4)))
+    {
+        printf("Failed to initialize VT for temperatureExternal2 telemetry: error code = 0x%08x\r\n", status);
+    }
+
+>>>>>>> Stashed changes
     return (&verified_telemetry_DB);
 }

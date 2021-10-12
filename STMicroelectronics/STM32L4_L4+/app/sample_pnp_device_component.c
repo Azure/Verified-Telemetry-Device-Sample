@@ -14,9 +14,27 @@
 #define SAMPLE_COMMAND_SUCCESS_STATUS (200)
 #define SAMPLE_COMMAND_ERROR_STATUS   (500)
 
+<<<<<<< Updated upstream
 /* Telemetry key */
 static const CHAR telemetry_name_soilMoistureExternal1Raw[] = "soilMoistureExternal1";
 static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+=======
+#define DS18B20_1_PORT GPIOA
+#define DS18B20_1_PIN  GPIO_PIN_15
+#define DS18B20_2_PORT GPIOB
+#define DS18B20_2_PIN  GPIO_PIN_2
+
+#define US_100_PORT GPIOB
+#define US_100_PIN  GPIO_PIN_2
+
+#define UART_BUFFER_LENGTH 100
+
+/* Telemetry key */
+static const CHAR telemetry_name_soilMoistureExternal1Raw[] = "soilMoistureExternal1";
+static const CHAR telemetry_name_soilMoistureExternal2Raw[] = "soilMoistureExternal2";
+static const CHAR telemetry_name_temperatureExternal1Raw[]  = "PMSExternal1";
+static const CHAR telemetry_name_temperatureExternal2Raw[]  = "temperatureExternal2";
+>>>>>>> Stashed changes
 static const CHAR telemetry_name_sensorTemperature[]        = "temperature";
 static const CHAR telemetry_name_sensorPressure[]           = "pressure";
 static const CHAR telemetry_name_sensorHumidity[]           = "humidityPercentage";
@@ -30,6 +48,10 @@ static const CHAR set_led_state[] = "setLedState";
 static const CHAR reported_led_state[] = "ledState";
 
 static UCHAR scratch_buffer[512];
+uint8_t UART4_rxBuffer[UART_BUFFER_LENGTH];
+//int pm_status;
+//float val;
+
 
 static void set_led_state_action(bool level)
 {
@@ -45,6 +67,312 @@ static void set_led_state_action(bool level)
     }
 }
 
+<<<<<<< Updated upstream
+=======
+// static void set_pin_output(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+// {
+//     GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+//     GPIO_InitStruct.Pin   = GPIO_Pin;
+//     GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
+//     GPIO_InitStruct.Pull  = GPIO_NOPULL;
+//     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+//     HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+// }
+
+// static void set_pin_input(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+// {
+//     GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+//     GPIO_InitStruct.Pin   = GPIO_Pin;
+//     GPIO_InitStruct.Mode  = GPIO_MODE_INPUT;
+//     GPIO_InitStruct.Pull  = GPIO_NOPULL;
+//     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+//     HAL_GPIO_Init(GPIOx, &GPIO_InitStruct);
+// }
+
+// static void delay_usec(uint32_t delay_usec)
+// {
+//     TIM_HandleTypeDef delay_usec_timer;
+//     delay_usec_timer.Instance               = TIM7;
+//     delay_usec_timer.Init.Prescaler         = (uint32_t)((SystemCoreClock / 1000000) - 1);
+//     delay_usec_timer.Init.CounterMode       = TIM_COUNTERMODE_UP;
+//     delay_usec_timer.Init.Period            = 65535;
+//     delay_usec_timer.Init.ClockDivision     = TIM_CLOCKDIVISION_DIV1;
+//     delay_usec_timer.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+//     if (HAL_TIM_Base_Init(&delay_usec_timer) != HAL_OK)
+//     {
+//         // add error handling
+//     }
+//     HAL_TIM_Base_Start(&delay_usec_timer);
+//     while ((__HAL_TIM_GET_COUNTER(&delay_usec_timer)) < delay_usec)
+//         ;
+// }
+
+// static uint8_t ds18b20_start(GPIO_TypeDef* ds18b20_port, uint16_t ds18b20_pin)
+// {
+//     uint8_t response = 0;
+//     set_pin_output(ds18b20_port, ds18b20_pin);       // set the pin as output
+//     HAL_GPIO_WritePin(ds18b20_port, ds18b20_pin, 0); // pull the pin low
+//     delay_usec(480);                                 // delay according to datasheet
+
+//     set_pin_input(ds18b20_port, ds18b20_pin); // set the pin as input
+//     delay_usec(80);                           // delay according to datasheet
+
+//     if (!(HAL_GPIO_ReadPin(ds18b20_port, ds18b20_pin)))
+//     {
+//         response = 1; // if the pin is low i.e the presence pulse is detected
+//     }
+//     else
+//     {
+//         response = 0;
+//     }
+
+//     delay_usec(400); // 480 us delay totally.
+//     return response;
+// }
+
+// static void ds18b20_write(GPIO_TypeDef* ds18b20_port, uint16_t ds18b20_pin, uint8_t data)
+// {
+//     set_pin_output(ds18b20_port, ds18b20_pin); // set as output
+
+//     for (int i = 0; i < 8; i++)
+//     {
+//         if ((data & (1 << i)) != 0) // if the bit is high
+//         {
+//             // write 1
+//             set_pin_output(ds18b20_port, ds18b20_pin);       // set as output
+//             HAL_GPIO_WritePin(ds18b20_port, ds18b20_pin, 0); // pull the pin LOW
+//             delay_usec(1);                                   // wait for 1 us
+
+//             set_pin_input(ds18b20_port, ds18b20_pin); // set as input
+//             delay_usec(50);                           // wait for 60 us
+//         }
+
+//         else // if the bit is low
+//         {
+//             // write 0
+//             set_pin_output(ds18b20_port, ds18b20_pin);
+//             HAL_GPIO_WritePin(ds18b20_port, ds18b20_pin, 0); // pull the pin LOW
+//             delay_usec(50);                                  // wait for 60 us
+
+//             set_pin_input(ds18b20_port, ds18b20_pin);
+//         }
+//     }
+// }
+
+// static uint8_t ds18b20_read(GPIO_TypeDef* ds18b20_port, uint16_t ds18b20_pin)
+// {
+//     uint8_t value = 0;
+//     set_pin_input(ds18b20_port, ds18b20_pin);
+
+//     for (int i = 0; i < 8; i++)
+//     {
+//         set_pin_output(ds18b20_port, ds18b20_pin); // set as output
+
+//         HAL_GPIO_WritePin(ds18b20_port, ds18b20_pin, 0); // pull the data pin LOW
+//         delay_usec(2);                                   // wait for 2 us
+
+//         set_pin_input(ds18b20_port, ds18b20_pin);        // set as input
+//         if (HAL_GPIO_ReadPin(ds18b20_port, ds18b20_pin)) // if the pin is HIGH
+//         {
+//             value |= 1 << i; // read = 1
+//         }
+//         delay_usec(60); // wait for 60 us
+//     }
+//     return value;
+// }
+
+// static float ds18b20_temperature_read(GPIO_TypeDef* ds18b20_port, uint16_t ds18b20_pin)
+// {
+//     uint8_t byte1 = 0;
+//     uint8_t byte2 = 0;
+//     float integer;
+//     float decimal;
+//     if (ds18b20_start(ds18b20_port, ds18b20_pin))
+//     {
+//         HAL_Delay(1);
+//         ds18b20_write(ds18b20_port, ds18b20_pin, 0xCC); // skip ROM
+//         ds18b20_write(ds18b20_port, ds18b20_pin, 0x44); // convert t
+//         HAL_Delay(800);
+
+//         if (ds18b20_start(ds18b20_port, ds18b20_pin))
+//         {
+//             HAL_Delay(1);
+//             ds18b20_write(ds18b20_port, ds18b20_pin, 0xCC); // skip ROM
+//             ds18b20_write(ds18b20_port, ds18b20_pin, 0xBE); // Read Scratch-pad
+
+//             byte1 = ds18b20_read(ds18b20_port, ds18b20_pin);
+//             byte2 = ds18b20_read(ds18b20_port, ds18b20_pin);
+
+//             integer = (int8_t)((byte1 >> 4) | (byte2 << 4));
+//             decimal = (float)(byte1 & 0x0F) * 0.0625f;
+
+//             return (integer + decimal);
+//         }
+//     }
+//     return (0);
+// }
+
+// static void getpmdata()
+// {
+//     uint16_t _checksum;
+//     uint16_t _calculatedChecksum;
+    
+
+//     HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer,1, 50000);
+//         //printf(" UART4_rxBuffer: %x\n", UART4_rxBuffer[0]);
+//     if((*UART4_rxBuffer == 0x42) || (*UART4_rxBuffer == 0x52))
+//     {
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, 60, 5000);
+//         // HAL_UART_Transmit(&UartHandle4, UART4_rxBuffer, sizeof(UART4_rxBuffer), 1000);
+//         int i=0;
+//         for (i=0; i<60; i++)
+//         {
+//             if(UART4_rxBuffer[0] == 0x42)
+//             {
+//                 if(i < 30)
+//                 {
+//                      printf("%x-", UART4_rxBuffer[i]);
+//                     _calculatedChecksum += UART4_rxBuffer[i];
+//                 }
+//                 else
+//                 {
+//                     _checksum = UART4_rxBuffer[30] << 8;
+//                     _checksum |= UART4_rxBuffer[31];
+//                     printf("\n 30: %x-", UART4_rxBuffer[30]);
+//                     printf("\n 31: %x-", UART4_rxBuffer[31]);
+//                 }
+//             }
+//             // else if(UART4_rxBuffer[0] == 0x52)
+//             // {
+//             //     // printf("\n---------------------- 0x52: ----------------------- %x-", 0);
+//             //     if(i == 6)
+//             //     {
+//             //         printf("\nPM Status: \n%x-", UART4_rxBuffer[i]);
+//             //         pm_status = UART4_rxBuffer[i];
+//             //     }
+//             //     if(i < 57)
+//             //     {
+//             //         // printf("%x-", UART4_rxBuffer[i]);
+//             //         _calculatedChecksum += UART4_rxBuffer[i];
+//             //     }
+//             //     else
+//             //     {
+//             //         _checksum = UART4_rxBuffer[57] << 8;
+//             //         _checksum |= UART4_rxBuffer[58];
+//             //         printf(" \n 57: %x-", UART4_rxBuffer[57]);
+//             //         printf(" \n 58: %x-", UART4_rxBuffer[58]);
+//             //     }
+//             // }
+//         }}
+
+//         printf("_checksum: %x\n", _checksum);
+//         printf("_calculatedChecksum: %x\n", _calculatedChecksum);
+
+//     //     if(1) //(_checksum == _calculatedChecksum)
+//     //     {
+//     //         if(UART4_rxBuffer[0] == 0x42)
+//     //         {
+//     //             if(UART4_rxBuffer[1] == 0x4d)
+//     //             {
+//     //                 uint16_t val1 =  ((UART4_rxBuffer[12]) << 8 | (UART4_rxBuffer[13]));
+//     //                 printf("\n----------------------------- 0x42 Val: %f\n", (double)val1);
+//     //                 // printf("--------- 0x42 12: %x\n", UART4_rxBuffer[12]);
+//     //                 // printf("--------- 0x4d 13: %x\n", UART4_rxBuffer[13]);
+//     //                 val = (VT_FLOAT)val1;
+//     //             }
+//     //         }
+
+//     //         else if(UART4_rxBuffer[0] == 0x52)
+//     //         {
+//     //             if(UART4_rxBuffer[1] == 0x5d)
+//     //             {
+//     //                 uint16_t val1 =  ((UART4_rxBuffer[12]) << 8 | (UART4_rxBuffer[13]));
+//     //                 printf("\n----------------------------- 0x52 Val: %f\n", (double)val1);
+//     //                 // printf("--------- 0x52 12: %x\n", UART4_rxBuffer[12]);
+//     //                 // printf("--------- 0x5d 13: %x\n", UART4_rxBuffer[13]);
+//     //                 val = (VT_FLOAT)val1;
+//     //             }
+//     //         }
+
+//     //     }
+//     //     // break;
+//     // }
+// 	return ;
+// }
+VT_UINT getpmdata()
+{
+    uint16_t _checksum;
+    uint16_t _calculatedChecksum;
+    int flag=0;
+    VT_UINT val1=0;
+
+    for (int i =0;i <UART_BUFFER_LENGTH;i++){
+        UART4_rxBuffer[i]=0;
+    }
+
+   // HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, 1, 5000);
+        //printf(" UART4_rxBuffer: %x\n", *UART4_rxBuffer);
+    //if((*UART4_rxBuffer == 0x42) || (*UART4_rxBuffer == 0x52))
+    //{
+        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 2000);
+        //HAL_UART_Transmit(&UartHandle4, UART4_rxBuffer, sizeof(UART4_rxBuffer), 1000);
+        // for (int j=0;j<UART_BUFFER_LENGTH;j++){
+        //     printf("%x-", UART4_rxBuffer[j]);
+        // }
+       // printf("\n");
+        for (VT_UINT iter=0;iter<UART_BUFFER_LENGTH-31;iter++){
+            if (UART4_rxBuffer[iter]==0x42){
+                if (UART4_rxBuffer[iter+1]==0x4d){
+                    for (VT_UINT iter2=0;iter2<30;iter2++){
+                        
+                        _calculatedChecksum += UART4_rxBuffer[iter+iter2];
+
+                    }
+                    _checksum = UART4_rxBuffer[iter+30] << 8;
+                    _checksum |= UART4_rxBuffer[iter+31];
+
+                    #if VT_LOG_LEVEL > 2
+                    VTLogDebug("_checksum: %x\n", _checksum);
+                    VTLogDebug("_calculatedChecksum: %x\n", _calculatedChecksum);
+                    #endif
+
+                    if (_checksum==_calculatedChecksum){
+                         val1=  ((UART4_rxBuffer[iter+12]) << 8 | (UART4_rxBuffer[iter+13]));
+                        printf("\nPMS Sensor Val: %d\n", val1);
+                        flag=1;
+                        break;
+                    }
+                    else{
+                        _calculatedChecksum=0;
+                    }
+
+                }
+
+            }
+
+
+
+        }
+    if (flag==0){printf("Error in getting PM2.5 value");}
+
+    return val1;
+}
+
+// static void US_100_Ultrasonic_sensor(GPIO_TypeDef* US_100_port, uint16_t US_100_pin)
+// {
+
+//     set_pin_output(US_100_port, US_100_pin);       // set the pin as output
+//     HAL_GPIO_WritePin(US_100_port, US_100_pin, 1); // pull the pin low
+//     delay_usec(20);
+//     HAL_GPIO_WritePin(US_100_port, US_100_pin, 0); // pull the pin low
+//     delay_usec(20);
+
+// }
+
+
+>>>>>>> Stashed changes
 UINT adc_read(ADC_HandleTypeDef* ADC_Controller, UINT ADC_Channel)
 {
     UINT value                     = 0;
@@ -122,20 +450,65 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     return (NX_AZURE_IOT_SUCCESS);
 }
 
-UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
+UINT get_sensor_data(VT_UINT iterx,SAMPLE_PNP_DEVICE_COMPONENT* handle)
 {
     if (handle == NX_NULL)
     {
         return (NX_NOT_SUCCESSFUL);
     }
 
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
-    HAL_Delay(10);
+    //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
+    //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
+    //HAL_Delay(10);
 
     UINT soilMoisture1ADCData = adc_read(&hadc1, ADC_CHANNEL_1);
     UINT soilMoisture2ADCData = adc_read(&hadc1, ADC_CHANNEL_2);
+    
+    
+    printf("******* CS PART *******\n");
 
+    //for (int i=0;i<5;i++){
+
+<<<<<<< Updated upstream
+=======
+    nx_vt_signature_read(handle->verified_telemetry_DB,
+        (UCHAR*)telemetry_name_temperatureExternal1Raw,
+        sizeof(telemetry_name_temperatureExternal1Raw) - 1);
+    
+
+    // int i=0;
+    // while(i<1000000){
+    //     i++;
+    // }
+    
+    //float temperatureExternal1 = ds18b20_temperature_read(DS18B20_1_PORT, DS18B20_1_PIN);
+    float pms_extrernal1= (float) getpmdata();
+    //printf("%.2f",pms_extrernal1);
+
+    nx_vt_signature_process(handle->verified_telemetry_DB,
+        (UCHAR*)telemetry_name_temperatureExternal1Raw,
+        sizeof(telemetry_name_temperatureExternal1Raw) - 1);
+      //  }
+
+    printf("\n******* CS PART END*******\n");
+    //     int j=0;
+    // while(j<1000000){
+    //     j++;
+    // }
+    
+    // nx_vt_signature_read(handle->verified_telemetry_DB,
+    //     (UCHAR*)telemetry_name_temperatureExternal2Raw,
+    //     sizeof(telemetry_name_temperatureExternal2Raw) - 1);
+
+    //US_100_Ultrasonic_sensor(US_100_PORT, US_100_PIN);
+
+    //float temperatureExternal2 = ds18b20_temperature_read(DS18B20_2_PORT, DS18B20_2_PIN);
+
+    // nx_vt_signature_process(handle->verified_telemetry_DB,
+    //     (UCHAR*)telemetry_name_temperatureExternal2Raw,
+    //     sizeof(telemetry_name_temperatureExternal2Raw) - 1);
+
+>>>>>>> Stashed changes
     float temperature = BSP_TSENSOR_ReadTemp();
     float humidity    = BSP_HSENSOR_ReadHumidity();
     float pressure    = BSP_PSENSOR_ReadPressure();
@@ -146,6 +519,11 @@ UINT get_sensor_data(SAMPLE_PNP_DEVICE_COMPONENT* handle)
 
     handle->soilMoistureExternal1Raw = soilMoisture1ADCData;
     handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
+<<<<<<< Updated upstream
+=======
+    handle->temperatureExternal1Raw  = pms_extrernal1;
+    handle->temperatureExternal2Raw  = (float)iterx;// temperatureExternal2;
+>>>>>>> Stashed changes
 
     handle->sensorTemperature  = temperature;
     handle->sensorPressure     = pressure;
@@ -198,7 +576,7 @@ UINT sample_pnp_device_process_command(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     return (NX_AZURE_IOT_SUCCESS);
 }
 
-UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZURE_IOT_PNP_CLIENT* iotpnp_client_ptr)
+UINT sample_pnp_device_telemetry_send(VT_UINT iterx,SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZURE_IOT_PNP_CLIENT* iotpnp_client_ptr)
 {
     UINT status;
     NX_AZURE_IOT_JSON_WRITER json_writer;
@@ -210,11 +588,12 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     /* Get sensor data. */
-    if ((status = get_sensor_data(handle)))
+    if ((status = get_sensor_data(iterx,handle)))
     {
         printf("Fetching Sensor data failed!: error code = 0x%08x\r\n", status);
         return (status);
     }
+    
 
     /* Build telemetry JSON payload */
     if (nx_azure_iot_json_writer_with_buffer_init(&json_writer, scratch_buffer, sizeof(scratch_buffer)))
@@ -281,12 +660,13 @@ UINT sample_pnp_device_telemetry_send(SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZ
     }
 
     nx_azure_iot_json_writer_deinit(&json_writer);
+    
     printf("Component %.*s Telemetry message send: %.*s.\r\n\n",
         handle->component_name_length,
         handle->component_name_ptr,
         buffer_length,
         scratch_buffer);
-
+    
     return (status);
 }
 

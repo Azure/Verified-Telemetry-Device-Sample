@@ -1209,6 +1209,83 @@ HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, ui
   }
 }
 
+HAL_StatusTypeDef HAL_UART4_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout)
+{ 
+
+ uint8_t  *pdata8bits;
+  uint16_t *pdata16bits;
+  uint16_t uhMask;
+  uint32_t tickstart;
+
+  /* Check that a Rx process is not already ongoing */
+  if (huart->RxState == HAL_UART_STATE_READY)
+  {
+    if ((pData == NULL) || (Size == 0U))
+    {
+      return  HAL_ERROR;
+    }
+
+    __HAL_LOCK(huart);
+
+    huart->ErrorCode = HAL_UART_ERROR_NONE;
+    huart->RxState = HAL_UART_STATE_BUSY_RX;
+
+    /* Init tickstart for timeout managment*/
+    tickstart = HAL_GetTick();
+
+    huart->RxXferSize  = Size;
+    huart->RxXferCount = Size;
+
+    /* Computation of UART mask to apply to RDR register */
+    UART_MASK_COMPUTATION(huart);
+    uhMask = huart->Mask;
+
+    /* In case of 9bits/No Parity transfer, pRxData needs to be handled as a uint16_t pointer */
+    if ((huart->Init.WordLength == UART_WORDLENGTH_9B) && (huart->Init.Parity == UART_PARITY_NONE))
+    {
+      pdata8bits  = NULL;
+      pdata16bits = (uint16_t *) pData;
+    }
+    else
+    {
+      pdata8bits  = pData;
+      pdata16bits = NULL;
+    }
+
+    __HAL_UNLOCK(huart);
+
+    /* as long as data have to be received */
+    while (huart->RxXferCount > 0U)
+    {
+      if (UART_WaitOnFlagUntilTimeout(huart, UART_FLAG_RXNE, RESET, tickstart, Timeout) != HAL_OK)
+      {
+        return HAL_TIMEOUT;
+      }
+      if (pdata8bits == NULL)
+      {
+        *pdata16bits = (uint16_t)(huart->Instance->RDR & uhMask);
+        pdata16bits++;
+      }
+      else
+      {
+        *pdata8bits = (uint8_t)(huart->Instance->RDR & (uint8_t)uhMask);
+        pdata8bits++;
+      }
+      __HAL_UART_CLEAR_FLAG(huart, UART_CLEAR_NEF | UART_CLEAR_OREF);
+      huart->RxXferCount--;
+    }
+
+    /* At end of Rx process, restore huart->RxState to Ready */
+    huart->RxState = HAL_UART_STATE_READY;
+
+    return HAL_OK;
+  }
+  else
+  {
+    return HAL_BUSY;
+  }
+}
+
 /**
   * @brief Send an amount of data in interrupt mode.
   * @note   When UART parity is not enabled (PCE = 0), and Word Length is configured to 9 bits (M1-M0 = 01),

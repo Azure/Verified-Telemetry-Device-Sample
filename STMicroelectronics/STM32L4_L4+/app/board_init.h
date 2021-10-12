@@ -7,6 +7,7 @@
 #include "stm32l4xx_hal.h"
 
 extern UART_HandleTypeDef UartHandle;
+extern UART_HandleTypeDef UartHandle4;
 extern ADC_HandleTypeDef hadc1;
 
 void board_init(void);
