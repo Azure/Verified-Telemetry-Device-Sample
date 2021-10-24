@@ -31,7 +31,6 @@ function(create_target TARGET STARTUP LINKER)
         stm32cubel4
         netx_driver
         app_common
-        jsmn
     )
 
     target_link_options(${TARGET}

@@ -21,6 +21,8 @@
 #define MODULE_ID   ""
 #define DPS_PAYLOAD "{\"modelId\":\"%s\"}"
 
+#define DPS_REGISTER_TIMEOUT_TICKS (3 * TX_TIMER_TICKS_PER_SECOND)
+
 #define DPS_PAYLOAD_SIZE    200
 #define PUBLISH_BUFFER_SIZE 64
 
@@ -521,16 +523,32 @@ UINT azure_iot_nx_client_dps_create(AZURE_IOT_NX_CONTEXT* context,
     }
 
     // Set the payload containing the model Id
-    else if ((status = nx_azure_iot_provisioning_client_registration_payload_set(
-                  &context->prov_client, (UCHAR*)payload, strlen(payload))))
+    if ((status = nx_azure_iot_provisioning_client_registration_payload_set(
+             &context->prov_client, (UCHAR*)payload, strlen(payload))))
     {
         printf("Error: nx_azure_iot_provisioning_client_registration_payload_set (0x%08x\r\n", status);
     }
 
     // Register device
-    else if ((status = nx_azure_iot_provisioning_client_register(&context->prov_client, NX_WAIT_FOREVER)))
+    else
     {
-        printf("ERROR: nx_azure_iot_provisioning_client_register (0x%08x)\r\n", status);
+        while (true)
+        {
+            status = nx_azure_iot_provisioning_client_register(&context->prov_client, DPS_REGISTER_TIMEOUT_TICKS);
+            if (status == NX_AZURE_IOT_PENDING)
+            {
+                printf("\tPending DPS connection, retrying\r\n");
+                continue;
+            }
+
+            // Registration complete
+            break;
+        }
+    }
+
+    if (status != NX_AZURE_IOT_SUCCESS)
+    {
+        printf("\tERROR: nx_azure_iot_provisioning_client_register (0x%08x)\r\n", status);
     }
 
     // Get Device info

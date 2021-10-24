@@ -18,7 +18,6 @@ set(NX_AZURE_DISABLE_IOT_SECURITY_MODULE ON CACHE BOOL "Security Center")
 
 # Core libraries
 add_subdirectory(${CORE_LIB_DIR}/threadx threadx)
-add_subdirectory(${CORE_LIB_DIR}/jsmn jsmn)
 
 # Add Verified Telemetry
 set(VT_MIDDLEWARE_RTOS "AZURE_RTOS")

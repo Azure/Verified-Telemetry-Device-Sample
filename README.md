@@ -26,7 +26,7 @@ The device samples shows device developers how to include Verified Telemetry wit
 * [B-L4S5I-IOT01A](STMicroelectronics/STM32L4_L4+)
 
 To understand how to interact and consume Verified Telemetry information, refer to one of the following guides:
-* Interact with Verified Telemetry using [Azure IoT Explorer Sample](docs/vTIoTExplorerSample.md) 
+* Interact with Verified Telemetry using [Azure IoT Explorer Sample](docs/vTIoTExplorerSample.md)
 * Interact with Verified Telemetry using the [custom Solution Sample Template](https://github.com/Azure/Verified-Telemetry-Solution-Sample)
 
 > **Note**    

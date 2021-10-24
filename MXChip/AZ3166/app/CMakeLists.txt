@@ -31,7 +31,6 @@ target_link_libraries(${PROJECT_NAME}
     stm32cubef4
     wiced_sdk
     app_common
-    jsmn
 )
 
 target_link_options(${PROJECT_NAME}
