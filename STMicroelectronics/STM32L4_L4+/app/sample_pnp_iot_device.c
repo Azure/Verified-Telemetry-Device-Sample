@@ -100,9 +100,6 @@ typedef struct SAMPLE_CONTEXT_STRUCT
 
 } SAMPLE_CONTEXT;
 
-VOID sample_entry(
-    NX_IP* ip_ptr, NX_PACKET_POOL* pool_ptr, NX_DNS* dns_ptr, UINT (*unix_time_callback)(ULONG* unix_time));
-
 #ifdef ENABLE_DPS
 static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT* prov_client_ptr,
     UCHAR** iothub_hostname,
@@ -797,6 +794,12 @@ static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT* prov_client_ptr,
         printf("Failed on nx_azure_iot_hub_client_symmetric_key_set!: error code = 0x%08x\r\n", status);
     }
 #endif /* USE_DEVICE_CERTIFICATE */
+
+    else if ((status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_ptr, (UCHAR *)SAMPLE_PNP_DPS_PAYLOAD,
+                                                                                 sizeof(SAMPLE_PNP_DPS_PAYLOAD) - 1)))
+    {
+        printf("Failed on nx_azure_iot_provisioning_client_registration_payload_set!: error code = 0x%08x\r\n", status);
+    }
 
     /* Register device */
     else if ((status = nx_azure_iot_provisioning_client_register(prov_client_ptr, NX_WAIT_FOREVER)))
