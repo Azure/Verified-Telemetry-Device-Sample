@@ -19,8 +19,6 @@
     },
     {
       "@type": "Telemetry",
-<<<<<<< Updated upstream
-=======
       "name": "PMSExternal1",
       "displayName" : "PMS External 1",
       "schema": "float"
@@ -33,7 +31,6 @@
     },
     {
       "@type": "Telemetry",
->>>>>>> Stashed changes
       "name": "temperature",
       "displayName" : "Temperature",
       "schema": "float"

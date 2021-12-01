@@ -905,7 +905,7 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context,VT_UINT iterx)
 
         if (app_events & SAMPLE_TELEMETRY_SEND_EVENT)
         {
-            //nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
+            nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
             sample_telemetry_action(context,iterx);
             
         }

@@ -5,19 +5,30 @@
 #include <stdio.h>
 
 #define SAMPLE_INTERNAL_ADC_TYPE_ID  0x01
+#define SAMPLE_EXTERNAL_ADC_TYPE_ID  0x02
 #define SAMPLE_INTERNAL_GPIO_TYPE_ID 0x01
+
+#define SAMPLE_MCP3204_SLAVE_SELECT_GPIO_PORT          GPIOA
+#define SAMPLE_MCP3204_SLAVE_SELECT_GPIO_PIN           GPIO_PIN_2
+#define SAMPLE_MCP3204_SPI_CLOCK_CYCLES_FOR_CONVERSION 24
 
 TIM_HandleTypeDef vt_tick_timer;
 
 /* ADC Definitions */
 uint16_t vt_adc_id_sensor_1 = SAMPLE_INTERNAL_ADC_TYPE_ID;
 uint16_t vt_adc_id_sensor_2 = SAMPLE_INTERNAL_ADC_TYPE_ID;
+uint16_t vt_adc_id_sensor_3 = SAMPLE_EXTERNAL_ADC_TYPE_ID;
+uint16_t vt_adc_id_sensor_4 = SAMPLE_EXTERNAL_ADC_TYPE_ID;
 
 ADC_HandleTypeDef vt_adc_controller_sensor_1 = {.Instance = ADC1};
 ADC_HandleTypeDef vt_adc_controller_sensor_2 = {.Instance = ADC1};
+SPI_HandleTypeDef vt_adc_controller_sensor_3 = {.Instance = SPI1};
+SPI_HandleTypeDef vt_adc_controller_sensor_4 = {.Instance = SPI1};
 
 uint32_t vt_adc_channel_sensor_1 = ADC_CHANNEL_1;
 uint32_t vt_adc_channel_sensor_2 = ADC_CHANNEL_2;
+uint32_t vt_adc_channel_sensor_3 = 0;
+uint32_t vt_adc_channel_sensor_4 = 1;
 
 /* GPIO Definitions */
 uint16_t vt_gpio_id_sensor_1 = SAMPLE_INTERNAL_GPIO_TYPE_ID;
@@ -29,9 +40,7 @@ GPIO_TypeDef* vt_gpio_port_sensor_2 = GPIOB;
 uint16_t vt_gpio_pin_sensor_1 = GPIO_PIN_9;
 uint16_t vt_gpio_pin_sensor_2 = GPIO_PIN_8;
 
-<<<<<<< Updated upstream
-uint16_t vt_adc_init(
-=======
+
 /* Variables needed for External ADC Buffer Read */
 uint8_t adc_mcp3204_TxData[3];
 uint8_t adc_mcp3204_RxData[3];
@@ -44,7 +53,6 @@ VT_ADC_BUFFER_READ_CALLBACK_FUNC adc_mcp3204_read_buffer_half_complete_callback;
 VT_ADC_BUFFER_READ_CALLBACK_FUNC adc_mcp3204_read_buffer_full_complete_callback;
 
 uint16_t vt_adc_single_read_init(
->>>>>>> Stashed changes
     uint16_t adc_id, void* adc_controller, void* adc_channel, uint16_t* adc_resolution, float* adc_ref_volt)
 {
     if (adc_id == SAMPLE_INTERNAL_ADC_TYPE_ID)
@@ -96,7 +104,7 @@ uint16_t vt_adc_single_read_init(
     return 0;
 }
 
-uint16_t vt_adc_read(uint16_t adc_id, void* adc_controller, void* adc_channel)
+uint16_t vt_adc_single_read(uint16_t adc_id, void* adc_controller, void* adc_channel)
 {
     uint16_t value = 0;
 
@@ -122,8 +130,6 @@ uint16_t vt_adc_read(uint16_t adc_id, void* adc_controller, void* adc_channel)
     return value;
 }
 
-<<<<<<< Updated upstream
-=======
 void sample_mcp3208_read_start()
 {
     HAL_GPIO_WritePin(SAMPLE_MCP3204_SLAVE_SELECT_GPIO_PORT, SAMPLE_MCP3204_SLAVE_SELECT_GPIO_PIN, GPIO_PIN_RESET);
@@ -271,7 +277,6 @@ void vt_adc_buffer_read(uint16_t adc_id,
     }
 }
 
->>>>>>> Stashed changes
 uint16_t vt_gpio_on(uint16_t gpio_id, void* gpio_port, void* gpio_pin)
 {
     if (gpio_id == SAMPLE_INTERNAL_GPIO_TYPE_ID)

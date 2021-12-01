@@ -18,18 +18,16 @@
 #include "wifi.h"
 
 UART_HandleTypeDef UartHandle;
-UART_HandleTypeDef UartHandle4;
+UART_HandleTypeDef UartHandle4; 
 
 ADC_HandleTypeDef hadc1;
 RTC_HandleTypeDef RtcHandle;
 TIM_HandleTypeDef TimCCHandle;
 extern SPI_HandleTypeDef hspi;
-<<<<<<< Updated upstream
 
-=======
 SPI_HandleTypeDef mcp3204;
 TIM_HandleTypeDef HTIMx;
->>>>>>> Stashed changes
+
 volatile uint32_t ButtonPressed = 0;
 volatile uint32_t SendData      = 0;
 uint32_t gu32_ticks;
@@ -78,7 +76,7 @@ static uint32_t t_TIM_CC1_Pulse;
 #define CFG_HW_UART1_MODE           UART_MODE_TX_RX
 #define CFG_HW_UART1_ADVFEATUREINIT UART_ADVFEATURE_NO_INIT
 
-#define CFG_HW_UART4_BAUDRATE       9600
+#define CFG_HW_UART4_BAUDRATE       115200
 #define CFG_HW_UART4_WORDLENGTH     UART_WORDLENGTH_8B
 #define CFG_HW_UART4_STOPBITS       UART_STOPBITS_1
 #define CFG_HW_UART4_PARITY         UART_PARITY_NONE
@@ -93,18 +91,13 @@ static void SystemClock_Config(void);
 static void InitTimers(void);
 static void InitRTC(void);
 static void UART_Console_Init(void);
-<<<<<<< Updated upstream
-
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
-void SPI3_IRQHandler(void);
-=======
 static void UART4_Console_Init(void);
 // static void MX_SPI1_Init(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 void SPI3_IRQHandler(void);
 // void SPI1_IRQHandler(void);
->>>>>>> Stashed changes
+
 
 static void MX_ADC1_Init(void);
 static void MX_GPIO_Init(void);
@@ -144,13 +137,12 @@ void board_init(void)
     MX_GPIO_Init();
 
     MX_ADC1_Init();
-<<<<<<< Updated upstream
-=======
 
     TimerDelay_Init();
 
     // MX_SPI1_Init();
 }
+
 
 void TimerDelay_Init(void)
 {
@@ -188,7 +180,7 @@ void delay_us(uint16_t au16_us)
 {
     HTIMx.Instance->CNT = 0;
     while (HTIMx.Instance->CNT < au16_us);
->>>>>>> Stashed changes
+
 }
 
 int hardware_rand(void)
@@ -480,8 +472,6 @@ void SPI3_IRQHandler(void)
 {
     HAL_SPI_IRQHandler(&hspi);
 }
-<<<<<<< Updated upstream
-=======
 
 // /**
 //   * @brief This function handles SPI1 global interrupt.
@@ -497,7 +487,6 @@ void SPI3_IRQHandler(void)
 //   /* USER CODE END SPI1_IRQn 1 */
 // }
 
->>>>>>> Stashed changes
 /**
  * @brief ADC1 Initialization Function
  * @param None
@@ -591,8 +580,7 @@ static void MX_GPIO_Init(void)
     GPIO_InitStruct.Pin = GPIO_PIN_9;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 }
-<<<<<<< Updated upstream
-=======
+
 
 // /**
 //   * @brief SPI1 Initialization Function
@@ -632,5 +620,8 @@ static void MX_GPIO_Init(void)
 
 //   /* USER CODE END SPI1_Init 2 */
 
+
 // }
->>>>>>> Stashed changes
+
+// }
+
