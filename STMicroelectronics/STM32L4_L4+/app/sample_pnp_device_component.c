@@ -608,6 +608,8 @@ UINT sample_pnp_device_init(SAMPLE_PNP_DEVICE_COMPONENT* handle,
     handle->component_name_length    = component_name_length;
     handle->soilMoistureExternal1Raw = default_sensor_reading;
     handle->soilMoistureExternal2Raw = default_sensor_reading;
+    handle->temperatureExternal1Raw  = default_sensor_reading;
+    handle->temperatureExternal2Raw  = default_sensor_reading;
     handle->sensorTemperature        = default_sensor_reading;
     handle->sensorPressure           = default_sensor_reading;
     handle->sensorHumidity           = default_sensor_reading;
@@ -656,7 +658,7 @@ UINT get_sensor_data(VT_UINT iterx,SAMPLE_PNP_DEVICE_COMPONENT* handle)
     // }
     
     //float temperatureExternal1 = ds18b20_temperature_read(DS18B20_1_PORT, DS18B20_1_PIN);
-    float pms_extrernal1= (float) getpmdata();
+    //float pms_extrernal1= (float) getpmdata();
     //printf("%.2f",pms_extrernal1);
 
     // int i=0;
@@ -696,7 +698,7 @@ UINT get_sensor_data(VT_UINT iterx,SAMPLE_PNP_DEVICE_COMPONENT* handle)
     handle->soilMoistureExternal1Raw = soilMoisture1ADCData;
     handle->soilMoistureExternal2Raw = soilMoisture2ADCData;
 
-    handle->temperatureExternal1Raw  = pms_extrernal1;
+    handle->temperatureExternal1Raw  = 30;
     handle->temperatureExternal2Raw  = 30;// temperatureExternal2;
 
 
