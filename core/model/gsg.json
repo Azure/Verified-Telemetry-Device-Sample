@@ -32,8 +32,6 @@
       "name": "vTsoilMoistureExternal2",
       "displayName": "Verified Telemetry component for soilMoistureExternal2 telemetry",
       "description": "Verified Telemetry and Fingerprint information of soilMoistureExternal2 telemetry"
-<<<<<<< Updated upstream
-=======
     },
     {
       "@type" : "Component",
@@ -48,7 +46,6 @@
       "name": "vTtemperatureExternal2",
       "displayName": "Verified Telemetry component for temperatureExternal2 telemetry",
       "description": "Verified Telemetry and Fingerprint information of temperatureExternal2 telemetry"
->>>>>>> Stashed changes
     }
   ]
 }
