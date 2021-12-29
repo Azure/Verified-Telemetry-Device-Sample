@@ -30,7 +30,7 @@ You will complete the following tasks:
     >   * [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
-    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 1 * PM2012 Sensor
 
 ## Prepare the development environment
 
@@ -41,8 +41,12 @@ To set up your development environment, first you clone a GitHub repo that conta
 Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation.
 To clone the repo, run the following command:
 
+
 ```shell
-git clone --recursive https://github.com/Azure/Verified-Telemetry-Device-Sample.git
+git clone https://github.com/Azure/Verified-Telemetry-Device-Sample.git
+cd Verified-Telemetry-Device-Sample
+git checkout feature/currentsense_sample1
+git submodule update --init --recursive 
 ```
 
 ### Install the tools
@@ -149,20 +153,22 @@ Confirm that you have the copied the following values from the JSON output to us
 This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
 * Connect Sensors        
 
+    Refer to the table and image below to connect the Cubic PM2012 Sensor with the STM Devkit Baseboard PCB Pin.
 
-    Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
-
-    | Sensor Name   | Sensor Pin           | MCU Pin | Devkit Pin |
+    | Sensor Name   | Sensor Pin           | MCU Pin | STM Devkit Baseboard PCB Pin |
     |---------------|----------------------|-----------------------------|------------|
-    | Soil Moisture 1 | Analog Out           | PC0                           | A5        |
-    | Soil Moisture 1 | VCC                  | PB9                          | D14        |
-    | Soil Moisture 1 | GND                  | GND                          | GND        |
-    | Soil Moisture 2       | Analog Out  | PC1                           | A4        |
-    | Soil Moisture 2       | VCC                  | PB8                           | D15       |
-    | Soil Moisture 2       | GND                  | GND                           | GND       |
+    | Cubic PM2012 | Sensor’s TX (PIN 7)           | RX                           | RX        |
+    | Cubic PM2012 | Sensor’s RX (PIN 9)                  | TX                          | TX        |
+    | Cubic PM2012 | VCC (PIN 1)                  | VCC                          | VCC        |
+    | Cubic PM2012       | GND (PIN 3)  | GND                           | GND        |
 
 
-    ![B-L475E-IOT01A Sensor Connections](media/B-L475E-IOT01A_sensor_connections.png)
+    * Connection Schematic
+    ![B-L475E-IOT01A Sensor Connections](media/PM2012_connection.png)
+    * CS PCB Connections
+    ![B-L475E-IOT01A-labeled](media/labeled.jpeg)
+    * Sample Setup
+    ![B-L475E-IOT01A Sensor Connections_photo](media/connections.jpeg)
 
 ## Prepare and Flash Firmware
 
@@ -189,6 +195,15 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
     |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
+    
+1. Open the following file in a text editor:
+    > *Verified-Telemetry-Device-Sample/core/lib/netxduo/addons/azure_iot/nx_azure_iot_pnp_client.h*
+
+1. Change the following value in the above file according to the number of "IoT Plug and Play components" in your project.
+
+    For this sample, change the value - `#define NX_AZURE_IOT_PNP_CLIENT_MAX_PNP_COMPONENT_LIST      (4)`, TO
+        
+        #define NX_AZURE_IOT_PNP_CLIENT_MAX_PNP_COMPONENT_LIST              (6)
 
 1. Save and close the file.
 
