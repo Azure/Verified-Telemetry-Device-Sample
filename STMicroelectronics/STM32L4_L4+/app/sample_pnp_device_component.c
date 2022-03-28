@@ -210,263 +210,263 @@ static void set_led_state_action(bool level)
 //     }
 //     return (0);
 // }
-VT_VOID co2_start_measurement(){
+// VT_VOID co2_start_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x61,0x06,0x00,0x36,0x00,0x00,0x60,0x64};
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
+//     uint8_t UART4_txBuffer[]={0x61,0x06,0x00,0x36,0x00,0x00,0x60,0x64};
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
    
-    HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-    HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//     HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//     HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
 
 
 
-    printf("sent start\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//     printf("sent start\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent start\n");
-    VTLogDebugNoTag("received packet:\n");
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent start\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
-}
+// }
 
-VT_VOID co2_stop_measurement(){
+// VT_VOID co2_stop_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x61,0x06,0x00,0x37,0x00,0x01,0xF0,0x64};
+//     uint8_t UART4_txBuffer[]={0x61,0x06,0x00,0x37,0x00,0x01,0xF0,0x64};
 
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
        
-           printf("sent stop\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//            printf("sent stop\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
 
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent stop\n");
-    VTLogDebugNoTag("received packet:\n");
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent stop\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
 
-}
+// }
 
-VT_VOID co2_read_measurement(){
+// VT_VOID co2_read_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x61,0x03,0x00,0x27,0x00,0x01,0x3d,0xa1};
+//     uint8_t UART4_txBuffer[]={0x61,0x03,0x00,0x27,0x00,0x01,0x3d,0xa1};
 
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
        
-           printf("sent read ready\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//            printf("sent read ready\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
 
-uint8_t UART4_txBuffer2[]={0x61,0x03,0x00,0x28,0x00,0x06,0x4c,0x60};
+// uint8_t UART4_txBuffer2[]={0x61,0x03,0x00,0x28,0x00,0x06,0x4c,0x60};
 
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer2, sizeof(UART4_txBuffer2), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 4000);
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer2, sizeof(UART4_txBuffer2), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 4000);
        
-           printf("sent read\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//            printf("sent read\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
 
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent stop\n");
-    VTLogDebugNoTag("received packet:\n");
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent stop\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
 
-}
+// }
 
-VT_VOID hpma_start_measurement(){
+// VT_VOID hpma_start_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x68,0x01,0x01,0x96};
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
+//     uint8_t UART4_txBuffer[]={0x68,0x01,0x01,0x96};
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
    
-    HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-    HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//     HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//     HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
 
 
 
-    printf("sent start\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//     printf("sent start\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent start\n");
-    VTLogDebugNoTag("received packet:\n");
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent start\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
-}
+// }
 
-VT_VOID hpma_stop_measurement(){
+// VT_VOID hpma_stop_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x68,0x01,0x02,0x95};
+//     uint8_t UART4_txBuffer[]={0x68,0x01,0x02,0x95};
 
-            for (int i =0;i <UART_BUFFER_LENGTH;i++){
-        UART4_rxBuffer[i]=0;
-    }
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//             for (int i =0;i <UART_BUFFER_LENGTH;i++){
+//         UART4_rxBuffer[i]=0;
+//     }
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
        
-           printf("sent stop\n");
-            for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//            printf("sent stop\n");
+//             for (int j=0;j<UART_BUFFER_LENGTH;j++){
 
-            printf("%x-", UART4_rxBuffer[j]);
-        }
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
 
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent stop\n");
-    VTLogDebugNoTag("received packet:\n");
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent stop\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
 
-}
+// }
 
 
-VT_VOID sps30_start_measurement(){
+// VT_VOID sps30_start_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x7E,0x00,0x00,0x02,0x01,0x03,0xF9,0x7E};
+//     uint8_t UART4_txBuffer[]={0x7E,0x00,0x00,0x02,0x01,0x03,0xF9,0x7E};
    
-    HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-    HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
-        // printf("sent start:\n");
+//     HAL_UART_Transmit(&UartHandle4, (uint8_t*)UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//     HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//         // printf("sent start:\n");
     
-        // for (int j=0;j<UART_BUFFER_LENGTH;j++){
-        //     printf("%x-", UART4_rxBuffer[j]);
-        // }
+//         // for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//         //     printf("%x-", UART4_rxBuffer[j]);
+//         // }
 
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent start\n");
-    VTLogDebugNoTag("received packet:\n");
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent start\n");
+//     VTLogDebugNoTag("received packet:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
-}
+// }
 
-VT_VOID sps30_stop_measurement(){
+// VT_VOID sps30_stop_measurement(){
 
-    uint8_t UART4_txBuffer[]={0x7E,0x00,0x01,0x00,0xFE,0x7E};
-
-    
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
-        //       printf("sent sotp:\n");
-    
-        // for (int j=0;j<UART_BUFFER_LENGTH;j++){
-        //     printf("%x-", UART4_rxBuffer[j]);
-        // }
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent stop\n");
-    VTLogDebugNoTag("received packet:\n");
-    
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
-
-
-}
-
-VT_VOID sps30_read_measurement(){
-        union {
-        char c[4];
-        float f;
-    } u;
-
-    uint8_t UART4_txBuffer[]={0x7E,0x00,0x03,0x00,0xFC,0x7E};
-        VT_INT decimal;
-    VT_FLOAT frac_float;
-    VT_INT frac;
+//     uint8_t UART4_txBuffer[]={0x7E,0x00,0x01,0x00,0xFE,0x7E};
 
     
-    HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
-              printf("sent read:\n");
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//         //       printf("sent sotp:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            printf("%x-", UART4_rxBuffer[j]);
-        }
+//         // for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//         //     printf("%x-", UART4_rxBuffer[j]);
+//         // }
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent stop\n");
+//     VTLogDebugNoTag("received packet:\n");
+    
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
-    for (VT_UINT iter=0;iter<UART_BUFFER_LENGTH-31;iter++){
-            if (UART4_rxBuffer[iter]==0x7e){
-                if (UART4_rxBuffer[iter+1]==0x00){
-                        u.c[3] = UART4_rxBuffer[iter+9];
-                        u.c[2] = UART4_rxBuffer[iter+10];
-                        u.c[1] = UART4_rxBuffer[iter+11];
-                        u.c[0] = UART4_rxBuffer[iter+12];
-                        break;
-                }}}
 
-            decimal    = u.f;
-        frac_float = u.f - (VT_FLOAT)decimal;
-        frac       = fabsf(frac_float) * 10000;
-       printf("\npm2.5 val %d.%04d : \n", decimal, frac);
+// }
+
+// VT_VOID sps30_read_measurement(){
+//         union {
+//         char c[4];
+//         float f;
+//     } u;
+
+//     uint8_t UART4_txBuffer[]={0x7E,0x00,0x03,0x00,0xFC,0x7E};
+//         VT_INT decimal;
+//     VT_FLOAT frac_float;
+//     VT_INT frac;
 
     
-    #if VT_LOG_LEVEL > 2
-    VTLogDebugNoTag("sent stop\n");
-    VTLogDebugNoTag("received packet:\n");
+//     HAL_UART_Transmit(&UartHandle4, UART4_txBuffer, sizeof(UART4_txBuffer), 1000);
+//         HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 3000);
+//               printf("sent read:\n");
     
-        for (int j=0;j<UART_BUFFER_LENGTH;j++){
-            VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
-        }
-       VTLogDebugNoTag("\n");
-       #endif
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             printf("%x-", UART4_rxBuffer[j]);
+//         }
+
+//     for (VT_UINT iter=0;iter<UART_BUFFER_LENGTH-31;iter++){
+//             if (UART4_rxBuffer[iter]==0x7e){
+//                 if (UART4_rxBuffer[iter+1]==0x00){
+//                         u.c[3] = UART4_rxBuffer[iter+9];
+//                         u.c[2] = UART4_rxBuffer[iter+10];
+//                         u.c[1] = UART4_rxBuffer[iter+11];
+//                         u.c[0] = UART4_rxBuffer[iter+12];
+//                         break;
+//                 }}}
+
+//             decimal    = u.f;
+//         frac_float = u.f - (VT_FLOAT)decimal;
+//         frac       = fabsf(frac_float) * 10000;
+//        printf("\npm2.5 val %d.%04d : \n", decimal, frac);
+
+    
+//     #if VT_LOG_LEVEL > 2
+//     VTLogDebugNoTag("sent stop\n");
+//     VTLogDebugNoTag("received packet:\n");
+    
+//         for (int j=0;j<UART_BUFFER_LENGTH;j++){
+//             VTLogDebugNoTag("%x-", UART4_rxBuffer[j]);
+//         }
+//        VTLogDebugNoTag("\n");
+//        #endif
 
 
-}
+// }
 
 
 
@@ -481,11 +481,11 @@ VT_UINT getpmdata()
         UART4_rxBuffer[i]=0;
     }
 
-   // HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, 1, 5000);
+    HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, 1, 5000);
         //printf(" UART4_rxBuffer: %x\n", *UART4_rxBuffer);
     //if((*UART4_rxBuffer == 0x42) || (*UART4_rxBuffer == 0x52))
     //{
-        HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 2000);
+        //HAL_UART4_Receive (&UartHandle4, UART4_rxBuffer, UART_BUFFER_LENGTH, 2000);
         //HAL_UART_Transmit(&UartHandle4, UART4_rxBuffer, sizeof(UART4_rxBuffer), 1000);
         for (int j=0;j<UART_BUFFER_LENGTH;j++){
             printf("%x-", UART4_rxBuffer[j]);
@@ -649,7 +649,7 @@ UINT get_sensor_data(VT_UINT iterx,SAMPLE_PNP_DEVICE_COMPONENT* handle)
 
     nx_vt_signature_read(handle->verified_telemetry_DB,
         (UCHAR*)telemetry_name_temperatureExternal1Raw,
-        sizeof(telemetry_name_temperatureExternal1Raw) - 1);
+        sizeof(telemetry_name_temperatureExternal1Raw) - 1,1);
     
 
     // int i=0;
