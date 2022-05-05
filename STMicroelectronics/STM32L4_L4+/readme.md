@@ -150,25 +150,8 @@ Confirm that you have the copied the following values from the JSON output to us
 > * `primaryKey`
 
 ## Connect Sensors for Verified Telemetry
-This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
-* Connect Sensors        
 
-    Refer to the table and image below to connect the Cubic PM2012 Sensor with the STM Devkit Baseboard PCB Pin.
-
-    | Sensor Name   | Sensor Pin           | MCU Pin | STM Devkit Baseboard PCB Pin |
-    |---------------|----------------------|-----------------------------|------------|
-    | Cubic PM2012 | Sensor’s TX (PIN 7)           | RX                           | RX        |
-    | Cubic PM2012 | Sensor’s RX (PIN 9)                  | TX                          | TX        |
-    | Cubic PM2012 | VCC (PIN 1)                  | VCC                          | VCC        |
-    | Cubic PM2012       | GND (PIN 3)  | GND                           | GND        |
-
-
-    * Connection Schematic
-    ![B-L475E-IOT01A Sensor Connections](media/PM2012_connection.png)
-    * CS PCB Connections
-    ![B-L475E-IOT01A-labeled](media/labeled.jpeg)
-    * Sample Setup
-    ![B-L475E-IOT01A Sensor Connections_photo](media/connections.jpeg)
+Verified Telemetry supports both Analog and Digital Sensors for which we have developed different Fingerprinting Technologies, to use only one type of sensors or to add more sensors, minimal changes are required to the sample, refer the [Sensor Configuration Guide](/STMicroelectronics/STM32L4_L4%2B/app) which would walk you through the connection diagrams and the code modifications.
 
 ## Prepare and Flash Firmware
 
@@ -196,17 +179,6 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
     |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
     
-1. Open the following file in a text editor:
-    > *Verified-Telemetry-Device-Sample/core/lib/netxduo/addons/azure_iot/nx_azure_iot_pnp_client.h*
-
-1. Change the following value in the above file according to the number of "IoT Plug and Play components" in your project.
-
-    For this sample, change the value - `#define NX_AZURE_IOT_PNP_CLIENT_MAX_PNP_COMPONENT_LIST      (4)`, TO
-        
-        #define NX_AZURE_IOT_PNP_CLIENT_MAX_PNP_COMPONENT_LIST              (6)
-
-1. Save and close the file.
-
 ### Build the image
 
 In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:

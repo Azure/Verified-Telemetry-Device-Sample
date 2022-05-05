@@ -11,26 +11,12 @@
 
 ## General Overview
 
-Verified Telemetry supports both Analog and Digital Sensors for which we have developed different Fingerprinting Technologies, to use only one type of sensors or to add more sensors, minimal changes are required to [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c) file which are described below.
+Verified Telemetry supports both Analog and Digital Sensors for which we have developed different Fingerprinting Technologies, to use only one type of sensors or to add more sensors, minimal changes are required to [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c) file which are described below.
 
 ## Sample configuration for only Analog Sensors
 
-* the sample needs to be configured for only 2 Analog sensors, use the below schematic for connections, and the following instructions for changes in the [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c) file.
+* the sample needs to be configured for only 2 Analog sensors, use the below schematic for connections, and the following instructions for changes in the [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c) file.
 
-* ESP32 Connections 
-
-    * ESP32 Connection Schematic
-    ![B-L475E-IOT01A Sensor Connections](media/esp_only_fc.png)
-    
-      | Sensor Name     | Sensor Pin | MCU Pin  | DOIT ESP32 Devkit |
-      |-----------------|------------|----------|-------------------|
-      | Soil Moisture 1 | Analog Out | ADC1 CH4 | D32               |
-      | Soil Moisture 1 | VCC        | GPIO18   | D18               |
-      | Soil Moisture 1 | GND        | GND      | GND               |
-      | Soil Moisture 2 | Analog Out | ADC1 CH5 | D33               |
-      | Soil Moisture 2 | VCC        | GPIO19   | D19               |
-      | Soil Moisture 2 | GND        | GND      | GND               |
-    
 * STM Connections
 
     * STM Connection Schematic
@@ -46,7 +32,7 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
        | Soil Moisture 2       | GND                  | GND                           | GND       |
     
     
-* Changes in file [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c)
+* Changes in file [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c)
 
     * Comment lines 13 & 15
     
@@ -57,24 +43,8 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
 
 ## Sample configuration for only Digital Sensors
 
-* the sample needs to be configured for only 2 Digital sensors, use the below schematic for connections, and the following instructions for changes in the [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c) file.
+* the sample needs to be configured for only 2 Digital sensors, use the below schematic for connections, and the following instructions for changes in the [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c) file.
 
-* ESP32 Connections 
-
-    * ESP32 Connection Schematic
-    ![B-L475E-IOT01A Sensor Connections](media/esp_only_cs.png)
-    
-      | Sensor Name   | Sensor Pin           | MCU Pin | ESP32 Devkit Baseboard PCB Pin |
-      |---------------|----------------------|-----------------------------|------------|
-      | Cubic PM2012 | Sensor’s TX (PIN 9)   | RX                          | RX                    |
-      | Cubic PM2012 | VCC (PIN 1)           | -                           | JP5                   |
-      | Cubic PM2012 | GND (PIN 3)           | -                           | SENS1GND (JP4)        |    
-    
-    * ESP32 CS PCB Connections
-    ![B-L475E-IOT01A-labeled](media/esp_only_cs_side.jpeg)
-    * ESP32 Sample Setup
-    ![B-L475E-IOT01A Sensor Connections_photo](media/esp_only_cs_top.jpeg)
-    
 * STM Connections
 
     * STM Connection Schematic
@@ -91,7 +61,7 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
     * STM Sample Setup
     ![B-L475E-IOT01A Sensor Connections_photo](media/STM_Only_CS_top.png)
     
-* Changes in file [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c)
+* Changes in file [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c)
 
     * Comment lines 13 & 14
     
@@ -102,22 +72,7 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
 
 ## Sample configuration for both Analog and Digital Sensors
 
-* the default sample is configured for 2 Analog and 2 Digital sensors, use the below schematic for connections.
-
-    * ESP32 Connection Schematic
-    ![B-L475E-IOT01A Sensor Connections](media/ESP_Both_FC_CS.jpg)
-    
-      | Sensor Name   | Sensor Pin           | MCU Pin | ESP32 Devkit Baseboard PCB Pin |
-      |---------------|----------------------|-----------------------------|------------|
-      | Cubic PM2012 | Sensor’s TX (PIN 9)   | RX                          | RX                    |
-      | Cubic PM2012 | VCC (PIN 1)           | -                           | JP5                   |
-      | Cubic PM2012 | GND (PIN 3)           | -                           | SENS1GND (JP4)        |
-      | Soil Moisture 1 | Analog Out | ADC1 CH4 | IO32               |
-      | Soil Moisture 1 | VCC        | GPIO18   | IO18               |
-      | Soil Moisture 1 | GND        | GND      | GND               |
-      | Soil Moisture 2 | Analog Out | ADC1 CH5 | IO33               |
-      | Soil Moisture 2 | VCC        | GPIO19   | IO19               |
-      | Soil Moisture 2 | GND        | GND      | GND               |      
+* the default sample is configured for 2 Analog and 2 Digital sensors, use the below schematic for connections.  
    
     * STM Connection Schematic
     ![B-L475E-IOT01A Sensor Connections](media/STM_Both_FC_CS.jpg)
@@ -135,7 +90,7 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
        | Soil Moisture 2       | GND                  | GND                           | GND       |    
     
     
-* Changes in file [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c)
+* Changes in file [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c)
 
     * Comment lines 14 & 15
     
@@ -149,17 +104,17 @@ Verified Telemetry supports both Analog and Digital Sensors for which we have de
 
 * for ESP32 
    
-   * got to file [sample_vt_device_driver.c](../projects/ESPRESSIF/esp32/verified-telemetry/sample_vt_device_driver.c) and add/modify Hardware Definitions under ``` /* Sensor Hardware Definitions */ ```
-   * got to file [sample_vt_device_driver.h](../projects/ESPRESSIF/esp32/verified-telemetry/sample_vt_device_driver.h) and extern any new/modified Hardware Definitions under ``` /* Sensor Hardware Declaration */ ```
+   * got to file [sample_vt_device_driver.c](sample_vt_device_driver.c) and add/modify Hardware Definitions under ``` /* Sensor Hardware Definitions */ ```
+   * got to file [sample_vt_device_driver.h](sample_vt_device_driver.h) and extern any new/modified Hardware Definitions under ``` /* Sensor Hardware Declaration */ ```
 
 * for STM 
    
-   * got to file [sample_vt_device_driver.c](../projects/ST/b-l475e-iot01a/st_code/sample_vt_device_driver.c) and add/modify Hardware Definitions under ``` /* Sensor Hardware Definitions */ ```
-   * got to file [sample_vt_device_driver.h](../projects/ST/b-l475e-iot01a/st_code/sample_vt_device_driver.h) and extern any new/modified Hardware Definitions under ``` /* Sensor Hardware Declaration */ ```
+   * got to file [sample_vt_device_driver.c](sample_vt_device_driver.c) and add/modify Hardware Definitions under ``` /* Sensor Hardware Definitions */ ```
+   * got to file [sample_vt_device_driver.h](sample_vt_device_driver.h) and extern any new/modified Hardware Definitions under ``` /* Sensor Hardware Declaration */ ```
    * 
 ## Adding new sensors to the sample 
 
-* To add new sensors to the sample, the following changes are required in [sample_freertos_verified_telemetry_init.c](sample_freertos_verified_telemetry_init.c).
+* To add new sensors to the sample, the following changes are required in [sample_freertos_verified_telemetry_init.c](sample_nx_verified_telemetry_init.c).
 
 1. Add new VT_SENSOR_HANDLE & FreeRTOS_VT_OBJECT according to the type of sensor.
    
