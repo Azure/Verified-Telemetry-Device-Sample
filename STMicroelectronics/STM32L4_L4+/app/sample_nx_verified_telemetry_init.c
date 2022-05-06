@@ -1,9 +1,7 @@
 /* Copyright (c) Microsoft Corporation.
    Licensed under the MIT License. */
 
-#include "FreeRTOS_verified_telemetry.h"
-#include "FreeRTOS_vt_fallcurve_component.h"
-#include "FreeRTOS_vt_currentsense_component.h"
+#include "sample_nx_verified_telemetry_init.h"
 #include "sample_vt_device_driver.h"
 #include <stdint.h>
 
@@ -16,11 +14,11 @@
 
 static char scratch_buffer[VT_MINIMUM_BUFFER_SIZE_BYTES];
 
-static FreeRTOS_VERIFIED_TELEMETRY_DB verified_telemetry_DB;
+static NX_VERIFIED_TELEMETRY_DB verified_telemetry_DB;
 
 #if defined(BOTH_ANALOG_AND_DIGITAL_SENSORS) || defined(ONLY_ANALOG_SENSORS)
-    static FreeRTOS_VT_OBJECT sample_signature_sensor_1;
-    static FreeRTOS_VT_OBJECT sample_signature_sensor_2;
+    static NX_VT_OBJECT sample_signature_sensor_1;
+    static NX_VT_OBJECT sample_signature_sensor_2;
     static VT_SENSOR_HANDLE sample_handle_sensor_1;
     static VT_SENSOR_HANDLE sample_handle_sensor_2;
 #endif
@@ -28,14 +26,14 @@ static FreeRTOS_VERIFIED_TELEMETRY_DB verified_telemetry_DB;
 static VT_DEVICE_DRIVER sample_device_driver;
 
 #if defined(BOTH_ANALOG_AND_DIGITAL_SENSORS) || defined(ONLY_DIGITAL_SENSORS)
-    static FreeRTOS_VT_OBJECT sample_signature_sensor_3;
-    static FreeRTOS_VT_OBJECT sample_signature_sensor_4;
+    static NX_VT_OBJECT sample_signature_sensor_3;
+    static NX_VT_OBJECT sample_signature_sensor_4;
     static VT_SENSOR_HANDLE sample_handle_sensor_3;
     static VT_SENSOR_HANDLE sample_handle_sensor_4;
 #endif
 
-AzureIoTResult_t vt_analog_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB* verified_telemetry_DB,
-                                            FreeRTOS_VT_OBJECT* handle,
+UINT vt_analog_sensor_signature_init(NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB_Ref,
+                                            NX_VT_OBJECT* handle,
                                             UCHAR* component_name_ptr,
                                             bool telemetry_status_auto_update,
                                             uint16_t adc_id, 
@@ -55,7 +53,7 @@ AzureIoTResult_t vt_analog_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB*
     sensor_handle->gpio_port      = gpio_port;
     sensor_handle->gpio_pin       = gpio_pin;
 
-    if ((status = FreeRTOS_vt_signature_init(verified_telemetry_DB,
+    if ((status = nx_vt_signature_init(verified_telemetry_DB_Ref,
              handle,
              component_name_ptr,
              VT_SIGNATURE_TYPE_FALLCURVE,
@@ -64,14 +62,14 @@ AzureIoTResult_t vt_analog_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB*
              sensor_handle)))
     {   
         printf("Failed to initialize VT for soilMoistureExternal1 telemetry: error code = 0x%08x\r\n", status);
-        return eAzureIoTErrorFailed;
+        return 1;
     }
 
-    return eAzureIoTSuccess;
+    return 0;
 }
 
-AzureIoTResult_t vt_digital_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB* verified_telemetry_DB,
-                                            FreeRTOS_VT_OBJECT* handle,
+UINT vt_digital_sensor_signature_init(NX_VERIFIED_TELEMETRY_DB* verified_telemetry_DB_Ref,
+                                            NX_VT_OBJECT* handle,
                                             UCHAR* component_name_ptr,
                                             bool telemetry_status_auto_update,
                                             uint16_t adc_id, 
@@ -91,7 +89,7 @@ AzureIoTResult_t vt_digital_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB
     sensor_handle->currentsense_adc_resolution = currentsense_adc_resolution;
     sensor_handle->currentsense_mV_to_mA       = currentsense_mV_to_mA;
 
-    if ((status = FreeRTOS_vt_signature_init(verified_telemetry_DB,
+    if ((status = nx_vt_signature_init(verified_telemetry_DB_Ref,
              handle,
              component_name_ptr,
              VT_SIGNATURE_TYPE_CURRENTSENSE,
@@ -100,13 +98,13 @@ AzureIoTResult_t vt_digital_sensor_signature_init(FreeRTOS_VERIFIED_TELEMETRY_DB
              sensor_handle)))
     {   
         printf("Failed to initialize VT for soilMoistureExternal1 telemetry: error code = 0x%08x\r\n", status);
-        return eAzureIoTErrorFailed;
+        return 1;
     }
 
-    return eAzureIoTSuccess;
+    return 0;
 }
 
-FreeRTOS_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init()
+NX_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init()
 {
     UINT status;
 
@@ -121,7 +119,7 @@ FreeRTOS_VERIFIED_TELEMETRY_DB* sample_nx_verified_telemetry_user_init()
     sample_device_driver.interrupt_enable     = &vt_interrupt_enable;
     sample_device_driver.interrupt_disable    = &vt_interrupt_disable;
 
-    if ((status = FreeRTOS_vt_init(&verified_telemetry_DB, (UCHAR*)"vTDevice", true, &sample_device_driver,scratch_buffer,
+    if ((status = nx_vt_init(&verified_telemetry_DB, (UCHAR*)"vTDevice", true, &sample_device_driver,scratch_buffer,
              sizeof(scratch_buffer))))
     {
         printf("Failed to configure Verified Telemetry settings: error code = 0x%08x\r\n", status);
