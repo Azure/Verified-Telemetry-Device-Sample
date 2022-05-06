@@ -43,10 +43,7 @@ To clone the repo, run the following command:
 
 
 ```shell
-git clone https://github.com/Azure/Verified-Telemetry-Device-Sample.git
-cd Verified-Telemetry-Device-Sample
-git checkout features/currentsense
-git submodule update --init --recursive 
+git clone https://github.com/Azure/Verified-Telemetry-Device-Sample.git --recursive
 ```
 
 ### Install the tools
