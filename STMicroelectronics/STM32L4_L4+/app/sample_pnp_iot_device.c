@@ -719,7 +719,7 @@ static VOID sample_device_properties_get_action(SAMPLE_CONTEXT* context)
     nx_azure_iot_json_reader_deinit(&json_reader);
 }
 
-static VOID sample_telemetry_action(SAMPLE_CONTEXT* context)
+static VOID sample_telemetry_action(SAMPLE_CONTEXT* context,VT_UINT iterx)
 {
     UINT status;
 
@@ -728,10 +728,11 @@ static VOID sample_telemetry_action(SAMPLE_CONTEXT* context)
         return;
     }
 
-    if ((status = sample_pnp_device_telemetry_send(&sample_device, &(context->iotpnp_client))) != NX_AZURE_IOT_SUCCESS)
+    if ((status = sample_pnp_device_telemetry_send(iterx,&sample_device, &(context->iotpnp_client))) != NX_AZURE_IOT_SUCCESS)
     {
         printf("Failed to send sample_pnp__telemetry_send, error: %d", status);
     }
+    
 }
 
 #ifdef ENABLE_DPS
@@ -858,7 +859,7 @@ static UINT sample_dps_entry(NX_AZURE_IOT_PROVISIONING_CLIENT* prov_client_ptr,
  *
  *
  */
-static VOID sample_event_loop(SAMPLE_CONTEXT* context)
+static VOID sample_event_loop(SAMPLE_CONTEXT* context,VT_UINT iterx)
 {
     ULONG app_events;
     UINT loop = NX_TRUE;
@@ -905,7 +906,8 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context)
         if (app_events & SAMPLE_TELEMETRY_SEND_EVENT)
         {
             nx_vt_compute_evaluate_fingerprint_all_sensors(verified_telemetry_DB);
-            sample_telemetry_action(context);
+            sample_telemetry_action(context,iterx);
+            
         }
 
         if (app_events & SAMPLE_DEVICE_REPORTED_PROPERTIES_EVENT)
@@ -929,6 +931,7 @@ static VOID sample_event_loop(SAMPLE_CONTEXT* context)
         }
 
         sample_trigger_action(context);
+        iterx++;
     }
 }
 
@@ -1015,7 +1018,8 @@ VOID sample_entry(
     tx_event_flags_set(&(sample_context.sample_events), SAMPLE_INITIALIZATION_EVENT, TX_OR);
 
     /* Handle event loop */
-    sample_event_loop(&sample_context);
+    VT_UINT iter=0;
+    sample_event_loop(&sample_context,iter);
 
     nx_azure_iot_delete(&nx_azure_iot);
 }

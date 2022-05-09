@@ -29,9 +29,6 @@ To understand how to interact and consume Verified Telemetry information, refer 
 * Interact with Verified Telemetry using [Azure IoT Explorer Sample](docs/vTIoTExplorerSample.md) 
 * Interact with Verified Telemetry using the [custom Solution Sample Template](https://github.com/Azure/Verified-Telemetry-Solution-Sample)
 
-> **Note**    
-> Verified Telemetry status is supported only to analog sensors. We are currently working on extending the SDK to support digital sensors.
-
 ## Verified Telemetry Concepts
 
 A few key concepts of VT are introduced and discussed below:

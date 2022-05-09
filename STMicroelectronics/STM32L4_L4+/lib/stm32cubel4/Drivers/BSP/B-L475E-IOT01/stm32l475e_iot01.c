@@ -80,6 +80,21 @@ const uint16_t COM_TX_AF[COMn] = {DISCOVERY_COM1_TX_AF};
 
 const uint16_t COM_RX_AF[COMn] = {DISCOVERY_COM1_RX_AF};
 
+///
+USART_TypeDef* COM2_USART[COMn] = {DISCOVERY_COM2};
+
+GPIO_TypeDef* COM2_TX_PORT[COMn] = {DISCOVERY_COM2_TX_GPIO_PORT};
+
+GPIO_TypeDef* COM2_RX_PORT[COMn] = {DISCOVERY_COM2_RX_GPIO_PORT};
+
+const uint16_t COM2_TX_PIN[COMn] = {DISCOVERY_COM2_TX_PIN};
+
+const uint16_t COM2_RX_PIN[COMn] = {DISCOVERY_COM2_RX_PIN};
+
+const uint16_t COM2_TX_AF[COMn] = {DISCOVERY_COM2_TX_AF};
+
+const uint16_t COM2_RX_AF[COMn] = {DISCOVERY_COM2_RX_AF};
+
 I2C_HandleTypeDef hI2cHandler;
 UART_HandleTypeDef hDiscoUart;
 
@@ -316,7 +331,35 @@ void BSP_COM_Init(COM_TypeDef COM, UART_HandleTypeDef *huart)
   huart->Instance = COM_USART[COM];
   HAL_UART_Init(huart);
 }
+void BSP_COM2_Init(COM_TypeDef COM, UART_HandleTypeDef *huart)
+{
+  GPIO_InitTypeDef gpio_init_structure;
 
+  /* Enable GPIO clock */
+  DISCOVERY_COMy_TX_GPIO_CLK_ENABLE(COM);
+  DISCOVERY_COMy_RX_GPIO_CLK_ENABLE(COM);
+
+  /* Enable USART clock */
+  DISCOVERY_COMy_CLK_ENABLE(COM);
+
+  /* Configure USART Tx as alternate function */
+  gpio_init_structure.Pin = COM2_TX_PIN[COM];
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Speed = GPIO_SPEED_FREQ_HIGH;
+  gpio_init_structure.Pull = GPIO_NOPULL;
+  gpio_init_structure.Alternate = COM2_TX_AF[COM];
+  HAL_GPIO_Init(COM2_TX_PORT[COM], &gpio_init_structure);
+
+  /* Configure USART Rx as alternate function */
+  gpio_init_structure.Pin = COM2_RX_PIN[COM];
+  gpio_init_structure.Mode = GPIO_MODE_AF_PP;
+  gpio_init_structure.Alternate = COM2_RX_AF[COM];
+  HAL_GPIO_Init(COM2_RX_PORT[COM], &gpio_init_structure);
+
+  /* USART configuration */
+  huart->Instance = COM2_USART[COM];
+  HAL_UART_Init(huart);
+}
 /**
   * @brief  DeInitializes COM port.
   * @param  COM  COM port to be deinitialized.

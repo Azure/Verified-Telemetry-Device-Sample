@@ -19,15 +19,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          token: ${{ secrets.VT_ACCESS_TOKEN }}
           submodules: recursive
 
       - name: arm-none-eabi-gcc
         uses: ryanwinter/arm-none-eabi-gcc@master
         with:
-          release: '10-2020-q4'
+          release: '10-2021.10'
 
       - name: Install Ninja
         uses: seanmiddleditch/gha-setup-ninja@v3

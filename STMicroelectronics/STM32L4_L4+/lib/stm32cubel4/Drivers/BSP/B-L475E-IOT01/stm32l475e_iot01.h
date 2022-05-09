@@ -150,6 +150,36 @@ typedef enum
 #define DISCOVERY_COMx_RX_GPIO_CLK_ENABLE(__INDEX__)    do { if((__INDEX__) == COM1) {DISCOVERY_COM1_RX_GPIO_CLK_ENABLE();}} while(0)
 #define DISCOVERY_COMx_RX_GPIO_CLK_DISABLE(__INDEX__)   do { if((__INDEX__) == COM1) {DISCOVERY_COM1_RX_GPIO_CLK_DISABLE();}} while(0)
 
+/**
+ * @brief Definition for COM port2, connected to USART2
+ */ 
+
+#define DISCOVERY_COM2                          UART4
+#define DISCOVERY_COM2_CLK_ENABLE()             __HAL_RCC_UART4_CLK_ENABLE()
+#define DISCOVERY_COM2_CLK_DISABLE()            __HAL_RCC_UART4_CLK_DISABLE()
+
+#define DISCOVERY_COM2_TX_PIN                   GPIO_PIN_0
+#define DISCOVERY_COM2_TX_GPIO_PORT             GPIOA
+#define DISCOVERY_COM2_TX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()   
+#define DISCOVERY_COM2_TX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()  
+#define DISCOVERY_COM2_TX_AF                    GPIO_AF8_UART4
+
+#define DISCOVERY_COM2_RX_PIN                   GPIO_PIN_1
+#define DISCOVERY_COM2_RX_GPIO_PORT             GPIOA
+#define DISCOVERY_COM2_RX_GPIO_CLK_ENABLE()     __HAL_RCC_GPIOA_CLK_ENABLE()   
+#define DISCOVERY_COM2_RX_GPIO_CLK_DISABLE()    __HAL_RCC_GPIOA_CLK_DISABLE()  
+#define DISCOVERY_COM2_RX_AF                    GPIO_AF8_UART4
+
+#define DISCOVERY_COM2_IRQn                     UART4_IRQn
+
+#define DISCOVERY_COMy_CLK_ENABLE(__INDEX__)            do { if((__INDEX__) == COM2) {DISCOVERY_COM2_CLK_ENABLE();}} while(0)
+#define DISCOVERY_COMy_CLK_DISABLE(__INDEX__)           do { if((__INDEX__) == COM2) {DISCOVERY_COM2_CLK_DISABLE();}} while(0)
+
+#define DISCOVERY_COMy_TX_GPIO_CLK_ENABLE(__INDEX__)    do { if((__INDEX__) == COM2) {DISCOVERY_COM2_TX_GPIO_CLK_ENABLE();}} while(0)
+#define DISCOVERY_COMy_TX_GPIO_CLK_DISABLE(__INDEX__)   do { if((__INDEX__) == COM2) {DISCOVERY_COM2_TX_GPIO_CLK_DISABLE();}} while(0)
+
+#define DISCOVERY_COMy_RX_GPIO_CLK_ENABLE(__INDEX__)    do { if((__INDEX__) == COM2) {DISCOVERY_COM2_RX_GPIO_CLK_ENABLE();}} while(0)
+#define DISCOVERY_COMy_RX_GPIO_CLK_DISABLE(__INDEX__)   do { if((__INDEX__) == COM2) {DISCOVERY_COM2_RX_GPIO_CLK_DISABLE();}} while(0)
 
 /* User can use this section to tailor I2Cx instance used and associated resources */
 /* Definition for I2Cx resources */
@@ -232,6 +262,7 @@ void             BSP_PB_Init(Button_TypeDef Button, ButtonMode_TypeDef ButtonMod
 void             BSP_PB_DeInit(Button_TypeDef Button);
 uint32_t         BSP_PB_GetState(Button_TypeDef Button);
 void             BSP_COM_Init(COM_TypeDef COM, UART_HandleTypeDef *husart);
+void             BSP_COM2_Init(COM_TypeDef COM, UART_HandleTypeDef *husart);
 void             BSP_COM_DeInit(COM_TypeDef COM, UART_HandleTypeDef *huart);
 /**
   * @}

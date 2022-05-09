@@ -30,7 +30,7 @@ You will complete the following tasks:
     >   * [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html)
     > * Wi-Fi 2.4 GHz
     > * USB 2.0 A male to Micro USB male cable
-    > * 2 * [Soil Moisture Sensor](https://www.dfrobot.com/product-1385.html)
+    > * 1 * PM2012 Sensor
 
 ## Prepare the development environment
 
@@ -41,8 +41,9 @@ To set up your development environment, first you clone a GitHub repo that conta
 Clone the following repo to download all sample device code, setup scripts, and offline versions of the documentation.
 To clone the repo, run the following command:
 
+
 ```shell
-git clone --recursive https://github.com/Azure/Verified-Telemetry-Device-Sample.git
+git clone https://github.com/Azure/Verified-Telemetry-Device-Sample.git --recursive
 ```
 
 ### Install the tools
@@ -146,23 +147,8 @@ Confirm that you have the copied the following values from the JSON output to us
 > * `primaryKey`
 
 ## Connect Sensors for Verified Telemetry
-This sample showcases Verified Telemetry feature for telemetry generated from two external sensors that are connected to STM DevKit
-* Connect Sensors        
 
-
-    Refer to the table and image below to connect the two [Soil Moisture](https://www.dfrobot.com/product-1385.html) sensors.
-
-    | Sensor Name   | Sensor Pin           | MCU Pin | Devkit Pin |
-    |---------------|----------------------|-----------------------------|------------|
-    | Soil Moisture 1 | Analog Out           | PC0                           | A5        |
-    | Soil Moisture 1 | VCC                  | PB9                          | D14        |
-    | Soil Moisture 1 | GND                  | GND                          | GND        |
-    | Soil Moisture 2       | Analog Out  | PC1                           | A4        |
-    | Soil Moisture 2       | VCC                  | PB8                           | D15       |
-    | Soil Moisture 2       | GND                  | GND                           | GND       |
-
-
-    ![B-L475E-IOT01A Sensor Connections](media/B-L475E-IOT01A_sensor_connections.png)
+Verified Telemetry supports both Analog and Digital Sensors for which we have developed different Fingerprinting Technologies, to use only one type of sensors or to add more sensors, minimal changes are required to the sample, refer the [Sensor Configuration Guide](/STMicroelectronics/STM32L4_L4%2B/app) which would walk you through the connection diagrams and the code modifications.
 
 ## Prepare and Flash Firmware
 
@@ -189,9 +175,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
     |`IOT_HUB_HOSTNAME` |{*Your Iot hub hostName value*}|
     |`IOT_DEVICE_ID` |{*Your deviceID value*}|
     |`DEVICE_SYMMETRIC_KEY` |{*Your primaryKey value*}|
-
-1. Save and close the file.
-
+    
 ### Build the image
 
 In your console or in File Explorer, run the script *rebuild.bat* at the following path to build the image:

@@ -18,16 +18,24 @@
 #include "wifi.h"
 
 UART_HandleTypeDef UartHandle;
+UART_HandleTypeDef UartHandle4; 
+
 ADC_HandleTypeDef hadc1;
-TIM_HandleTypeDef htim7;
 RTC_HandleTypeDef RtcHandle;
 TIM_HandleTypeDef TimCCHandle;
 extern SPI_HandleTypeDef hspi;
 
+SPI_HandleTypeDef mcp3204;
+TIM_HandleTypeDef HTIMx;
+
 volatile uint32_t ButtonPressed = 0;
 volatile uint32_t SendData      = 0;
-
+uint32_t gu32_ticks;
 static uint32_t t_TIM_CC1_Pulse;
+
+
+#define TIMER  TIM4
+// You can change it to TIM2, TIM3, or whatever.
 
 // 2kHz/0.5 For Sensors Data data@0.5Hz
 #define DEFAULT_TIM_CC1_PULSE 4000
@@ -68,6 +76,14 @@ static uint32_t t_TIM_CC1_Pulse;
 #define CFG_HW_UART1_MODE           UART_MODE_TX_RX
 #define CFG_HW_UART1_ADVFEATUREINIT UART_ADVFEATURE_NO_INIT
 
+#define CFG_HW_UART4_BAUDRATE       115200
+#define CFG_HW_UART4_WORDLENGTH     UART_WORDLENGTH_8B
+#define CFG_HW_UART4_STOPBITS       UART_STOPBITS_1
+#define CFG_HW_UART4_PARITY         UART_PARITY_NONE
+#define CFG_HW_UART4_HWFLOWCTL      UART_HWCONTROL_NONE
+#define CFG_HW_UART4_MODE           UART_MODE_TX_RX
+#define CFG_HW_UART4_ADVFEATUREINIT UART_ADVFEATURE_NO_INIT
+
 static void hardware_rand_initialize(void);
 static void STM32_Error_Handler(void);
 static void Init_MEM1_Sensors(void);
@@ -75,12 +91,17 @@ static void SystemClock_Config(void);
 static void InitTimers(void);
 static void InitRTC(void);
 static void UART_Console_Init(void);
+static void UART4_Console_Init(void);
+// static void MX_SPI1_Init(void);
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 void SPI3_IRQHandler(void);
+// void SPI1_IRQHandler(void);
+
 
 static void MX_ADC1_Init(void);
 static void MX_GPIO_Init(void);
+void TimerDelay_Init(void);
 
 void board_init(void)
 {
@@ -99,6 +120,7 @@ void board_init(void)
 
     // Initialize console
     UART_Console_Init();
+    UART4_Console_Init();
 
     // Initialize button
     BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
@@ -115,6 +137,50 @@ void board_init(void)
     MX_GPIO_Init();
 
     MX_ADC1_Init();
+
+    TimerDelay_Init();
+
+    // MX_SPI1_Init();
+}
+
+
+void TimerDelay_Init(void)
+{
+    gu32_ticks = (HAL_RCC_GetHCLKFreq() / 1000000);
+ 
+    TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+    TIM_MasterConfigTypeDef sMasterConfig = {0};
+ 
+    HTIMx.Instance = TIMER;
+    HTIMx.Init.Prescaler = gu32_ticks-1;
+    HTIMx.Init.CounterMode = TIM_COUNTERMODE_UP;
+    HTIMx.Init.Period = 65535;
+    HTIMx.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    HTIMx.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+    if (HAL_TIM_Base_Init(&HTIMx) != HAL_OK)
+    {
+      STM32_Error_Handler();
+    }
+    sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+    if (HAL_TIM_ConfigClockSource(&HTIMx, &sClockSourceConfig) != HAL_OK)
+    {
+      STM32_Error_Handler();
+    }
+    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+    if (HAL_TIMEx_MasterConfigSynchronization(&HTIMx, &sMasterConfig) != HAL_OK)
+    {
+      STM32_Error_Handler();
+    }
+ 
+    HAL_TIM_Base_Start(&HTIMx);
+}
+
+void delay_us(uint16_t au16_us)
+{
+    HTIMx.Instance->CNT = 0;
+    while (HTIMx.Instance->CNT < au16_us);
+
 }
 
 int hardware_rand(void)
@@ -371,6 +437,20 @@ static void UART_Console_Init(void)
     UartHandle.Init.HwFlowCtl              = CFG_HW_UART1_HWFLOWCTL;
     UartHandle.AdvancedInit.AdvFeatureInit = CFG_HW_UART1_ADVFEATUREINIT;
     BSP_COM_Init(COM1, &UartHandle);
+
+}
+
+static void UART4_Console_Init(void)
+{
+    UartHandle4.Instance                    = UART4;
+    UartHandle4.Init.BaudRate               = CFG_HW_UART4_BAUDRATE;
+    UartHandle4.Init.WordLength             = CFG_HW_UART4_WORDLENGTH;
+    UartHandle4.Init.StopBits               = CFG_HW_UART4_STOPBITS;
+    UartHandle4.Init.Parity                 = CFG_HW_UART4_PARITY;
+    UartHandle4.Init.Mode                   = CFG_HW_UART4_MODE;
+    UartHandle4.Init.HwFlowCtl              = CFG_HW_UART4_HWFLOWCTL;
+    UartHandle4.AdvancedInit.AdvFeatureInit = CFG_HW_UART4_ADVFEATUREINIT;
+    BSP_COM2_Init(COM2, &UartHandle4);
 }
 
 // EXTI line detection callback
@@ -392,6 +472,21 @@ void SPI3_IRQHandler(void)
 {
     HAL_SPI_IRQHandler(&hspi);
 }
+
+// /**
+//   * @brief This function handles SPI1 global interrupt.
+//   */
+// void SPI1_IRQHandler(void)
+// {
+//   /* USER CODE BEGIN SPI1_IRQn 0 */
+
+//   /* USER CODE END SPI1_IRQn 0 */
+//   HAL_SPI_IRQHandler(&mcp3204);
+//   /* USER CODE BEGIN SPI1_IRQn 1 */
+
+//   /* USER CODE END SPI1_IRQn 1 */
+// }
+
 /**
  * @brief ADC1 Initialization Function
  * @param None
@@ -484,4 +579,62 @@ static void MX_GPIO_Init(void)
     /*Configure GPIO pin : PB8 */
     GPIO_InitStruct.Pin = GPIO_PIN_9;
     HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+    /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+
+  /*Configure GPIO pin : PA2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
+
+
+// /**
+//   * @brief SPI1 Initialization Function
+//   * @param None
+//   * @retval None
+//   */
+// static void MX_SPI1_Init(void)
+// {
+
+//   /* USER CODE BEGIN SPI1_Init 0 */
+
+//   /* USER CODE END SPI1_Init 0 */
+
+//   /* USER CODE BEGIN SPI1_Init 1 */
+
+//   /* USER CODE END SPI1_Init 1 */
+//   /* SPI1 parameter configuration*/
+//   mcp3204.Instance = SPI1;
+//   mcp3204.Init.Mode = SPI_MODE_MASTER;
+//   mcp3204.Init.Direction = SPI_DIRECTION_2LINES;
+//   mcp3204.Init.DataSize = SPI_DATASIZE_8BIT;
+//   mcp3204.Init.CLKPolarity = SPI_POLARITY_LOW;
+//   mcp3204.Init.CLKPhase = SPI_PHASE_1EDGE;
+//   mcp3204.Init.NSS = SPI_NSS_SOFT;
+//   mcp3204.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+//   mcp3204.Init.FirstBit = SPI_FIRSTBIT_MSB;
+//   mcp3204.Init.TIMode = SPI_TIMODE_DISABLE;
+//   mcp3204.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+//   mcp3204.Init.CRCPolynomial = 7;
+//   mcp3204.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+//   mcp3204.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+//   if (HAL_SPI_Init(&mcp3204) != HAL_OK)
+//   {
+//     // Handle error
+//   }
+//   /* USER CODE BEGIN SPI1_Init 2 */
+
+//   /* USER CODE END SPI1_Init 2 */
+
+
+// }
+
+// }
+

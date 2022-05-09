@@ -28,6 +28,12 @@ extern "C"
         /* Humidity Sensor (DHT22) data of this device component */
         double soilMoistureExternal2Raw;
 
+        /* Temperature Sensor 1 data of this device component */
+        double temperatureExternal1Raw;
+
+        /* Temperature Sensor 2 data of this device component */
+        double temperatureExternal2Raw;
+
         /* Temperature Sensor data of this device component */
         double sensorTemperature;
 
@@ -66,7 +72,7 @@ extern "C"
         NX_AZURE_IOT_JSON_WRITER* json_response_ptr,
         UINT* status_code);
 
-    UINT sample_pnp_device_telemetry_send(
+    UINT sample_pnp_device_telemetry_send(VT_UINT iterx,
         SAMPLE_PNP_DEVICE_COMPONENT* handle, NX_AZURE_IOT_PNP_CLIENT* iotpnp_client_ptr);
 
     UINT sample_pnp_device_led_state_property(

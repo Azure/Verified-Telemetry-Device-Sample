@@ -44,6 +44,9 @@
 #define NX_DISABLE_UDP_RX_CHECKSUM
 #define NX_DISABLE_UDP_TX_CHECKSUM
 
+#define NX_AZURE_IOT_PNP_CLIENT_MAX_PNP_COMPONENT_LIST              (6)
+
+
 /* Define various build options for the NetX Duo port.  The application should either make changes
    here by commenting or un-commenting the conditional compilation defined OR supply the defines
    though the compiler's equivalent of the -D option.  */
